@@ -1,0 +1,102 @@
+{
+    "id": 5,
+    "title": "Lesson 5: Body Parts",
+    "description": "Các bộ phận cơ thể",
+    "words": [
+        {
+            "word": "arm",
+            "meaning": "Cánh tay",
+            "images": [
+                "data/images/lesson5/arm.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is my arm.",
+                    "vi": "Đây là tay của tôi.",
+                    "images": [
+                        "data/images/lesson5/thisismyarm.png"
+                    ]
+                },
+                {
+                    "en": "Touch your arm",
+                    "vi": "Chạm vào cánh tay của bạn.",
+                    "images": [
+                        "data/images/lesson5/touchyourarm.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Leg",
+            "meaning": "Chân",
+            "images": [
+                "data/images/lesson5/leg.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Touch your leg .",
+                    "vi": "Chạm vào chân của bạn.",
+                    "images": [
+                        "data/images/lesson5/touchyourleg.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Head",
+            "meaning": "Đầu",
+            "images": [
+                "data/images/lesson5/head.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Touch your head",
+                    "vi": "Chạm vào đầu của bạn.",
+                    "images": [
+                        "data/images/lesson5/touchyourhead.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "neck",
+            "meaning": "Cổ",
+            "images": [
+                "data/images/lesson5/neck.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "hand",
+            "meaning": "Tay",
+            "images": [
+                "data/images/lesson5/hand.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "foot",
+            "meaning": "Chân",
+            "images": [
+                "data/images/lesson5/foot.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "finger",
+            "meaning": "Ngón tay",
+            "images": [
+                "data/images/lesson5/finger.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "toe",
+            "meaning": "Ngón chân",
+            "images": [
+                "data/images/lesson5/toe.png"
+            ],
+            "sentences": []
+        }
+    ]
+}

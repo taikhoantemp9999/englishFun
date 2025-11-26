@@ -1,0 +1,113 @@
+{
+  "user_id": "ZNqmu2TcUiSP5N04D85Bhb7FC6a2",
+  "new_lesson": {
+    "max_questions": {
+      "listen": 25,
+      "read": 25,
+      "write": 25
+    },
+    "max_minutes": 5
+  },
+  "daily_review": {
+    "max_questions": {
+      "listen": 40,
+      "read": 40,
+      "write": 40
+    },
+    "max_minutes": 10
+  },
+  "weekly_review": {
+    "max_questions": {
+      "listen": 50,
+      "read": 50,
+      "write": 50
+    },
+    "max_minutes": 30
+  },
+  "mode_ratio": {
+    "listen": 0.3,
+    "read": 0.3,
+    "write": 0.3,
+    "mix": 0.1
+  },
+  "timer": {
+    "base_time": 120,
+    "sentence_bonus": 15,
+    "short_word_penalty": 5,
+    "long_word_bonus": 10,
+    "short_word_length": 3,
+    "long_word_length": 8,
+    "mode_bonus": {
+      "listen": 5,
+      "read": 0,
+      "write": 20
+    },
+    "min_time": 15,
+    "max_time": 260
+  },
+  "new_word_learning": {
+    "auto_advance": false,
+    "steps": {
+      "listen_understand": {
+        "enabled": true,
+        "show_image": true,
+        "show_text_en": false,
+        "show_text_vi": true,
+        "auto_play_tts_en": true,
+        "display_duration": 5000
+      },
+      "read_pronounce": {
+        "enabled": true,
+        "show_image": true,
+        "show_text_en": true,
+        "show_text_vi": true,
+        "auto_play_tts_en": true,
+        "display_duration": 5000
+      },
+      "think_translate": {
+        "enabled": true,
+        "show_image": true,
+        "show_text_en": false,
+        "show_text_vi": true,
+        "auto_play_tts_vi": true,
+        "think_time": 5000,
+        "reveal_delay": 5000,
+        "auto_play_tts_en": true
+      },
+      "reinforce": {
+        "enabled": true,
+        "show_image": true,
+        "show_text_en": true,
+        "show_text_vi": true,
+        "play_both_languages": true,
+        "display_duration": 4000
+      }
+    },
+    "sequence": "word-first",
+    "include_sentences": true,
+    "max_sentences_per_word": 3
+  },
+  "math": {
+    "grade1": {
+      "max_questions": 100,
+      "number_range": {
+        "min": 0,
+        "max": 10
+      },
+      "operations": {
+        "addition": true,
+        "subtraction": true,
+        "comparison": true
+      },
+      "operation_weights": {
+        "addition": 0.3,
+        "subtraction": 0.4,
+        "comparison": 0.3
+      },
+      "timer": {
+        "enabled": false,
+        "time_per_question": 30
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+    "id": 3,
+    "title": "Lesson 3: School",
+    "description": "Những đồ vật quen thuộc ở trường học",
+    "words": [
+        {
+            "word": "bag",
+            "meaning": "cái cặp",
+            "images": [
+                "data/images/school/bag_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "It's a bag.",
+                    "vi": "Đó là một cái cặp.",
+                    "images": [
+                        "data/images/school/bag_on_desk.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "book",
+            "meaning": "quyển sách",
+            "images": [
+                "data/images/school/book_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "It's a book.",
+                    "vi": "Đó là một quyển sách.",
+                    "images": [
+                        "data/images/school/book_open.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "pencil",
+            "meaning": "bút chì",
+            "images": [
+                "data/images/school/pencil_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "It's a pencil.",
+                    "vi": "Đó là một cây bút chì.",
+                    "images": [
+                        "data/images/school/pencil_case.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "door",
+            "meaning": "cửa ra vào",
+            "images": [
+                "data/images/school/door_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "It's a door.",
+                    "vi": "Đó là một cánh cửa.",
+                    "images": [
+                        "data/images/school/classroom_door.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "C",
+            "meaning": "Chữ C",
+            "images": [
+                "data/images/school/c.png"
+            ],
+            "sentences": [
+                {
+                    "en": "C is for cap.",
+                    "vi": "C là cái mũ lưỡi trai.",
+                    "images": [
+                        "data/images/school/c_for_cap.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "D",
+            "meaning": "Chữ D",
+            "images": [
+                "data/images/school/d.png"
+            ],
+            "sentences": [
+                {
+                    "en": "D is for door.",
+                    "vi": "D là cánh cửa.",
+                    "images": [
+                        "data/images/school/classroom_door.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "cap",
+            "meaning": "mũ lưỡi trai",
+            "images": [
+                "data/images/school/cap_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "It's a cap.",
+                    "vi": "Đó là một cái mũ",
+                    "images": [
+                        "data/images/school/boy_with_cap.png"
+                    ]
+                }
+            ]
+        }
+    ]
+}

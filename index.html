@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎓 English Fun - Học Tiếng Anh Lớp 1</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    /* ===== MODERN UI ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: #495057;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1400px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    /* Welcome Section */
+    .welcome-section {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .welcome-section h1 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .welcome-section p {
+      font-size: 1.2em;
+      color: #6c757d;
+    }
+
+    /* Stats Cards */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .stat-card .icon {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .stat-card .value {
+      font-size: 2em;
+      font-weight: bold;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-card .label {
+      color: #6c757d;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    /* Lessons Grid */
+    .lessons-section {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .lesson-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      border-color: #667eea;
+    }
+
+    .lesson-card.selected {
+      border-color: #667eea;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    }
+
+    .lesson-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .lesson-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .lesson-title {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #2d3748;
+      flex: 1;
+      margin-left: 15px;
+    }
+
+    .lesson-stats {
+      display: flex;
+      gap: 15px;
+      margin: 15px 0;
+      padding: 10px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+
+    .lesson-stat {
+      flex: 1;
+      text-align: center;
+    }
+
+    .lesson-stat .value {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #667eea;
+    }
+
+    .lesson-stat .label {
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+
+    .lesson-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .action-btn {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      color: white;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-learn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .btn-practice {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .btn-review {
+      background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    }
+
+    /* Loading Spinner */
+    .loading {
+      text-align: center;
+      padding: 50px;
+      color: white;
+      font-size: 1.5em;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .welcome-section h1 {
+        font-size: 1.8em;
+      }
+
+      .lessons-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    /* User ID Display */
+    .user-id-badge {
+      display: inline-block;
+      background: rgba(102, 126, 234, 0.1);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      color: #667eea;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="container">
+      <div class="logo">🎓 English Fun</div>
+      <ul class="nav-menu">
+        <li><a href="index.html">🏠 Trang chủ</a></li>
+        <li><a href="pages/dashboard.html">📊 Tiến độ</a></li>
+        <li><a href="pages/firebase-viewer.html">🔥 Data Viewer</a></li>
+        <li><a href="#" onclick="showUserInfo(); return false;">👤 Tài khoản</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+      <h1>✨ Chào mừng đến với English Fun! ✨</h1>
+      <p>Học tiếng Anh vui vẻ dành cho học sinh lớp 1</p>
+      <div id="user-info" style="margin-top: 15px;"></div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-container" id="stats-container">
+      <div class="stat-card">
+        <div class="icon">📚</div>
+        <div class="value" id="stat-lessons">0</div>
+        <div class="label">Bài học</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="icon">📖</div>
+        <div class="value" id="stat-words">0</div>
+        <div class="label">Từ vựng</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="icon">✅</div>
+        <div class="value" id="stat-mastered">0</div>
+        <div class="label">Đã thành thạo</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="icon">📝</div>
+        <div class="value" id="stat-learning">0</div>
+        <div class="label">Đang học</div>
+      </div>
+    </div>
+
+    <!-- Lessons Section -->
+    <div class="lessons-section">
+      <h2 class="section-title">📚 Danh sách bài học</h2>
+      <div class="lessons-grid" id="lessons-grid">
+        <div class="loading">
+          <div class="spinner"></div>
+          <div>Đang tải...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase CDN -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+  <!-- Firebase Config -->
+  <script src="js/firebase-config.js"></script>
+
+  <!-- Progress Manager -->
+  <script src="js/quiz-progress.js"></script>
+
+  <!-- Main App -->
+  <script>
+    // ===== GLOBAL STATE =====
+    let CONFIG = null;
+    let LESSONS_DATA = null;
+    let progressStats = { total: 0, mastered: 0, learning: 0, newItems: 0 };
+
+    // ===== INIT =====
+    document.addEventListener('DOMContentLoaded', async () => {
+      console.log('🚀 English Fun - Starting...');
+
+      // Load data first to get config
+      await loadData();
+
+      // Init Firebase & Progress Manager
+      await ProgressManager.init(CONFIG?.user_id);
+
+      // Load progress and render
+      await loadProgressAndRender();
+    });
+
+    // ===== LOAD DATA =====
+    async function loadData() {
+      try {
+        console.log('📥 Loading config and lessons...');
+
+        // Load config with cache busting
+        const configRes = await fetch('config.json?t=' + Date.now());
+        CONFIG = await configRes.json();
+        window.CONFIG = CONFIG;
+
+        if (CONFIG.user_id) {
+          console.log('✅ Config loaded with User ID:', CONFIG.user_id);
+        } else {
+          console.log('ℹ️ Config loaded (no user_id set)');
+        }
+
+        // Load lessons
+        const lessonsRes = await fetch('data/lessons.json');
+        LESSONS_DATA = await lessonsRes.json();
+        window.LESSONS_DATA = LESSONS_DATA;
+
+        console.log('✅ Data loaded:', LESSONS_DATA.lessons.length, 'lessons');
+
+      } catch (error) {
+        console.error('❌ Error loading data:', error);
+        alert('Có lỗi khi tải dữ liệu. Vui lòng refresh trang!');
+      }
+    }
+
+    // ===== LOAD PROGRESS AND RENDER =====
+    async function loadProgressAndRender() {
+      try {
+        // Load progress từ Firebase
+        console.log('📊 Loading progress...');
+        await ProgressManager.load();
+
+        // Get stats
+        progressStats = ProgressManager.getStats();
+        console.log('📊 Stats:', progressStats);
+
+        // Render stats
+        renderStats();
+
+        // Render lessons
+        renderLessons();
+
+        // Display user info
+        displayUserInfo();
+
+      } catch (error) {
+        console.error('❌ Error loading progress:', error);
+      }
+    }
+
+    // ===== RENDER STATS =====
+    function renderStats() {
+      // Count total words/sentences
+      let totalItems = 0;
+      LESSONS_DATA.lessons.forEach(lesson => {
+        totalItems += lesson.words.length;
+        if (lesson.sample_sentences) totalItems += lesson.sample_sentences.length;
+        lesson.words.forEach(word => {
+          if (word.sentences) totalItems += word.sentences.length;
+        });
+      });
+
+      document.getElementById('stat-lessons').textContent = LESSONS_DATA.lessons.length;
+      document.getElementById('stat-words').textContent = totalItems;
+      document.getElementById('stat-mastered').textContent = progressStats.mastered;
+      document.getElementById('stat-learning').textContent = progressStats.learning;
+    }
+
+    // ===== RENDER LESSONS =====
+    function renderLessons() {
+      const grid = document.getElementById('lessons-grid');
+      grid.innerHTML = '';
+
+      LESSONS_DATA.lessons.forEach(lesson => {
+        // Count items in this lesson
+        let totalItems = lesson.words.length;
+        if (lesson.sample_sentences) totalItems += lesson.sample_sentences.length;
+        lesson.words.forEach(word => {
+          if (word.sentences) totalItems += word.sentences.length;
+        });
+
+        // Count progress for this lesson
+        const lessonProgress = ProgressManager.data.progress.filter(p => p.lessonId === lesson.id);
+        const masteredCount = lessonProgress.filter(p => {
+          const correct = p.correct || 0;
+          const wrong = p.wrong || 0;
+          const total = correct + wrong;
+          const accuracy = total > 0 ? correct / total : 0;
+          return total >= 5 && accuracy >= 0.8 && wrong === 0;
+        }).length;
+
+        const progress = totalItems > 0 ? Math.round((masteredCount / totalItems) * 100) : 0;
+
+        const card = document.createElement('div');
+        card.className = 'lesson-card';
+        card.innerHTML = `
+          <div class="lesson-header">
+            <div class="lesson-number">${lesson.id}</div>
+            <div class="lesson-title">${lesson.title}</div>
+          </div>
+          
+          <div class="lesson-stats">
+            <div class="lesson-stat">
+              <div class="value">${totalItems}</div>
+              <div class="label">Items</div>
+            </div>
+            <div class="lesson-stat">
+              <div class="value">${masteredCount}</div>
+              <div class="label">Thành thạo</div>
+            </div>
+            <div class="lesson-stat">
+              <div class="value">${progress}%</div>
+              <div class="label">Tiến độ</div>
+            </div>
+          </div>
+          
+          <div class="lesson-actions">
+            <a href="pages/hocbaimoi.html?lesson=${lesson.id}" class="action-btn btn-learn">
+              📖 Học mới
+            </a>
+            <a href="pages/lambaitap.html?lesson=${lesson.id}" class="action-btn btn-practice">
+              ✍️ Bài tập
+            </a>
+            <a href="pages/luyentap2.html?lesson=${lesson.id}" class="action-btn btn-review">
+              🔁 Ôn tập
+            </a>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // ===== DISPLAY USER INFO =====
+    function displayUserInfo() {
+      const userInfo = document.getElementById('user-info');
+      if (ProgressManager.userId) {
+        const shortId = ProgressManager.userId.substring(0, 8);
+        userInfo.innerHTML = `
+          <div>
+            🔐 User ID: <span class="user-id-badge">${shortId}...</span>
+            <button onclick="copyUserId()" style="margin-left: 10px; padding: 5px 10px; border: none; background: #667eea; color: white; border-radius: 5px; cursor: pointer;">
+              📋 Copy ID
+            </button>
+          </div>
+        `;
+      } else {
+        userInfo.innerHTML = `<div style="color: #6c757d;">🔄 Đang kết nối...</div>`;
+      }
+    }
+
+    // ===== COPY USER ID =====
+    function copyUserId() {
+      if (ProgressManager.userId) {
+        navigator.clipboard.writeText(ProgressManager.userId).then(() => {
+          alert('✅ Đã copy User ID!\n\nLưu ID này để backup dữ liệu của bạn.');
+        }).catch(err => {
+          console.error('Copy failed:', err);
+          prompt('Copy User ID này:', ProgressManager.userId);
+        });
+      }
+    }
+
+    // ===== SHOW USER INFO =====
+    function showUserInfo() {
+      const stats = ProgressManager.getStats();
+      const userId = ProgressManager.userId || 'Chưa có';
+
+      alert(`
+👤 THÔNG TIN TÀI KHOẢN
+
+🔑 User ID: ${userId}
+
+📊 THỐNG KÊ:
+• Tổng items: ${stats.total}
+• Đã thành thạo: ${stats.mastered}
+• Đang học: ${stats.learning}
+• Chưa học: ${stats.newItems}
+
+💡 User ID được dùng để lưu tiến độ của bạn trên Firebase.
+Hãy copy và lưu ID này để backup!
+      `);
+    }
+
+    // ===== LISTEN FOR PROGRESS UPDATES =====
+    window.addEventListener('progress:updated', () => {
+      console.log('🔄 Progress updated, refreshing...');
+      loadProgressAndRender();
+    });
+  </script>
+</body>
+
+</html>

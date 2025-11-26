@@ -1,0 +1,889 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "total_lessons": 4
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Lesson 1: Getting Started",
+      "description": "Chào hỏi và các hiệu lệnh trong lớp",
+      "words": [
+        {
+          "word": "Hello",
+          "meaning": "Xin chào",
+          "images": [
+            "data/images/greetings/hello_1.png",
+            "data/images/greetings/hello_2.png"
+          ],
+          "sentences": [
+            {
+              "en": "Hello, teacher.",
+              "vi": "Em chào cô ạ.",
+              "images": [
+                "data/images/greetings/hello_teacher.png"
+              ]
+            },
+            {
+              "en": "Hello, Khôi.",
+              "vi": "Chào Khôi.",
+              "images": [
+                "data/images/greetings/hello_friends.png"
+              ]
+            },
+            {
+              "en": "Hello, father.",
+              "vi": "Chào bố ạ.",
+              "images": [
+               
+              ]
+            },
+            {
+              "en": "Hello, mother.",
+              "vi": "Chào mẹ ạ.",
+              "images": [
+             
+              ]
+            },
+            {
+              "en": "Hello, Long.",
+              "vi": "Chào Long nhé.",
+              "images": [
+                "data/images/greetings/hello_long.png"
+              ]
+            }
+             
+          ]
+        },
+        {
+          "word": "Goodbye",
+          "meaning": "Tạm biệt",
+          "images": [
+            "data/images/greetings/goodbye_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "Goodbye, teacher.",
+              "vi": "Tạm biệt cô ạ.",
+              "images": [
+                "data/images/greetings/goodbye_teacher.png"
+              ]
+            },
+            {
+              "en": "Goodbye, see you again.",
+              "vi": "Tạm biệt, hẹn gặp lại nhé.",
+              "images": [
+                "data/images/greetings/goodbye_friends.png"
+              ]
+            },           
+            {
+              "en": "Goodbye, father.",
+              "vi": "Tạm biệt, bố ạ.",
+              "images": [
+               
+              ]
+            },
+            {
+              "en": "Goodbye, mother.",
+              "vi": "Tạm biệt, mẹ ạ.",
+              "images": [
+               
+              ]
+            },
+            {
+              "en": "Goodbye, em Sữa.",
+              "vi": "Tạm biệt, em Sữa ạ.",
+              "images": [
+               
+              ]
+            }
+            
+          ]
+        },
+        {
+          "word": "Stand up",
+          "meaning": "Đứng lên",
+          "images": [
+            "data/images/greetings/stand_up_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "Stand up, please.",
+              "vi": "Mời các em đứng lên.",
+              "images": [
+                "data/images/greetings/stand_up_class.png"
+              ]
+            },
+            {
+              "en": "Stand up, Khôi.",
+              "vi": "Mời bạn Khôi đứng lên.",
+              "images": [
+                
+              ]
+            }, 
+            {
+              "en": "Stand up, Sữa.",
+              "vi": "Mời bạn Sữa đứng lên.",
+              "images": [
+                
+              ]
+            }
+          ]
+        },
+        {
+          "word": "Sit down",
+          "meaning": "Ngồi xuống",
+          "images": [
+            "data/images/greetings/sit_down_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "Sit down, please.",
+              "vi": "Mời các em ngồi xuống.",
+              "images": [
+                "data/images/greetings/sit_down_class.png"
+              ]
+            },
+            {
+              "en": "Sit down, Khôi.",
+              "vi": "Mời Khôi ngồi xuống.",
+              "images": [
+               
+              ]
+            },
+            {
+              "en": "Sit down, Sữa.",
+              "vi": "Mời Sữa ngồi xuống.",
+              "images": [
+               
+              ]
+            }
+          ]
+        },
+        {
+          "word": "Listen",
+          "meaning": "Lắng nghe",
+          "images": [
+            "data/images/greetings/listen_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "Listen.",
+              "vi": "Lắng nghe",
+              "images": [
+                "data/images/greetings/listen_teacher.png"
+              ]
+            },
+            {
+              "en": "Listen to the teacher.",
+              "vi": "Lắng nghe cô giáo giảng bài.",
+              "images": [
+                "data/images/greetings/students_listening.png"
+              ]
+            },
+            {
+              "en": "Listen to the mother.",
+              "vi": "Lắng nghe mẹ nói.",
+              "images": [               
+              ]
+            },
+            {
+              "en": "Listen to the father.",
+              "vi": "Lắng nghe bố nói.",
+              "images": [               
+              ]
+            },
+            {
+              "en": "Listen to the Duy.",
+              "vi": "Lắng nghe Duy nói.",
+              "images": [               
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Lesson 2: Family",
+      "description": "Giới thiệu các thành viên trong gia đình và làm quen",
+      "words": [
+        {
+          "word": "father",
+          "meaning": "bố, ba",
+          "images": [
+            "data/images/family/father_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "This is my father.",
+              "vi": "Đây là bố của tớ.",
+              "images": [
+                "data/images/family/father_intro.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "mother",
+          "meaning": "mẹ",
+          "images": [
+            "data/images/family/mother_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "This is my mother.",
+              "vi": "Đây là mẹ của tớ.",
+              "images": [
+                "data/images/family/mother_intro.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "brother",
+          "meaning": "anh/em trai",
+          "images": [
+            "data/images/family/brother_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "This is my brother.",
+              "vi": "Đây là anh trai của tớ.",
+              "images": [
+                "data/images/family/brother_intro.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "sister",
+          "meaning": "chị/em gái",
+          "images": [
+            "data/images/family/sister_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "This is my sister.",
+              "vi": "Đây là em gái của tớ.",
+              "images": [
+                "data/images/family/sister_intro.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "Nice to meet you",
+          "meaning": "Rất vui được gặp bạn",
+          "images": [
+            "data/images/family/nice_to_meet_you.png"
+          ],
+          "sentences": [
+            {
+              "en": "Nice to meet you.",
+              "vi": "Rất vui được gặp bạn.",
+              "images": [
+                "data/images/family/nice_to_meet_you.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "Nice to meet you, too",
+          "meaning": "Mình cũng rất vui được gặp bạn",
+          "images": [
+            "data/images/family/nice_to_meet_you_too.png"
+          ],
+          "sentences": [
+            {
+              "en": "Nice to meet you, too.",
+              "vi": "Mình cũng rất vui được gặp bạn.",
+              "images": [
+                "data/images/family/nice_to_meet_you_too.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "A",
+          "meaning": "Chữ A",
+          "images": [
+            "data/images/family/a.png"
+          ],
+          "sentences": [
+            {
+              "en": "A is for ant.",
+              "vi": "A là con kiến.",
+              "images": [
+                "data/images/family/a_for_ant.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "B",
+          "meaning": "Chữ B",
+          "images": [
+            "data/images/family/b.png"
+          ],
+          "sentences": [
+            {
+              "en": "B is for boy.",
+              "vi": "B là cậu bé.",
+              "images": [
+                "data/images/family/b_for_boy.png"
+              ]
+            },
+            {
+              "en": "B is for baby.",
+              "vi": "B là em bé.",
+              "images": [
+                "data/images/family/b_for_baby.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "ant",
+          "meaning": "con kiến",
+          "images": [
+            "data/images/family/ant.png"
+          ],
+          "sentences": [
+            {
+              "en": "I see an ant.",
+              "vi": "Tớ nhìn thấy một con kiến.",
+              "images": [
+                "data/images/family/ant_close_up.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "boy",
+          "meaning": "cậu bé",
+          "images": [
+            "data/images/family/boy_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "He is a boy.",
+              "vi": "Bạn ấy là một cậu bé.",
+              "images": [
+                "data/images/family/boy_playing.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "baby",
+          "meaning": "em bé",
+          "images": [
+            "data/images/family/baby_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "This is a baby.",
+              "vi": "Đây là một em bé.",
+              "images": [
+                "data/images/family/baby_sleeping.png"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Lesson 3: School",
+      "description": "Những đồ vật quen thuộc ở trường học",
+      "words": [
+        {
+          "word": "bag",
+          "meaning": "cái cặp",
+          "images": [
+            "data/images/school/bag_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a bag.",
+              "vi": "Đó là một cái cặp.",
+              "images": [
+                "data/images/school/bag_on_desk.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "book",
+          "meaning": "quyển sách",
+          "images": [
+            "data/images/school/book_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a book.",
+              "vi": "Đó là một quyển sách.",
+              "images": [
+                "data/images/school/book_open.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "pencil",
+          "meaning": "bút chì",
+          "images": [
+            "data/images/school/pencil_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a pencil.",
+              "vi": "Đó là một cây bút chì.",
+              "images": [
+                "data/images/school/pencil_case.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "door",
+          "meaning": "cửa ra vào",
+          "images": [
+            "data/images/school/door_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a door.",
+              "vi": "Đó là một cánh cửa.",
+              "images": [
+                "data/images/school/classroom_door.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "C",
+          "meaning": "Chữ C",
+          "images": [
+            "data/images/school/c.png"
+          ],
+          "sentences": [
+            {
+              "en": "C is for cap.",
+              "vi": "C là cái mũ lưỡi trai.",
+              "images": [
+                "data/images/school/c_for_cap.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "D",
+          "meaning": "Chữ D",
+          "images": [
+            "data/images/school/d.png"
+          ],
+          "sentences": [
+            {
+              "en": "D is for door.",
+              "vi": "D là cánh cửa.",
+              "images": [
+                "data/images/school/classroom_door.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "cap",
+          "meaning": "mũ lưỡi trai",
+          "images": [
+            "data/images/school/cap_1.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a cap.",
+              "vi": "Đó là một cái mũ",
+              "images": [
+                "data/images/school/boy_with_cap.png"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    ,
+    {
+      "id": 4,
+      "title": "Lesson 4: Colors",
+      "description": "Màu sắc cơ bản",
+      "words": [
+        {
+          "word": "red",
+          "meaning": "màu đỏ",
+          "images": [
+            "data/images/lesson4/red.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a red.",
+              "vi": "Đó là màu đỏ.",
+              "images": [
+                "data/images/lesson4/red.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "green",
+          "meaning": "màu xanh lá",
+          "images": [
+            "data/images/lesson4/green.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a green.",
+              "vi": "Đó là màu xanh lá.",
+              "images": [
+                "data/images/lesson4/green.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "purple",
+          "meaning": "màu tím",
+          "images": [
+            "data/images/lesson4/purple.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a purple.",
+              "vi": "Đó là màu tím.",
+              "images": [
+                "data/images/lesson4/purple.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "grey",
+          "meaning": "màu xám",
+          "images": [
+            "data/images/lesson4/grey.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a grey.",
+              "vi": "Đó là màu xám.",
+              "images": [
+                "data/images/lesson4/grey.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "black",
+          "meaning": "màu đen",
+          "images": [
+            "data/images/lesson4/black.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a black.",
+              "vi": "Đó là màu đen.",
+              "images": [
+                "data/images/lesson4/black.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "orange",
+          "meaning": "màu cam",
+          "images": [
+            "data/images/lesson4/orange.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a orange.",
+              "vi": "Đó là màu cam.",
+              "images": [
+                "data/images/lesson4/orange.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "brown",
+          "meaning": "màu nâu",
+          "images": [
+            "data/images/lesson4/brown.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a brown.",
+              "vi": "Đó là màu nâu.",
+              "images": [
+                "data/images/lesson4/brown.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "yellow",
+          "meaning": "màu vàng",
+          "images": [
+            "data/images/lesson4/yellow.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a yellow.",
+              "vi": "Đó là màu vàng.",
+              "images": [
+                "data/images/lesson4/yellow.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "blue",
+          "meaning": "màu xanh dương",
+          "images": [
+            "data/images/lesson4/blue.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a blue.",
+              "vi": "Đó là màu xanh dương.",
+              "images": [
+                "data/images/lesson4/blue.png"
+              ]
+            },
+            {
+              "en": "It's a blue book.",
+              "vi": "Đó là một quyển sách màu xanh dương.",
+              "images": [
+                "data/images/lesson4/bluebook.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "pink",
+          "meaning": "màu hồng",
+          "images": [
+            "data/images/lesson4/pink.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a pink flower.",
+              "vi": "Đó là một bông hoa màu hồng.",
+              "images": [
+                "data/images/lesson4/pinkflower.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "white",
+          "meaning": "màu trắng",
+          "images": [
+            "data/images/lesson4/white.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a white bag.",
+              "vi": "Đó là một cái cặp màu trắng.",
+              "images": [
+                "data/images/lesson4/whitebag.png"
+              ]
+            },
+            {
+              "en": "It's a white hat.",
+              "vi": "Đó là một cái mũ màu trắng.",
+              "images": [
+                "data/images/lesson4/whitehat.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "flower",
+          "meaning": "bông hoa",
+          "images": [
+            "data/images/lesson4/pinkflower.png"
+          ],
+          "sentences": [
+            {
+              "en": "It's a pink flower.",
+              "vi": "Đó là một bông hoa màu hồng.",
+              "images": [
+                "data/images/lesson4/pinkflower.png"
+              ]
+            },
+            {
+              "en": "It's a blue flower.",
+              "vi": "Đó là một bông hoa màu xanh dương.",
+              "images": [
+                "data/images/lesson4/blueflower.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "Thank you",
+          "meaning": "Cảm ơn bạn",
+          "images": [
+            "data/images/lesson4/thankyou.png"
+          ],
+          "sentences": [
+            {
+              "en": "Thank you.",
+              "vi": "Cảm ơn bạn.",
+              "images": [
+                "data/images/lesson4/thankyou.png"
+              ]
+            },
+            {
+              "en": "Thank you, Khôi.",
+              "vi": "Cảm ơn Khôi.",
+              "images": [
+                "data/images/lesson4/thankyou.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "You're welcome",
+          "meaning": "Không có gì",
+          "images": [
+            "data/images/lesson4/yourewellcome.png"
+          ],
+          "sentences": [
+            {
+              "en": "You're welcome.",
+              "vi": "Không có gì.",
+              "images": [
+                "data/images/lesson4/yourewellcome.png"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Lesson 5: Body Parts",
+      "description": "Các bộ phận cơ thể",
+      "words": [
+        {
+          "word": "arm",
+          "meaning": "Cánh tay",
+          "images": [
+            "data/images/lesson5/arm.png"
+          ],
+          "sentences": [
+            {
+              "en": "This is my arm.",
+              "vi": "Đây là tay của tôi.",
+              "images": [
+                "data/images/lesson5/thisismyarm.png"
+              ]
+            },
+            {
+              "en": "Touch your arm",
+              "vi": "Chạm vào cánh tay của bạn.",  
+              "images": [
+                "data/images/lesson5/touchyourarm.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "Leg",
+          "meaning": "Chân",
+          "images": [
+            "data/images/lesson5/leg.png"
+          ],
+          "sentences": [
+            {
+              "en": "Touch your leg .",
+              "vi": "Chạm vào chân của bạn.",  
+              "images": [
+                "data/images/lesson5/touchyourleg.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "Head",
+          "meaning": "Đầu",
+          "images": [
+            "data/images/lesson5/head.png"
+          ],
+          "sentences": [            
+            {
+              "en": "Touch your head",
+              "vi": "Chạm vào đầu của bạn.",  
+              "images": [
+                "data/images/lesson5/touchyourhead.png"
+              ]
+            }
+          ]
+        },
+        {
+          "word": "neck",
+          "meaning": "Cổ",
+          "images": [
+            "data/images/lesson5/neck.png"
+          ],
+          "sentences": [            
+            
+          ]
+        },
+        {
+          "word": "hand",
+          "meaning": "Tay",
+          "images": [
+            "data/images/lesson5/hand.png"
+          ],
+          "sentences": [            
+            
+          ]
+        },
+        {
+          "word": "foot",
+          "meaning": "Chân",
+          "images": [
+            "data/images/lesson5/foot.png"
+          ],
+          "sentences": [            
+            
+          ]
+        },
+        {
+          "word": "finger",
+          "meaning": "Ngón tay",
+          "images": [
+            "data/images/lesson5/finger.png"
+          ],
+          "sentences": [            
+            
+          ]
+        },
+        {
+          "word": "toe",
+          "meaning": "Ngón chân",
+          "images": [
+            "data/images/lesson5/toe.png"
+          ],
+          "sentences": [            
+            
+          ]
+        }
+        
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+    "id": 1,
+    "title": "Lesson 1: Getting Started",
+    "description": "Chào hỏi và các hiệu lệnh trong lớp",
+    "words": [
+        {
+            "word": "Hello",
+            "meaning": "Xin chào",
+            "images": [
+                "data/images/greetings/hello_1.png",
+                "data/images/greetings/hello_2.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Hello, teacher.",
+                    "vi": "Em chào cô ạ.",
+                    "images": [
+                        "data/images/greetings/hello_teacher.png"
+                    ]
+                },
+                {
+                    "en": "Hello, Khôi.",
+                    "vi": "Chào Khôi.",
+                    "images": [
+                        "data/images/greetings/hello_friends.png"
+                    ]
+                },
+                {
+                    "en": "Hello, father.",
+                    "vi": "Chào bố ạ.",
+                    "images": []
+                },
+                {
+                    "en": "Hello, mother.",
+                    "vi": "Chào mẹ ạ.",
+                    "images": []
+                },
+                {
+                    "en": "Hello, Long.",
+                    "vi": "Chào Long nhé.",
+                    "images": [
+                        "data/images/greetings/hello_long.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Goodbye",
+            "meaning": "Tạm biệt",
+            "images": [
+                "data/images/greetings/goodbye_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Goodbye, teacher.",
+                    "vi": "Tạm biệt cô ạ.",
+                    "images": [
+                        "data/images/greetings/goodbye_teacher.png"
+                    ]
+                },
+                {
+                    "en": "Goodbye, see you again.",
+                    "vi": "Tạm biệt, hẹn gặp lại nhé.",
+                    "images": [
+                        "data/images/greetings/goodbye_friends.png"
+                    ]
+                },
+                {
+                    "en": "Goodbye, father.",
+                    "vi": "Tạm biệt, bố ạ.",
+                    "images": []
+                },
+                {
+                    "en": "Goodbye, mother.",
+                    "vi": "Tạm biệt, mẹ ạ.",
+                    "images": []
+                },
+                {
+                    "en": "Goodbye, em Sữa.",
+                    "vi": "Tạm biệt, em Sữa ạ.",
+                    "images": []
+                }
+            ]
+        },
+        {
+            "word": "Stand up",
+            "meaning": "Đứng lên",
+            "images": [
+                "data/images/greetings/stand_up_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Stand up, please.",
+                    "vi": "Mời các em đứng lên.",
+                    "images": [
+                        "data/images/greetings/stand_up_class.png"
+                    ]
+                },
+                {
+                    "en": "Stand up, Khôi.",
+                    "vi": "Mời bạn Khôi đứng lên.",
+                    "images": []
+                },
+                {
+                    "en": "Stand up, Sữa.",
+                    "vi": "Mời bạn Sữa đứng lên.",
+                    "images": []
+                }
+            ]
+        },
+        {
+            "word": "Sit down",
+            "meaning": "Ngồi xuống",
+            "images": [
+                "data/images/greetings/sit_down_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Sit down, please.",
+                    "vi": "Mời các em ngồi xuống.",
+                    "images": [
+                        "data/images/greetings/sit_down_class.png"
+                    ]
+                },
+                {
+                    "en": "Sit down, Khôi.",
+                    "vi": "Mời Khôi ngồi xuống.",
+                    "images": []
+                },
+                {
+                    "en": "Sit down, Sữa.",
+                    "vi": "Mời Sữa ngồi xuống.",
+                    "images": []
+                }
+            ]
+        },
+        {
+            "word": "Listen",
+            "meaning": "Lắng nghe",
+            "images": [
+                "data/images/greetings/listen_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Listen.",
+                    "vi": "Lắng nghe",
+                    "images": [
+                        "data/images/greetings/listen_teacher.png"
+                    ]
+                },
+                {
+                    "en": "Listen to the teacher.",
+                    "vi": "Lắng nghe cô giáo giảng bài.",
+                    "images": [
+                        "data/images/greetings/students_listening.png"
+                    ]
+                },
+                {
+                    "en": "Listen to the mother.",
+                    "vi": "Lắng nghe mẹ nói.",
+                    "images": []
+                },
+                {
+                    "en": "Listen to the father.",
+                    "vi": "Lắng nghe bố nói.",
+                    "images": []
+                },
+                {
+                    "en": "Listen to the Duy.",
+                    "vi": "Lắng nghe Duy nói.",
+                    "images": []
+                }
+            ]
+        }
+    ]
+}

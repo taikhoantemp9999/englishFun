@@ -1,0 +1,190 @@
+{
+    "id": 2,
+    "title": "Lesson 2: Family",
+    "description": "Giới thiệu các thành viên trong gia đình và làm quen",
+    "words": [
+        {
+            "word": "father",
+            "meaning": "bố, ba",
+            "images": [
+                "data/images/family/father_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is my father.",
+                    "vi": "Đây là bố của tớ.",
+                    "images": [
+                        "data/images/family/father_intro.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "mother",
+            "meaning": "mẹ",
+            "images": [
+                "data/images/family/mother_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is my mother.",
+                    "vi": "Đây là mẹ của tớ.",
+                    "images": [
+                        "data/images/family/mother_intro.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "brother",
+            "meaning": "anh/em trai",
+            "images": [
+                "data/images/family/brother_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is my brother.",
+                    "vi": "Đây là anh trai của tớ.",
+                    "images": [
+                        "data/images/family/brother_intro.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "sister",
+            "meaning": "chị/em gái",
+            "images": [
+                "data/images/family/sister_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is my sister.",
+                    "vi": "Đây là em gái của tớ.",
+                    "images": [
+                        "data/images/family/sister_intro.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Nice to meet you",
+            "meaning": "Rất vui được gặp bạn",
+            "images": [
+                "data/images/family/nice_to_meet_you.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Nice to meet you.",
+                    "vi": "Rất vui được gặp bạn.",
+                    "images": [
+                        "data/images/family/nice_to_meet_you.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Nice to meet you, too",
+            "meaning": "Mình cũng rất vui được gặp bạn",
+            "images": [
+                "data/images/family/nice_to_meet_you_too.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Nice to meet you, too.",
+                    "vi": "Mình cũng rất vui được gặp bạn.",
+                    "images": [
+                        "data/images/family/nice_to_meet_you_too.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "A",
+            "meaning": "Chữ A",
+            "images": [
+                "data/images/family/a.png"
+            ],
+            "sentences": [
+                {
+                    "en": "A is for ant.",
+                    "vi": "A là con kiến.",
+                    "images": [
+                        "data/images/family/a_for_ant.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "B",
+            "meaning": "Chữ B",
+            "images": [
+                "data/images/family/b.png"
+            ],
+            "sentences": [
+                {
+                    "en": "B is for boy.",
+                    "vi": "B là cậu bé.",
+                    "images": [
+                        "data/images/family/b_for_boy.png"
+                    ]
+                },
+                {
+                    "en": "B is for baby.",
+                    "vi": "B là em bé.",
+                    "images": [
+                        "data/images/family/b_for_baby.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "ant",
+            "meaning": "con kiến",
+            "images": [
+                "data/images/family/ant.png"
+            ],
+            "sentences": [
+                {
+                    "en": "I see an ant.",
+                    "vi": "Tớ nhìn thấy một con kiến.",
+                    "images": [
+                        "data/images/family/ant_close_up.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "boy",
+            "meaning": "cậu bé",
+            "images": [
+                "data/images/family/boy_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "He is a boy.",
+                    "vi": "Bạn ấy là một cậu bé.",
+                    "images": [
+                        "data/images/family/boy_playing.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "baby",
+            "meaning": "em bé",
+            "images": [
+                "data/images/family/baby_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is a baby.",
+                    "vi": "Đây là một em bé.",
+                    "images": [
+                        "data/images/family/baby_sleeping.png"
+                    ]
+                }
+            ]
+        }
+    ]
+}
