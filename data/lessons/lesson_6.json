@@ -9,15 +9,7 @@
             "images": [
                 "data/images/lesson6/dog.png"
             ],
-            "sentences": [
-                {
-                    "en": "I like dogs.",
-                    "vi": "Tôi thích những chú chó.",
-                    "images": [
-                        "data/images/lesson6/ilikedogs.png"
-                    ]
-                }
-            ]
+            "sentences": []
         },
         {
             "word": "cat",
@@ -25,15 +17,7 @@
             "images": [
                 "data/images/lesson6/cat.png"
             ],
-            "sentences": [
-                {
-                    "en": "I like cats.",
-                    "vi": "Tôi thích những chú mèo.",
-                    "images": [
-                        "data/images/lesson6/ilikecats.png"
-                    ]
-                }
-            ]
+            "sentences": []
         },
         {
             "word": "bird",
@@ -41,15 +25,7 @@
             "images": [
                 "data/images/lesson6/bird.png"
             ],
-            "sentences": [
-                {
-                    "en": "I like birds.",
-                    "vi": "Tôi thích những chú chim.",
-                    "images": [
-                        "data/images/lesson6/ilikebirds.png"
-                    ]
-                }
-            ]
+            "sentences": []
         },
         {
             "word": "elephant",
@@ -65,53 +41,13 @@
             "images": [
                 "data/images/lesson6/monkey.png"
             ],
-            "sentences": [
-                {
-                    "en": "This is a monkey.",
-                    "vi": "Đây là một con khỉ.",
-                    "images": [
-                        "data/images/lesson6/thisisamonkey.png"
-                    ]
-                }
-            ]
+            "sentences": []
         },
         {
             "word": "snake",
             "meaning": "Con rắn",
             "images": [
                 "data/images/lesson6/snake.png"
-            ],
-            "sentences": [
-                {
-                    "en": "This is a snake.",
-                    "vi": "Đây là một con rắn.",
-                    "images": [
-                        "data/images/lesson6/thisisasnake.png"
-                    ]
-                }
-            ]
-        },
-        {
-            "word": "bear",
-            "meaning": "Con gấu",
-            "images": [
-                "data/images/lesson6/bear.png"
-            ],
-            "sentences": []
-        },
-        {
-            "word": "I'm sorry",
-            "meaning": "Tôi xin lỗi",
-            "images": [
-                "data/images/lesson6/imsorry.png"
-            ],
-            "sentences": []
-        },
-        {
-            "word": "That's ok",
-            "meaning": "Không sao",
-            "images": [
-                "data/images/lesson6/thatsok.png"
             ],
             "sentences": []
         }
