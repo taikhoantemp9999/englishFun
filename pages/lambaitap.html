@@ -788,6 +788,7 @@
     <button class="btn-fun btn-skip hidden" id="btn-skip" onclick="skipQuestion()">⏭️ Bỏ qua</button>
   </div>
 
+  <script src="../js/lesson-loader.js"></script>
   <script>
     'use strict';
 
@@ -814,16 +815,17 @@
         const urlParams = new URLSearchParams(window.location.search);
         currentLessonId = parseInt(urlParams.get('lesson') || '1');
 
-        const [config, lessons, progress] = await Promise.all([
+        // Load config and progress
+        const [config, progress] = await Promise.all([
           fetch('../config.json').then(r => r.json()),
-          fetch('../data/lessons.json').then(r => r.json()),
           loadProgress()
         ]);
 
         CONFIG = config;
-        LESSONS_DATA = lessons;
-        currentLesson = lessons.lessons.find(l => l.id === currentLessonId);
         progressData = progress;
+
+        // Load Lesson using LessonLoader
+        currentLesson = await LessonLoader.loadLesson(currentLessonId);
 
         if (!currentLesson) {
           alert('Không tìm thấy bài học!');
@@ -831,10 +833,13 @@
           return;
         }
 
+        // Mock LESSONS_DATA if needed elsewhere, or just don't set it if unused
+        LESSONS_DATA = { lessons: [currentLesson] };
+
         document.getElementById('lesson-info').textContent = currentLesson.title;
       } catch (error) {
         console.error('Lỗi tải dữ liệu:', error);
-        alert('Có lỗi xảy ra khi tải dữ liệu!');
+        alert('Có lỗi xảy ra khi tải dữ liệu: ' + error.message);
       }
     }
 

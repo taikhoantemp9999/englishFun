@@ -30,16 +30,36 @@ async function loadData() {
         const urlParams = new URLSearchParams(window.location.search);
         currentLessonId = parseInt(urlParams.get('lesson') || '1');
 
-        const [config, lessons, progress] = await Promise.all([
+        const [config, progress] = await Promise.all([
             fetch('../config.json').then(r => r.json()),
-            fetch('../data/lessons.json').then(r => r.json()),
             loadProgress()
         ]);
 
         CONFIG = config;
-        LESSONS_DATA = lessons;
-        currentLesson = lessons.lessons.find(l => l.id === currentLessonId);
         progressData = progress;
+
+        // Load ALL lessons for comprehensive review
+        // Note: LessonLoader must be loaded in the host HTML page
+        if (typeof LessonLoader === 'undefined') {
+            console.error('LessonLoader is not defined! Make sure to import lesson-loader.js');
+            // Fallback for safety
+            const lessonsRes = await fetch('../data/lessons.json');
+            LESSONS_DATA = await lessonsRes.json();
+        } else {
+            LESSONS_DATA = await LessonLoader.loadAllLessons();
+        }
+
+        // Find current lesson for title display, but keeping all data for review questions
+        currentLesson = LESSONS_DATA.lessons.find(l => l.id === currentLessonId);
+
+        if (!currentLesson) {
+            // If individual lesson fetch failed but bulk succeeded, it might still be missing
+            // Or if we just rely on loadAllLessons, check therein.
+            if (LESSONS_DATA.lessons.length > 0) {
+                // Try to find again in case index file had it
+                currentLesson = LESSONS_DATA.lessons.find(l => l.id === currentLessonId);
+            }
+        }
 
         if (!currentLesson) {
             alert('Không tìm thấy bài học!');

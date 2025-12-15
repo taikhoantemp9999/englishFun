@@ -788,6 +788,8 @@
     <button class="btn-fun btn-skip hidden" id="btn-skip" onclick="skipQuestion()">⏭️ Bỏ qua</button>
   </div>
 
+  <script src="../js/lesson-loader.js"></script>
+
   <script>
     'use strict';
 
@@ -809,21 +811,23 @@
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
     // Load data on init
+    // Load data on init
     async function loadData() {
       try {
         const urlParams = new URLSearchParams(window.location.search);
         currentLessonId = parseInt(urlParams.get('lesson') || '1');
 
-        const [config, lessons, progress] = await Promise.all([
+        const [config, progress] = await Promise.all([
           fetch('../config.json').then(r => r.json()),
-          fetch('../data/lessons.json').then(r => r.json()),
           loadProgress()
         ]);
 
         CONFIG = config;
-        LESSONS_DATA = lessons;
-        currentLesson = lessons.lessons.find(l => l.id === currentLessonId);
         progressData = progress;
+
+        // Load ALL lessons for comprehensive review
+        LESSONS_DATA = await LessonLoader.loadAllLessons();
+        currentLesson = LESSONS_DATA.lessons.find(l => l.id === currentLessonId);
 
         if (!currentLesson) {
           alert('Không tìm thấy bài học!');
@@ -834,6 +838,7 @@
         document.getElementById('lesson-info').textContent = `Ôn tập: Bài 1 → Bài ${currentLessonId}`;
       } catch (error) {
         console.error('Lỗi tải dữ liệu:', error);
+
         alert('Có lỗi xảy ra khi tải dữ liệu!');
       }
     }

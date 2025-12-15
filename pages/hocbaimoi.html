@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     /* 🎨 Giao diện vui nhộn cho lớp 1 */
-    html, body {
+    html,
+    body {
       height: 100%;
       margin: 0;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -30,7 +32,7 @@
       background: linear-gradient(135deg, #FFD93D 0%, #FFA500 100%);
       border-radius: 20px;
       padding: 12px 20px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
       margin-bottom: 10px;
       animation: bounceIn 0.8s ease-out;
       flex-shrink: 0;
@@ -40,7 +42,7 @@
       margin: 0;
       font-size: 1.6em;
       color: #fff;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -60,7 +62,7 @@
       background: white;
       border-radius: 15px;
       padding: 10px 15px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
       margin-bottom: 10px;
       animation: slideDown 0.6s ease-out;
       flex-shrink: 0;
@@ -80,7 +82,7 @@
       border-radius: 20px;
       overflow: hidden;
       position: relative;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .progress-bar-fill {
@@ -102,7 +104,7 @@
       background: white;
       border-radius: 20px;
       padding: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -142,7 +144,7 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
       animation: rotate 20s linear infinite;
       pointer-events: none;
       z-index: 0;
@@ -197,7 +199,7 @@
       border-radius: 15px;
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       overflow: hidden;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
       animation: fadeIn 0.8s ease-out;
       position: relative;
       z-index: 5;
@@ -227,7 +229,7 @@
       z-index: 5;
       line-height: 1.3;
     }
-    
+
     #text-container {
       position: relative;
       z-index: 5;
@@ -262,7 +264,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease;
       position: relative;
       z-index: 5;
@@ -281,11 +283,11 @@
       font-size: 2em;
       font-weight: bold;
       text-align: center;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .flashcard-hint {
-      color: rgba(255,255,255,0.8);
+      color: rgba(255, 255, 255, 0.8);
       font-size: 0.9em;
       margin-top: 15px;
       animation: pulse 2s ease-in-out infinite;
@@ -361,13 +363,13 @@
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       flex-shrink: 0;
     }
 
     .letter-choice:hover {
       transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
     .letter-choice.used {
@@ -388,7 +390,7 @@
       background: #fff;
       color: #667eea;
       font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
       letter-spacing: 3px;
     }
@@ -413,8 +415,15 @@
     }
 
     @keyframes successPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
     }
 
     /* Buttons vui nhộn */
@@ -426,7 +435,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
       margin: 5px;
       animation: fadeIn 1s ease-out;
       position: relative;
@@ -435,7 +444,7 @@
 
     .btn-fun:hover {
       transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
       filter: brightness(1.1);
     }
 
@@ -515,58 +524,141 @@
 
     /* Animations */
     @keyframes bounceIn {
-      0% { transform: scale(0.3); opacity: 0; }
-      50% { transform: scale(1.05); }
-      70% { transform: scale(0.9); }
-      100% { transform: scale(1); opacity: 1; }
+      0% {
+        transform: scale(0.3);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      70% {
+        transform: scale(0.9);
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     @keyframes slideDown {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     @keyframes zoomIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
     }
 
     @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
     }
 
     @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     @keyframes starPop {
-      0% { transform: scale(0) rotate(0deg); }
-      50% { transform: scale(1.2) rotate(180deg); }
-      100% { transform: scale(1) rotate(360deg); }
+      0% {
+        transform: scale(0) rotate(0deg);
+      }
+
+      50% {
+        transform: scale(1.2) rotate(180deg);
+      }
+
+      100% {
+        transform: scale(1) rotate(360deg);
+      }
     }
 
     @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-10px); }
-      75% { transform: translateX(10px); }
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-10px);
+      }
+
+      75% {
+        transform: translateX(10px);
+      }
     }
 
     @keyframes hintBlink {
-      0%, 100% { opacity: 0.4; transform: scale(1); }
-      25%, 75% { opacity: 1; transform: scale(1.2); }
-      50% { opacity: 0.6; transform: scale(0.9); }
+
+      0%,
+      100% {
+        opacity: 0.4;
+        transform: scale(1);
+      }
+
+      25%,
+      75% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+
+      50% {
+        opacity: 0.6;
+        transform: scale(0.9);
+      }
     }
 
     /* Confetti */
@@ -587,45 +679,158 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .container-main { padding: 5px; }
-      .fun-header { padding: 8px 15px; margin-bottom: 5px; }
-      .fun-header h1 { font-size: 1.3em; }
-      .fun-header .lesson-title { font-size: 0.9em; }
-      .progress-container { padding: 8px 10px; margin-bottom: 5px; }
-      .progress-text { font-size: 0.9em; }
-      .progress-bar-custom { height: 25px; }
-      .learning-card { padding: 15px; gap: 10px; }
-      .step-badge { font-size: 0.8em; padding: 5px 12px; }
-      .step-title { font-size: 1.3em; }
-      .step-instruction { font-size: 1em; }
-      .image-container { height: 140px; max-width: 280px; }
-      .text-display { font-size: 1.8em; }
-      .text-vietnamese { font-size: 1.4em; }
-      .btn-fun { font-size: 0.95em; padding: 10px 18px; }
-      .word-display { font-size: 2em; letter-spacing: 5px; margin: 8px 0; }
-      .letter-blank { width: 40px; height: 50px; line-height: 50px; }
-      .letter-choices { gap: 6px; margin-top: 8px; max-width: 100%; padding: 0 5px; }
-      .letter-choice { width: 48px; height: 48px; font-size: 1.4em; }
-      .button-group { padding-top: 10px; }
-      .typing-input { font-size: 1.6em; padding: 12px 15px; }
-      #hint-word { font-size: 2em !important; letter-spacing: 3px !important; }
+      .container-main {
+        padding: 5px;
+      }
+
+      .fun-header {
+        padding: 8px 15px;
+        margin-bottom: 5px;
+      }
+
+      .fun-header h1 {
+        font-size: 1.3em;
+      }
+
+      .fun-header .lesson-title {
+        font-size: 0.9em;
+      }
+
+      .progress-container {
+        padding: 8px 10px;
+        margin-bottom: 5px;
+      }
+
+      .progress-text {
+        font-size: 0.9em;
+      }
+
+      .progress-bar-custom {
+        height: 25px;
+      }
+
+      .learning-card {
+        padding: 15px;
+        gap: 10px;
+      }
+
+      .step-badge {
+        font-size: 0.8em;
+        padding: 5px 12px;
+      }
+
+      .step-title {
+        font-size: 1.3em;
+      }
+
+      .step-instruction {
+        font-size: 1em;
+      }
+
+      .image-container {
+        height: 140px;
+        max-width: 280px;
+      }
+
+      .text-display {
+        font-size: 1.8em;
+      }
+
+      .text-vietnamese {
+        font-size: 1.4em;
+      }
+
+      .btn-fun {
+        font-size: 0.95em;
+        padding: 10px 18px;
+      }
+
+      .word-display {
+        font-size: 2em;
+        letter-spacing: 5px;
+        margin: 8px 0;
+      }
+
+      .letter-blank {
+        width: 40px;
+        height: 50px;
+        line-height: 50px;
+      }
+
+      .letter-choices {
+        gap: 6px;
+        margin-top: 8px;
+        max-width: 100%;
+        padding: 0 5px;
+      }
+
+      .letter-choice {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4em;
+      }
+
+      .button-group {
+        padding-top: 10px;
+      }
+
+      .typing-input {
+        font-size: 1.6em;
+        padding: 12px 15px;
+      }
+
+      #hint-word {
+        font-size: 2em !important;
+        letter-spacing: 3px !important;
+      }
     }
 
     @media (max-width: 480px) {
-      .letter-choices { gap: 5px; margin-top: 8px; }
-      .letter-choice { width: 45px; height: 45px; font-size: 1.3em; }
-      .word-display { font-size: 1.8em; letter-spacing: 3px; }
-      #hint-word { font-size: 1.8em !important; }
-      .typing-input { font-size: 1.4em; padding: 10px 12px; }
+      .letter-choices {
+        gap: 5px;
+        margin-top: 8px;
+      }
+
+      .letter-choice {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3em;
+      }
+
+      .word-display {
+        font-size: 1.8em;
+        letter-spacing: 3px;
+      }
+
+      #hint-word {
+        font-size: 1.8em !important;
+      }
+
+      .typing-input {
+        font-size: 1.4em;
+        padding: 10px 12px;
+      }
     }
 
     @media (max-width: 380px) {
-      .letter-choices { gap: 4px; }
-      .letter-choice { width: 42px; height: 42px; font-size: 1.2em; }
-      #hint-word { font-size: 1.5em !important; letter-spacing: 2px !important; }
+      .letter-choices {
+        gap: 4px;
+      }
+
+      .letter-choice {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2em;
+      }
+
+      #hint-word {
+        font-size: 1.5em !important;
+        letter-spacing: 2px !important;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container-main">
     <!-- Header -->
@@ -651,13 +856,13 @@
       <div class="step-badge" id="step-badge">Bước 1/2</div>
       <h2 class="step-title" id="step-title">Đang tải...</h2>
       <p class="step-instruction" id="step-instruction"></p>
-      
+
       <div class="image-container" id="image-container">
         <div class="image-placeholder">📷</div>
       </div>
-      
+
       <div id="text-container"></div>
-      
+
       <div class="button-group" id="button-group">
         <button class="btn-fun btn-replay" onclick="replayAudio()">🔊 Nghe lại</button>
         <button class="btn-fun btn-next" onclick="nextStep()">➡️ Tiếp theo</button>
@@ -665,164 +870,164 @@
     </div>
   </div>
 
+  <script src="../js/lesson-loader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-  'use strict';
+    'use strict';
 
-  // ============================================
-  // 🌍 GLOBAL STATE
-  // ============================================
-  let CONFIG = null;
-  let LESSON_DATA = null;
-  let currentLessonId = null;
-  let learningItems = []; // All words and sentences to learn
-  let currentItemIndex = 0;
-  let currentStep = 0; // 0: SHOW, 1: RECALL, 2: TEST
-  let weakWords = []; // Track words the child struggles with
-  let miniQuizDue = false; // Track if mini quiz is needed
-  let itemsSinceQuiz = 0; // Count items since last quiz
-  const MINI_QUIZ_INTERVAL = 5; // Mini quiz every 5 items
+    // ============================================
+    // 🌍 GLOBAL STATE
+    // ============================================
+    let CONFIG = null;
+    let LESSON_DATA = null;
+    let currentLessonId = null;
+    let learningItems = []; // All words and sentences to learn
+    let currentItemIndex = 0;
+    let currentStep = 0; // 0: SHOW, 1: RECALL, 2: TEST
+    let weakWords = []; // Track words the child struggles with
+    let miniQuizDue = false; // Track if mini quiz is needed
+    let itemsSinceQuiz = 0; // Count items since last quiz
+    const MINI_QUIZ_INTERVAL = 5; // Mini quiz every 5 items
 
-  const STEPS = [
-    { name: 'learn', title: '📖 HỌC & LUYỆN', instruction: 'Nhìn kỹ và nghe từ này nhé!' },
-    { name: 'test', title: '✍️ KIỂM TRA', instruction: 'Hãy điền chữ cái còn thiếu!' },
-    { name: 'typing', title: '⌨️ GÕ LẠI', instruction: 'Hãy gõ lại từ này bằng bàn phím!' }
-  ];
+    const STEPS = [
+      { name: 'learn', title: '📖 HỌC & LUYỆN', instruction: 'Nhìn kỹ và nghe từ này nhé!' },
+      { name: 'test', title: '✍️ KIỂM TRA', instruction: 'Hãy điền chữ cái còn thiếu!' },
+      { name: 'typing', title: '⌨️ GÕ LẠI', instruction: 'Hãy gõ lại từ này bằng bàn phím!' }
+    ];
 
-  // ============================================
-  // 🎤 TTS MANAGER
-  // ============================================
-  function playSpeech(text, lang = 'en-US', callback = null) {
-    if (!text) return;
-    
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = lang;
-    utterance.rate = 0.85;
-    utterance.pitch = 1.1;
-    
-    const voices = speechSynthesis.getVoices();
-    const voice = voices.find(v => v.lang.startsWith(lang.split('-')[0]));
-    if (voice) utterance.voice = voice;
-    
-    if (callback) {
-      utterance.onend = callback;
-    }
-    
-    speechSynthesis.cancel();
-    speechSynthesis.speak(utterance);
-  }
+    // ============================================
+    // 🎤 TTS MANAGER
+    // ============================================
+    function playSpeech(text, lang = 'en-US', callback = null) {
+      if (!text) return;
 
-  // ============================================
-  // 💾 DATA LOADER
-  // ============================================
-  async function loadData() {
-    try {
-      const urlParams = new URLSearchParams(window.location.search);
-      currentLessonId = parseInt(urlParams.get('lesson') || '1');
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = 0.85;
+      utterance.pitch = 1.1;
 
-      const [config, lessons] = await Promise.all([
-        fetch('../config.json').then(r => r.json()),
-        fetch('../data/lessons.json').then(r => r.json())
-      ]);
+      const voices = speechSynthesis.getVoices();
+      const voice = voices.find(v => v.lang.startsWith(lang.split('-')[0]));
+      if (voice) utterance.voice = voice;
 
-      CONFIG = config;
-      LESSON_DATA = lessons.lessons.find(l => l.id === currentLessonId);
-
-      if (!LESSON_DATA) {
-        alert('Không tìm thấy bài học!');
-        window.location.href = '../index.html';
-        return;
+      if (callback) {
+        utterance.onend = callback;
       }
 
-      document.getElementById('lesson-title').textContent = LESSON_DATA.title;
-      
-      // Prepare learning items (interleave words and sentences)
-      prepareLearningItems();
-      
-      // Start learning
-      startLearning();
-    } catch (error) {
-      console.error('Lỗi tải dữ liệu:', error);
-      alert('Có lỗi xảy ra khi tải dữ liệu!');
+      speechSynthesis.cancel();
+      speechSynthesis.speak(utterance);
     }
-  }
 
-  function prepareLearningItems() {
-    learningItems = [];
-    
-    // Get config for max sentences
-    const includeSentences = CONFIG?.new_word_learning?.include_sentences ?? true;
-    const maxSentencesPerWord = CONFIG?.new_word_learning?.max_sentences_per_word ?? 10;
-    
-    // Interleave: Word → Sentence example → Word → Sentence example
-    LESSON_DATA.words.forEach((word, index) => {
-      // Add word
-      learningItems.push({
-        type: 'word',
-        word: word.word,
-        meaning: word.meaning,
-        images: word.images || [],
-        sentences: word.sentences || []
+    // ============================================
+    // 💾 DATA LOADER
+    // ============================================
+    async function loadData() {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        currentLessonId = parseInt(urlParams.get('lesson') || '1');
+
+        // Load Config
+        const configRes = await fetch('../config.json');
+        CONFIG = await configRes.json();
+
+        // Load Lesson using LessonLoader
+        LESSON_DATA = await LessonLoader.loadLesson(currentLessonId);
+
+        if (!LESSON_DATA) {
+          alert('Không tìm thấy bài học!');
+          window.location.href = '../index.html';
+          return;
+        }
+
+        document.getElementById('lesson-title').textContent = LESSON_DATA.title;
+
+        // Prepare learning items (interleave words and sentences)
+        prepareLearningItems();
+
+        // Start learning
+        startLearning();
+      } catch (error) {
+        console.error('Lỗi tải dữ liệu:', error);
+        alert('Có lỗi xảy ra khi tải dữ liệu: ' + error.message);
+      }
+    }
+
+    function prepareLearningItems() {
+      learningItems = [];
+
+      // Get config for max sentences
+      const includeSentences = CONFIG?.new_word_learning?.include_sentences ?? true;
+      const maxSentencesPerWord = CONFIG?.new_word_learning?.max_sentences_per_word ?? 10;
+
+      // Interleave: Word → Sentence example → Word → Sentence example
+      LESSON_DATA.words.forEach((word, index) => {
+        // Add word
+        learningItems.push({
+          type: 'word',
+          word: word.word,
+          meaning: word.meaning,
+          images: word.images || [],
+          sentences: word.sentences || []
+        });
+
+        // Add sentence examples right after (if enabled and available)
+        if (includeSentences && word.sentences && word.sentences.length > 0) {
+          const maxSentences = Math.min(maxSentencesPerWord, word.sentences.length);
+          word.sentences.slice(0, maxSentences).forEach(sentence => {
+            learningItems.push({
+              type: 'sentence',
+              en: sentence.en,
+              vi: sentence.vi,
+              images: sentence.images || [],
+              fromWord: word.word
+            });
+          });
+        }
       });
 
-      // Add sentence examples right after (if enabled and available)
-      if (includeSentences && word.sentences && word.sentences.length > 0) {
-        const maxSentences = Math.min(maxSentencesPerWord, word.sentences.length);
-        word.sentences.slice(0, maxSentences).forEach(sentence => {
-          learningItems.push({
-            type: 'sentence',
-            en: sentence.en,
-            vi: sentence.vi,
-            images: sentence.images || [],
-            fromWord: word.word
-          });
-        });
-      }
-    });
+      console.log(`📚 Tổng số items cần học: ${learningItems.length}`);
+      console.log(`⚙️ Config: include_sentences=${includeSentences}, max_sentences_per_word=${maxSentencesPerWord}`);
+    }
 
-    console.log(`📚 Tổng số items cần học: ${learningItems.length}`);
-    console.log(`⚙️ Config: include_sentences=${includeSentences}, max_sentences_per_word=${maxSentencesPerWord}`);
-  }
+    // ============================================
+    // 🎮 LEARNING CONTROLLER
+    // ============================================
+    function startLearning() {
+      currentItemIndex = 0;
+      currentStep = 0;
+      weakWords = [];
+      itemsSinceQuiz = 0;
+      updateProgress();
+      showCurrentStep();
+    }
 
-  // ============================================
-  // 🎮 LEARNING CONTROLLER
-  // ============================================
-  function startLearning() {
-    currentItemIndex = 0;
-    currentStep = 0;
-    weakWords = [];
-    itemsSinceQuiz = 0;
-    updateProgress();
-    showCurrentStep();
-  }
+    function updateProgress() {
+      const totalSteps = learningItems.length * 3; // 3 steps per item (learn, test, typing)
+      const currentStepNumber = currentItemIndex * 3 + currentStep;
+      const percentage = Math.round((currentStepNumber / totalSteps) * 100);
 
-  function updateProgress() {
-    const totalSteps = learningItems.length * 3; // 3 steps per item (learn, test, typing)
-    const currentStepNumber = currentItemIndex * 3 + currentStep;
-    const percentage = Math.round((currentStepNumber / totalSteps) * 100);
-    
-    document.getElementById('progress-text').textContent = 
-      `Từ ${currentItemIndex + 1}/${learningItems.length} - Bước ${currentStep + 1}/3`;
-    
-    const progressBar = document.getElementById('progress-bar');
-    progressBar.style.width = percentage + '%';
-    progressBar.textContent = percentage + '%';
-  }
+      document.getElementById('progress-text').textContent =
+        `Từ ${currentItemIndex + 1}/${learningItems.length} - Bước ${currentStep + 1}/3`;
 
-  function showCurrentStep() {
-    const item = learningItems[currentItemIndex];
-    const stepConfig = STEPS[currentStep];
+      const progressBar = document.getElementById('progress-bar');
+      progressBar.style.width = percentage + '%';
+      progressBar.textContent = percentage + '%';
+    }
 
-    // Ensure base layout exists (Mini Quiz/Completion may have replaced it)
-    const card = document.getElementById('learning-card');
-    const needRebuild = !document.getElementById('step-badge')
-      || !document.getElementById('step-title')
-      || !document.getElementById('step-instruction')
-      || !document.getElementById('image-container')
-      || !document.getElementById('text-container')
-      || !document.getElementById('button-group');
-    if (card && needRebuild) {
-      card.innerHTML = `
+    function showCurrentStep() {
+      const item = learningItems[currentItemIndex];
+      const stepConfig = STEPS[currentStep];
+
+      // Ensure base layout exists (Mini Quiz/Completion may have replaced it)
+      const card = document.getElementById('learning-card');
+      const needRebuild = !document.getElementById('step-badge')
+        || !document.getElementById('step-title')
+        || !document.getElementById('step-instruction')
+        || !document.getElementById('image-container')
+        || !document.getElementById('text-container')
+        || !document.getElementById('button-group');
+      if (card && needRebuild) {
+        card.innerHTML = `
         <div class="step-badge" id="step-badge">Bước ${currentStep + 1}/3</div>
         <h2 class="step-title" id="step-title"></h2>
         <p class="step-instruction" id="step-instruction"></p>
@@ -832,101 +1037,101 @@
         <div id="text-container"></div>
         <div class="button-group" id="button-group"></div>
       `;
-    }
-
-    // Update step badge and title
-    document.getElementById('step-badge').textContent = `Bước ${currentStep + 1}/3`;
-    document.getElementById('step-title').textContent = stepConfig.title;
-    document.getElementById('step-instruction').textContent = stepConfig.instruction;
-
-    // Reset card animation
-    card.style.animation = 'none';
-    setTimeout(() => card.style.animation = '', 10);
-
-    // Reset UI state (đảm bảo mọi thứ hiển thị đúng)
-    resetUIState();
-
-    // Show content based on step
-    renderStepContent(item, stepConfig.name);
-  }
-
-  function resetUIState() {
-    // Đảm bảo buttonGroup hiển thị (có thể đã bị ẩn)
-    const buttonGroup = document.getElementById('button-group');
-    if (buttonGroup) {
-      buttonGroup.style.display = 'flex';
-      buttonGroup.style.visibility = 'visible';
-    }
-  }
-
-  function renderStepContent(item, stepName) {
-    const imageContainer = document.getElementById('image-container');
-    const textContainer = document.getElementById('text-container');
-    const buttonGroup = document.getElementById('button-group');
-    
-    // Show image (for words only)
-    if (item.type === 'word') {
-      const images = item.images || [];
-      if (images.length > 0 && images[0]) {
-        imageContainer.innerHTML = `<img src="../${images[0]}" alt="Image" onerror="this.style.display='none'">`;
-        imageContainer.style.display = 'flex';
-      } else {
-        imageContainer.innerHTML = `<div class="image-placeholder">📷</div>`;
-        imageContainer.style.display = 'flex';
       }
-    } else {
-      // Hide image for sentences
-      imageContainer.style.display = 'none';
+
+      // Update step badge and title
+      document.getElementById('step-badge').textContent = `Bước ${currentStep + 1}/3`;
+      document.getElementById('step-title').textContent = stepConfig.title;
+      document.getElementById('step-instruction').textContent = stepConfig.instruction;
+
+      // Reset card animation
+      card.style.animation = 'none';
+      setTimeout(() => card.style.animation = '', 10);
+
+      // Reset UI state (đảm bảo mọi thứ hiển thị đúng)
+      resetUIState();
+
+      // Show content based on step
+      renderStepContent(item, stepConfig.name);
     }
 
-    if (stepName === 'learn') {
-      // Step 1: LEARN - Display with letter animation
-      renderLearnStep(item, textContainer, buttonGroup);
+    function resetUIState() {
+      // Đảm bảo buttonGroup hiển thị (có thể đã bị ẩn)
+      const buttonGroup = document.getElementById('button-group');
+      if (buttonGroup) {
+        buttonGroup.style.display = 'flex';
+        buttonGroup.style.visibility = 'visible';
+      }
     }
-    else if (stepName === 'test') {
-      // Step 2: TEST - Fill in missing letter (only for words)
+
+    function renderStepContent(item, stepName) {
+      const imageContainer = document.getElementById('image-container');
+      const textContainer = document.getElementById('text-container');
+      const buttonGroup = document.getElementById('button-group');
+
+      // Show image (for words only)
       if (item.type === 'word') {
-        renderTestStep(item, textContainer, buttonGroup);
+        const images = item.images || [];
+        if (images.length > 0 && images[0]) {
+          imageContainer.innerHTML = `<img src="../${images[0]}" alt="Image" onerror="this.style.display='none'">`;
+          imageContainer.style.display = 'flex';
+        } else {
+          imageContainer.innerHTML = `<div class="image-placeholder">📷</div>`;
+          imageContainer.style.display = 'flex';
+        }
       } else {
-        // Skip test for sentences
-        nextStep();
+        // Hide image for sentences
+        imageContainer.style.display = 'none';
       }
-    }
-    else if (stepName === 'typing') {
-      // Step 3: TYPING - Type the whole word (only for words)
-      if (item.type === 'word') {
-        renderTypingStep(item, textContainer, buttonGroup);
-      } else {
-        // Skip typing for sentences
-        nextStep();
-      }
-    }
-  }
 
-  // ===== STEP 1: LEARN (Animation + Repeat) =====
-  function renderLearnStep(item, textContainer, buttonGroup) {
-    const text = item.type === 'word' ? item.word : item.en;
-    const meaning = item.type === 'word' ? item.meaning : item.vi;
-    
-    let animatedHtml = '';
-    let hintText = '';
-    
-    if (item.type === 'word') {
-      // WORD: Animation từng chữ cái (chậm rãi để con nhìn kỹ)
-      animatedHtml = text.split('').map((char, i) => 
-        `<span class="letter-animate" style="animation-delay: ${i * 0.8}s; display: inline-block; opacity: 0;">${char}</span>`
-      ).join('');
-      hintText = '👀 Nhìn kỹ từng chữ cái nhé!';
-    } else {
-      // SENTENCE: Animation từng từ (chậm rãi)
-      const words = text.split(' ');
-      animatedHtml = words.map((word, i) => 
-        `<span class="word-animate" style="animation-delay: ${i * 1.0}s; display: inline-block; opacity: 0; margin: 0 8px;">${word}</span>`
-      ).join('');
-      hintText = '👀 Nhìn kỹ từng từ nhé!';
+      if (stepName === 'learn') {
+        // Step 1: LEARN - Display with letter animation
+        renderLearnStep(item, textContainer, buttonGroup);
+      }
+      else if (stepName === 'test') {
+        // Step 2: TEST - Fill in missing letter (only for words)
+        if (item.type === 'word') {
+          renderTestStep(item, textContainer, buttonGroup);
+        } else {
+          // Skip test for sentences
+          nextStep();
+        }
+      }
+      else if (stepName === 'typing') {
+        // Step 3: TYPING - Type the whole word (only for words)
+        if (item.type === 'word') {
+          renderTypingStep(item, textContainer, buttonGroup);
+        } else {
+          // Skip typing for sentences
+          nextStep();
+        }
+      }
     }
-    
-    textContainer.innerHTML = `
+
+    // ===== STEP 1: LEARN (Animation + Repeat) =====
+    function renderLearnStep(item, textContainer, buttonGroup) {
+      const text = item.type === 'word' ? item.word : item.en;
+      const meaning = item.type === 'word' ? item.meaning : item.vi;
+
+      let animatedHtml = '';
+      let hintText = '';
+
+      if (item.type === 'word') {
+        // WORD: Animation từng chữ cái (chậm rãi để con nhìn kỹ)
+        animatedHtml = text.split('').map((char, i) =>
+          `<span class="letter-animate" style="animation-delay: ${i * 0.8}s; display: inline-block; opacity: 0;">${char}</span>`
+        ).join('');
+        hintText = '👀 Nhìn kỹ từng chữ cái nhé!';
+      } else {
+        // SENTENCE: Animation từng từ (chậm rãi)
+        const words = text.split(' ');
+        animatedHtml = words.map((word, i) =>
+          `<span class="word-animate" style="animation-delay: ${i * 1.0}s; display: inline-block; opacity: 0; margin: 0 8px;">${word}</span>`
+        ).join('');
+        hintText = '👀 Nhìn kỹ từng từ nhé!';
+      }
+
+      textContainer.innerHTML = `
       <div class="text-display text-vietnamese" style="font-size: 1.4em; margin-bottom: 15px;">
         ${meaning}
       </div>
@@ -937,10 +1142,10 @@
         ${hintText}
       </div>
     `;
-    
-    // Add CSS animation - từ phải sang trái (chậm rãi, mượt mà)
-    const style = document.createElement('style');
-    style.textContent = `
+
+      // Add CSS animation - từ phải sang trái (chậm rãi, mượt mà)
+      const style = document.createElement('style');
+      style.textContent = `
       .letter-animate, .word-animate {
         animation: slideInFromRight 1s ease-out forwards;
       }
@@ -955,53 +1160,53 @@
         }
       }
     `;
-    if (!document.getElementById('animation-styles')) {
-      style.id = 'animation-styles';
-      document.head.appendChild(style);
-    }
-    
-    // Buttons
-    buttonGroup.style.display = 'flex';
-    buttonGroup.innerHTML = `
+      if (!document.getElementById('animation-styles')) {
+        style.id = 'animation-styles';
+        document.head.appendChild(style);
+      }
+
+      // Buttons
+      buttonGroup.style.display = 'flex';
+      buttonGroup.innerHTML = `
       <button class="btn-fun btn-replay" onclick="replayLearning()">🔊 Xem lại</button>
       <button class="btn-fun btn-next" onclick="nextStep()">✅ Đã nhớ, tiếp!</button>
     `;
 
-    // Auto-play TTS - đợi animation hoàn tất (tính toán delay)
-    const totalDelay = item.type === 'word' 
-      ? text.length * 800 + 1000  // 800ms/chữ + 1000ms animation
-      : text.split(' ').length * 1000 + 1000;  // 1000ms/từ + 1000ms animation
-    setTimeout(() => playSpeech(text, 'en-US'), totalDelay);
-  }
-
-  window.replayLearning = function() {
-    const item = learningItems[currentItemIndex];
-    const text = item.type === 'word' ? item.word : item.en;
-    const meaning = item.type === 'word' ? item.meaning : item.vi;
-    const textContainer = document.getElementById('text-container');
-    
-    if (!textContainer) return;
-    
-    // Render lại toàn bộ để animation chạy từ đầu
-    let animatedHtml = '';
-    let hintText = '';
-    
-    if (item.type === 'word') {
-      // WORD: Animation từng chữ cái
-      animatedHtml = text.split('').map((char, i) => 
-        `<span class="letter-animate" style="animation-delay: ${i * 0.8}s; display: inline-block; opacity: 0;">${char}</span>`
-      ).join('');
-      hintText = '👀 Nhìn kỹ từng chữ cái nhé!';
-    } else {
-      // SENTENCE: Animation từng từ
-      const words = text.split(' ');
-      animatedHtml = words.map((word, i) => 
-        `<span class="word-animate" style="animation-delay: ${i * 1.0}s; display: inline-block; opacity: 0; margin: 0 8px;">${word}</span>`
-      ).join('');
-      hintText = '👀 Nhìn kỹ từng từ nhé!';
+      // Auto-play TTS - đợi animation hoàn tất (tính toán delay)
+      const totalDelay = item.type === 'word'
+        ? text.length * 800 + 1000  // 800ms/chữ + 1000ms animation
+        : text.split(' ').length * 1000 + 1000;  // 1000ms/từ + 1000ms animation
+      setTimeout(() => playSpeech(text, 'en-US'), totalDelay);
     }
-    
-    textContainer.innerHTML = `
+
+    window.replayLearning = function () {
+      const item = learningItems[currentItemIndex];
+      const text = item.type === 'word' ? item.word : item.en;
+      const meaning = item.type === 'word' ? item.meaning : item.vi;
+      const textContainer = document.getElementById('text-container');
+
+      if (!textContainer) return;
+
+      // Render lại toàn bộ để animation chạy từ đầu
+      let animatedHtml = '';
+      let hintText = '';
+
+      if (item.type === 'word') {
+        // WORD: Animation từng chữ cái
+        animatedHtml = text.split('').map((char, i) =>
+          `<span class="letter-animate" style="animation-delay: ${i * 0.8}s; display: inline-block; opacity: 0;">${char}</span>`
+        ).join('');
+        hintText = '👀 Nhìn kỹ từng chữ cái nhé!';
+      } else {
+        // SENTENCE: Animation từng từ
+        const words = text.split(' ');
+        animatedHtml = words.map((word, i) =>
+          `<span class="word-animate" style="animation-delay: ${i * 1.0}s; display: inline-block; opacity: 0; margin: 0 8px;">${word}</span>`
+        ).join('');
+        hintText = '👀 Nhìn kỹ từng từ nhé!';
+      }
+
+      textContainer.innerHTML = `
       <div class="text-display text-vietnamese" style="font-size: 1.4em; margin-bottom: 15px;">
         ${meaning}
       </div>
@@ -1012,198 +1217,198 @@
         ${hintText}
       </div>
     `;
-    
-    // Replay audio sau khi animation hoàn tất
-    const totalDelay = item.type === 'word' 
-      ? text.length * 800 + 1000
-      : text.split(' ').length * 1000 + 1000;
-    setTimeout(() => playSpeech(text, 'en-US'), totalDelay);
-  };
 
-  // ===== STEP 3: TEST (Fill in missing letter) =====
-  let hintTimeout = null; // Track hint timeout
-  
-  function renderTestStep(item, textContainer, buttonGroup) {
-    const word = item.word;
-    const meaning = item.meaning;
-    
-    // Clear any existing hint timeout
-    if (hintTimeout) {
-      clearTimeout(hintTimeout);
-      hintTimeout = null;
-    }
-    
-    // Hiện lại image container (có thể đã bị ẩn ở bước RECALL)
-    const imageContainer = document.getElementById('image-container');
-    if (imageContainer && item.type === 'word') {
-      const images = item.images || [];
-      if (images.length > 0 && images[0]) {
-        imageContainer.innerHTML = `<img src="../${images[0]}" alt="Image" onerror="this.style.display='none'">`;
-        imageContainer.style.display = 'flex';
-      } else {
-        imageContainer.innerHTML = `<div class="image-placeholder">📷</div>`;
-        imageContainer.style.display = 'flex';
+      // Replay audio sau khi animation hoàn tất
+      const totalDelay = item.type === 'word'
+        ? text.length * 800 + 1000
+        : text.split(' ').length * 1000 + 1000;
+      setTimeout(() => playSpeech(text, 'en-US'), totalDelay);
+    };
+
+    // ===== STEP 3: TEST (Fill in missing letter) =====
+    let hintTimeout = null; // Track hint timeout
+
+    function renderTestStep(item, textContainer, buttonGroup) {
+      const word = item.word;
+      const meaning = item.meaning;
+
+      // Clear any existing hint timeout
+      if (hintTimeout) {
+        clearTimeout(hintTimeout);
+        hintTimeout = null;
       }
-    }
-    
-    // Choose 1 random position for missing letter
-    const missingIndex = Math.floor(Math.random() * word.length);
-    const isFirstLetter = missingIndex === 0;
-    
-    const correctLetter = word[missingIndex].toLowerCase();
-    
-    // Generate wrong letters
-    const wrongLetters = 'abcdefghijklmnopqrstuvwxyz'.split('')
-      .filter(c => c !== correctLetter)
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 5);
-    
-    const allLetters = [correctLetter, ...wrongLetters].sort(() => Math.random() - 0.5);
-    
-    // Build word display
-    const wordHtml = word.split('').map((c, i) => {
-      if (i === missingIndex) {
-        return `<span class="letter-blank" id="letter-blank" data-answer="${correctLetter}"></span>`;
+
+      // Hiện lại image container (có thể đã bị ẩn ở bước RECALL)
+      const imageContainer = document.getElementById('image-container');
+      if (imageContainer && item.type === 'word') {
+        const images = item.images || [];
+        if (images.length > 0 && images[0]) {
+          imageContainer.innerHTML = `<img src="../${images[0]}" alt="Image" onerror="this.style.display='none'">`;
+          imageContainer.style.display = 'flex';
+        } else {
+          imageContainer.innerHTML = `<div class="image-placeholder">📷</div>`;
+          imageContainer.style.display = 'flex';
+        }
       }
-      return `<span class="letter-fixed">${c}</span>`;
-    }).join('');
-    
-    textContainer.innerHTML = `
+
+      // Choose 1 random position for missing letter
+      const missingIndex = Math.floor(Math.random() * word.length);
+      const isFirstLetter = missingIndex === 0;
+
+      const correctLetter = word[missingIndex].toLowerCase();
+
+      // Generate wrong letters
+      const wrongLetters = 'abcdefghijklmnopqrstuvwxyz'.split('')
+        .filter(c => c !== correctLetter)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 5);
+
+      const allLetters = [correctLetter, ...wrongLetters].sort(() => Math.random() - 0.5);
+
+      // Build word display
+      const wordHtml = word.split('').map((c, i) => {
+        if (i === missingIndex) {
+          return `<span class="letter-blank" id="letter-blank" data-answer="${correctLetter}"></span>`;
+        }
+        return `<span class="letter-fixed">${c}</span>`;
+      }).join('');
+
+      textContainer.innerHTML = `
       <div style="margin-bottom: 15px; font-size: 1.3em; color: #666;">
         <b>${meaning}</b>
       </div>
       <div class="word-display">${wordHtml}</div>
       <div class="letter-choices">
-        ${allLetters.map(letter => 
-          `<button class="letter-choice" onclick="selectLetter('${letter}')">${isFirstLetter ? letter.toUpperCase() : letter}</button>`
-        ).join('')}
+        ${allLetters.map(letter =>
+        `<button class="letter-choice" onclick="selectLetter('${letter}')">${isFirstLetter ? letter.toUpperCase() : letter}</button>`
+      ).join('')}
       </div>
     `;
-    
-    // Đảm bảo buttonGroup hiển thị
-    buttonGroup.style.display = 'flex';
-    buttonGroup.innerHTML = `
+
+      // Đảm bảo buttonGroup hiển thị
+      buttonGroup.style.display = 'flex';
+      buttonGroup.innerHTML = `
       <button class="btn-fun btn-replay" onclick="replayAudio()">🔊 Nghe lại</button>
       <button class="btn-fun btn-hint" id="btn-hint" onclick="showHint()" style="opacity: 0; pointer-events: none; background: linear-gradient(135deg, #FFA726 0%, #FB8C00 100%); transition: opacity 0.5s ease;">💡 Gợi ý</button>
     `;
-    
-    // Show hint button after 5 seconds
-    hintTimeout = setTimeout(() => {
-      const hintBtn = document.getElementById('btn-hint');
-      if (hintBtn) {
-        hintBtn.style.opacity = '1';
-        hintBtn.style.pointerEvents = 'auto';
-        playSpeech('Nếu con không nhớ, nhấn nút gợi ý nhé!', 'vi-VN');
-      }
-    }, 5000);
-  }
 
-  window.showHint = function() {
-    const blank = document.getElementById('letter-blank');
-    const correctAnswer = blank.dataset.answer;
-    
-    if (!blank || !correctAnswer) return;
-    
-    // Clear hint timeout
-    if (hintTimeout) {
-      clearTimeout(hintTimeout);
-      hintTimeout = null;
+      // Show hint button after 5 seconds
+      hintTimeout = setTimeout(() => {
+        const hintBtn = document.getElementById('btn-hint');
+        if (hintBtn) {
+          hintBtn.style.opacity = '1';
+          hintBtn.style.pointerEvents = 'auto';
+          playSpeech('Nếu con không nhớ, nhấn nút gợi ý nhé!', 'vi-VN');
+        }
+      }, 5000);
     }
-    
-    // Show hint: display correct letter with light color and blink
-    blank.textContent = correctAnswer.toUpperCase();
-    blank.style.color = 'rgba(76, 175, 80, 0.4)';
-    blank.style.animation = 'hintBlink 2s ease-in-out';
-    
-    playSpeech('Chữ cái là: ' + correctAnswer.toUpperCase(), 'vi-VN');
-    
-    // Remove hint after 2 seconds
-    setTimeout(() => {
-      blank.textContent = '';
-      blank.style.color = '';
-      blank.style.animation = '';
-    }, 2000);
-  };
-  
-  window.selectLetter = function(letter) {
-    const blank = document.getElementById('letter-blank');
-    const correctAnswer = blank.dataset.answer;
-    
-    // Clear hint timeout when user starts answering
-    if (hintTimeout) {
-      clearTimeout(hintTimeout);
-      hintTimeout = null;
-    }
-    
-    blank.textContent = letter;
-    blank.classList.add('filled');
-    blank.style.color = ''; // Reset color
-    blank.style.animation = ''; // Reset animation
-    
-    // Mark used letter
-    document.querySelectorAll('.letter-choice').forEach(btn => {
-      if (btn.textContent.toLowerCase() === letter) {
-        btn.classList.add('used');
+
+    window.showHint = function () {
+      const blank = document.getElementById('letter-blank');
+      const correctAnswer = blank.dataset.answer;
+
+      if (!blank || !correctAnswer) return;
+
+      // Clear hint timeout
+      if (hintTimeout) {
+        clearTimeout(hintTimeout);
+        hintTimeout = null;
       }
-    });
-    
-    if (letter === correctAnswer) {
-      // Correct!
-      playSpeech('Chính xác', 'vi-VN');
-      
+
+      // Show hint: display correct letter with light color and blink
+      blank.textContent = correctAnswer.toUpperCase();
+      blank.style.color = 'rgba(76, 175, 80, 0.4)';
+      blank.style.animation = 'hintBlink 2s ease-in-out';
+
+      playSpeech('Chữ cái là: ' + correctAnswer.toUpperCase(), 'vi-VN');
+
+      // Remove hint after 2 seconds
       setTimeout(() => {
-        nextStep();
-      }, 1500);
-    } else {
-      // Wrong - phải sửa lại cho đúng
-      blank.classList.add('wrong');
-      playSpeech('Sai rồi, hãy sửa lại cho đúng nhé!', 'vi-VN');
-      
-      // Add to weak words
-      const item = learningItems[currentItemIndex];
-      if (!weakWords.includes(item)) {
-        weakWords.push(item);
-      }
-      
-      // Không tự động chuyển tiếp, phải đợi người dùng sửa lại
-      setTimeout(() => {
-        blank.classList.remove('wrong', 'filled');
         blank.textContent = '';
-        // Re-enable letters để cho phép chọn lại
-        document.querySelectorAll('.letter-choice').forEach(btn => {
-          btn.classList.remove('used');
-        });
-      }, 1500);
-    }
-  };
+        blank.style.color = '';
+        blank.style.animation = '';
+      }, 2000);
+    };
 
-  // ===== STEP 3: TYPING (Type the whole word) =====
-  let typingHintTimeout = null;
-  
-  function renderTypingStep(item, textContainer, buttonGroup) {
-    const word = item.word;
-    const meaning = item.meaning;
-    
-    // Clear any existing hint timeout
-    if (typingHintTimeout) {
-      clearTimeout(typingHintTimeout);
-      typingHintTimeout = null;
-    }
-    
-    // Hiện lại image container
-    const imageContainer = document.getElementById('image-container');
-    if (imageContainer && item.type === 'word') {
-      const images = item.images || [];
-      if (images.length > 0 && images[0]) {
-        imageContainer.innerHTML = `<img src="../${images[0]}" alt="Image" onerror="this.style.display='none'">`;
-        imageContainer.style.display = 'flex';
-      } else {
-        imageContainer.innerHTML = `<div class="image-placeholder">📷</div>`;
-        imageContainer.style.display = 'flex';
+    window.selectLetter = function (letter) {
+      const blank = document.getElementById('letter-blank');
+      const correctAnswer = blank.dataset.answer;
+
+      // Clear hint timeout when user starts answering
+      if (hintTimeout) {
+        clearTimeout(hintTimeout);
+        hintTimeout = null;
       }
-    }
-    
-    textContainer.innerHTML = `
+
+      blank.textContent = letter;
+      blank.classList.add('filled');
+      blank.style.color = ''; // Reset color
+      blank.style.animation = ''; // Reset animation
+
+      // Mark used letter
+      document.querySelectorAll('.letter-choice').forEach(btn => {
+        if (btn.textContent.toLowerCase() === letter) {
+          btn.classList.add('used');
+        }
+      });
+
+      if (letter === correctAnswer) {
+        // Correct!
+        playSpeech('Chính xác', 'vi-VN');
+
+        setTimeout(() => {
+          nextStep();
+        }, 1500);
+      } else {
+        // Wrong - phải sửa lại cho đúng
+        blank.classList.add('wrong');
+        playSpeech('Sai rồi, hãy sửa lại cho đúng nhé!', 'vi-VN');
+
+        // Add to weak words
+        const item = learningItems[currentItemIndex];
+        if (!weakWords.includes(item)) {
+          weakWords.push(item);
+        }
+
+        // Không tự động chuyển tiếp, phải đợi người dùng sửa lại
+        setTimeout(() => {
+          blank.classList.remove('wrong', 'filled');
+          blank.textContent = '';
+          // Re-enable letters để cho phép chọn lại
+          document.querySelectorAll('.letter-choice').forEach(btn => {
+            btn.classList.remove('used');
+          });
+        }, 1500);
+      }
+    };
+
+    // ===== STEP 3: TYPING (Type the whole word) =====
+    let typingHintTimeout = null;
+
+    function renderTypingStep(item, textContainer, buttonGroup) {
+      const word = item.word;
+      const meaning = item.meaning;
+
+      // Clear any existing hint timeout
+      if (typingHintTimeout) {
+        clearTimeout(typingHintTimeout);
+        typingHintTimeout = null;
+      }
+
+      // Hiện lại image container
+      const imageContainer = document.getElementById('image-container');
+      if (imageContainer && item.type === 'word') {
+        const images = item.images || [];
+        if (images.length > 0 && images[0]) {
+          imageContainer.innerHTML = `<img src="../${images[0]}" alt="Image" onerror="this.style.display='none'">`;
+          imageContainer.style.display = 'flex';
+        } else {
+          imageContainer.innerHTML = `<div class="image-placeholder">📷</div>`;
+          imageContainer.style.display = 'flex';
+        }
+      }
+
+      textContainer.innerHTML = `
       <div style="margin-bottom: 15px; font-size: 1.3em; color: #666;">
         <b>${meaning}</b>
       </div>
@@ -1226,406 +1431,406 @@
         💡 Gõ từ tiếng Anh tương ứng
       </div>
     `;
-    
-    // Đảm bảo buttonGroup hiển thị
-    buttonGroup.style.display = 'flex';
-    buttonGroup.innerHTML = `
+
+      // Đảm bảo buttonGroup hiển thị
+      buttonGroup.style.display = 'flex';
+      buttonGroup.innerHTML = `
       <button class="btn-fun btn-replay" onclick="replayAudio()">🔊 Nghe lại</button>
       <button class="btn-fun btn-next" onclick="checkTypingAnswer()">✅ Kiểm tra</button>
       <button class="btn-fun btn-hint" id="typing-hint" onclick="showTypingHint()" style="opacity: 0; pointer-events: none; background: linear-gradient(135deg, #FFA726 0%, #FB8C00 100%); transition: opacity 0.5s ease;">💡 Gợi ý</button>
     `;
-    
-    // Focus vào input
-    setTimeout(() => {
+
+      // Focus vào input
+      setTimeout(() => {
+        const input = document.getElementById('typing-input');
+        if (input) input.focus();
+      }, 100);
+
+      // Add event listener
       const input = document.getElementById('typing-input');
-      if (input) input.focus();
-    }, 100);
-    
-    // Add event listener
-    const input = document.getElementById('typing-input');
-    if (input) {
-      input.addEventListener('input', handleTypingInput);
-      input.addEventListener('keydown', handleTypingKeydown);
-    }
-    
-    // Show hint button after 5 seconds
-    typingHintTimeout = setTimeout(() => {
-      const hintBtn = document.getElementById('typing-hint');
-      if (hintBtn) {
-        hintBtn.style.opacity = '1';
-        hintBtn.style.pointerEvents = 'auto';
-        playSpeech('Nếu con không nhớ, nhấn nút gợi ý nhé!', 'vi-VN');
+      if (input) {
+        input.addEventListener('input', handleTypingInput);
+        input.addEventListener('keydown', handleTypingKeydown);
       }
-    }, 5000);
-    
-    // Auto play word
-    playSpeech(word, 'en-US');
-  }
-  
-  function handleTypingInput(e) {
-    const input = e.target;
-    const userInput = input.value.toLowerCase().trim();
-    const correctAnswer = input.dataset.answer;
-    
-    // Clear hint timeout when user starts typing
-    if (typingHintTimeout) {
-      clearTimeout(typingHintTimeout);
-      typingHintTimeout = null;
-    }
-    
-    // Remove any error state
-    input.classList.remove('wrong');
-  }
-  
-  function handleTypingKeydown(e) {
-    if (e.key === 'Enter') {
-      checkTypingAnswer();
-    }
-  }
-  
-  window.checkTypingAnswer = function() {
-    const input = document.getElementById('typing-input');
-    if (!input) return;
-    
-    const userInput = input.value.toLowerCase().trim();
-    const correctAnswer = input.dataset.answer;
-    
-    if (userInput === correctAnswer) {
-      // Correct!
-      input.classList.add('correct');
-      input.disabled = true;
-      playSpeech('Chính xác! Giỏi lắm!', 'vi-VN');
-      
-      setTimeout(() => {
-        nextStep();
-      }, 1500);
-    } else {
-      // Wrong - phải sửa lại cho đúng
-      input.classList.add('wrong');
-      playSpeech('Chưa đúng, hãy sửa lại cho đúng nhé!', 'vi-VN');
-      
-      // Add to weak words
-      const item = learningItems[currentItemIndex];
-      if (!weakWords.includes(item)) {
-        weakWords.push(item);
-      }
-      
-      // Không tự động chuyển tiếp, phải đợi người dùng sửa lại
-      setTimeout(() => {
-        input.classList.remove('wrong');
-        input.value = '';
-        input.focus();
-      }, 1500);
-    }
-  };
-  
-  window.showTypingHint = function() {
-    const input = document.getElementById('typing-input');
-    const hintWord = document.getElementById('hint-word');
-    if (!input || !hintWord) return;
-    
-    const correctAnswer = input.dataset.answer;
-    
-    // Clear timeout
-    if (typingHintTimeout) {
-      clearTimeout(typingHintTimeout);
-      typingHintTimeout = null;
-    }
-    
-    // Show answer above input (2 seconds)
-    hintWord.textContent = correctAnswer.toUpperCase();
-    hintWord.style.opacity = '1';
-    hintWord.style.animation = 'hintBlink 2s ease-in-out';
-    
-    playSpeech('Đáp án là: ' + correctAnswer, 'en-US');
-    
-    // Hide after 2 seconds
-    setTimeout(() => {
-      hintWord.style.opacity = '0';
-      hintWord.style.animation = '';
-      input.focus();
-      playSpeech('Bây giờ con gõ lại nhé!', 'vi-VN');
-    }, 2000);
-  };
 
-  function nextStep() {
-    // Clear all hint timeouts when moving to next step
-    if (hintTimeout) {
-      clearTimeout(hintTimeout);
-      hintTimeout = null;
-    }
-    if (typingHintTimeout) {
-      clearTimeout(typingHintTimeout);
-      typingHintTimeout = null;
-    }
-    
-    currentStep++;
-    
-    if (currentStep >= 3) {
-      // Completed all 3 steps for this item
-      const completedItem = learningItems[currentItemIndex];
-      trackItemLearned(completedItem);
-      
-      // Move to next item
-      currentStep = 0;
-      currentItemIndex++;
-      itemsSinceQuiz++;
-      
-      // Check if mini quiz is needed (only for words)
-      if (itemsSinceQuiz >= MINI_QUIZ_INTERVAL && currentItemIndex < learningItems.length) {
-        const recentWords = learningItems.slice(Math.max(0, currentItemIndex - MINI_QUIZ_INTERVAL), currentItemIndex)
-          .filter(item => item.type === 'word');
-        if (recentWords.length >= 3) {
-          showMiniQuiz();
-          return;
-        }
-      }
-      
-      if (currentItemIndex >= learningItems.length) {
-        // Check if need to review weak words
-        if (weakWords.length > 0) {
-          showWeakWordsReview();
-          return;
-        }
-        
-        // Finished all items
-        showCompletion();
-        return;
-      }
-    }
-    
-    updateProgress();
-    showCurrentStep();
-  }
-
-  function replayAudio() {
-    const item = learningItems[currentItemIndex];
-    const stepName = STEPS[currentStep].name;
-    
-    if (stepName === 'learn') {
-      replayLearning();
-    } else {
-      // In test step, just replay word
-      const text = item.type === 'word' ? item.word : item.en;
-      playSpeech(text, 'en-US');
-    }
-  }
-
-  // ============================================
-  // 🎯 MINI QUIZ (Every 5 items)
-  // ============================================
-  let miniQuizHintTimeout = null; // Track mini quiz hint timeout
-  
-  function showMiniQuiz() {
-    const card = document.getElementById('learning-card');
-    const recentItems = learningItems.slice(Math.max(0, currentItemIndex - MINI_QUIZ_INTERVAL), currentItemIndex)
-      .filter(item => item.type === 'word'); // Only quiz words
-    
-    if (recentItems.length === 0) {
-      itemsSinceQuiz = 0;
-      showCurrentStep();
-      return;
-    }
-    
-    // Shuffle and pick 3 random items
-    const quizItems = recentItems.sort(() => Math.random() - 0.5).slice(0, 3);
-    let quizIndex = 0;
-    
-    function showQuizQuestion() {
-      // Clear any existing hint timeout
-      if (miniQuizHintTimeout) {
-        clearTimeout(miniQuizHintTimeout);
-        miniQuizHintTimeout = null;
-      }
-      
-      if (quizIndex >= quizItems.length) {
-        // Quiz completed
-        playSpeech('Giỏi lắm! Tiếp tục học nhé!', 'vi-VN');
-        itemsSinceQuiz = 0;
-        setTimeout(() => {
-          updateProgress();
-          showCurrentStep();
-        }, 2000);
-        return;
-      }
-      
-      const item = quizItems[quizIndex];
-      const correctAnswer = item.word;
-      
-      // Generate 3 wrong answers
-      const otherWords = LESSON_DATA.words
-        .filter(w => w.word !== correctAnswer)
-        .map(w => w.word);
-      const wrongAnswers = otherWords
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 3);
-      
-      const options = [correctAnswer, ...wrongAnswers].sort(() => Math.random() - 0.5);
-      
-      card.innerHTML = `
-        <div class="step-badge">Ôn tập nhanh ${quizIndex + 1}/${quizItems.length}</div>
-        <h2 class="step-title">🎯 Từ này là gì?</h2>
-        <div class="text-display text-vietnamese">${item.meaning}</div>
-        <div class="button-group" style="flex-direction: column; max-width: 400px; width: 100%;">
-          ${options.map(opt => 
-            `<button class="btn-fun quiz-option-btn" style="width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" 
-              data-waiting-for-retry="false"
-              onclick='checkMiniQuizAnswer(${JSON.stringify(opt)}, ${JSON.stringify(correctAnswer)})'>${opt}</button>`
-          ).join('')}
-          <button class="btn-fun btn-hint" id="mini-quiz-hint" onclick='showMiniQuizHint(${JSON.stringify(correctAnswer)})' 
-            style="opacity: 0; pointer-events: none; background: linear-gradient(135deg, #FFA726 0%, #FB8C00 100%); transition: opacity 0.5s ease; width: 100%;">
-            💡 Gợi ý
-          </button>
-        </div>
-      `;
-      
-      playSpeech(item.meaning, 'vi-VN');
-      
       // Show hint button after 5 seconds
-      miniQuizHintTimeout = setTimeout(() => {
-        const hintBtn = document.getElementById('mini-quiz-hint');
+      typingHintTimeout = setTimeout(() => {
+        const hintBtn = document.getElementById('typing-hint');
         if (hintBtn) {
           hintBtn.style.opacity = '1';
           hintBtn.style.pointerEvents = 'auto';
           playSpeech('Nếu con không nhớ, nhấn nút gợi ý nhé!', 'vi-VN');
         }
       }, 5000);
+
+      // Auto play word
+      playSpeech(word, 'en-US');
     }
-    
-    window.showMiniQuizHint = function(correctAnswer) {
-      // Clear timeout
-      if (miniQuizHintTimeout) {
-        clearTimeout(miniQuizHintTimeout);
-        miniQuizHintTimeout = null;
+
+    function handleTypingInput(e) {
+      const input = e.target;
+      const userInput = input.value.toLowerCase().trim();
+      const correctAnswer = input.dataset.answer;
+
+      // Clear hint timeout when user starts typing
+      if (typingHintTimeout) {
+        clearTimeout(typingHintTimeout);
+        typingHintTimeout = null;
       }
-      
-      // Highlight correct answer button
-      const buttons = document.querySelectorAll('.quiz-option-btn');
-      buttons.forEach(btn => {
-        if (btn.textContent === correctAnswer) {
-          btn.style.border = '4px solid #4CAF50';
-          btn.style.boxShadow = '0 0 20px rgba(76, 175, 80, 0.8)';
-          btn.style.animation = 'hintBlink 2s ease-in-out';
+
+      // Remove any error state
+      input.classList.remove('wrong');
+    }
+
+    function handleTypingKeydown(e) {
+      if (e.key === 'Enter') {
+        checkTypingAnswer();
+      }
+    }
+
+    window.checkTypingAnswer = function () {
+      const input = document.getElementById('typing-input');
+      if (!input) return;
+
+      const userInput = input.value.toLowerCase().trim();
+      const correctAnswer = input.dataset.answer;
+
+      if (userInput === correctAnswer) {
+        // Correct!
+        input.classList.add('correct');
+        input.disabled = true;
+        playSpeech('Chính xác! Giỏi lắm!', 'vi-VN');
+
+        setTimeout(() => {
+          nextStep();
+        }, 1500);
+      } else {
+        // Wrong - phải sửa lại cho đúng
+        input.classList.add('wrong');
+        playSpeech('Chưa đúng, hãy sửa lại cho đúng nhé!', 'vi-VN');
+
+        // Add to weak words
+        const item = learningItems[currentItemIndex];
+        if (!weakWords.includes(item)) {
+          weakWords.push(item);
         }
-      });
-      
-      playSpeech('Đáp án là: ' + correctAnswer, 'vi-VN');
-      
-      // Remove hint after 2 seconds
+
+        // Không tự động chuyển tiếp, phải đợi người dùng sửa lại
+        setTimeout(() => {
+          input.classList.remove('wrong');
+          input.value = '';
+          input.focus();
+        }, 1500);
+      }
+    };
+
+    window.showTypingHint = function () {
+      const input = document.getElementById('typing-input');
+      const hintWord = document.getElementById('hint-word');
+      if (!input || !hintWord) return;
+
+      const correctAnswer = input.dataset.answer;
+
+      // Clear timeout
+      if (typingHintTimeout) {
+        clearTimeout(typingHintTimeout);
+        typingHintTimeout = null;
+      }
+
+      // Show answer above input (2 seconds)
+      hintWord.textContent = correctAnswer.toUpperCase();
+      hintWord.style.opacity = '1';
+      hintWord.style.animation = 'hintBlink 2s ease-in-out';
+
+      playSpeech('Đáp án là: ' + correctAnswer, 'en-US');
+
+      // Hide after 2 seconds
       setTimeout(() => {
-        buttons.forEach(btn => {
-          btn.style.border = '';
-          btn.style.boxShadow = '0 5px 12px rgba(0,0,0,0.2)';
-          btn.style.animation = '';
-        });
+        hintWord.style.opacity = '0';
+        hintWord.style.animation = '';
+        input.focus();
+        playSpeech('Bây giờ con gõ lại nhé!', 'vi-VN');
       }, 2000);
     };
-    
-    window.checkMiniQuizAnswer = function(selected, correct) {
-      // Clear hint timeout
-      if (miniQuizHintTimeout) {
-        clearTimeout(miniQuizHintTimeout);
-        miniQuizHintTimeout = null;
+
+    function nextStep() {
+      // Clear all hint timeouts when moving to next step
+      if (hintTimeout) {
+        clearTimeout(hintTimeout);
+        hintTimeout = null;
       }
-      
-      const buttons = document.querySelectorAll('.quiz-option-btn');
-      
-      // Kiểm tra xem có đang trong trạng thái chờ sửa lại không
-      const isWaitingForRetry = Array.from(buttons).some(btn => btn.dataset.waitingForRetry === 'true');
-      
-      if (isWaitingForRetry) {
-        // Đang chờ sửa lại - chỉ cho phép chọn đáp án đúng
-        if (selected === correct) {
-          // Chọn đúng - chuyển tiếp
+      if (typingHintTimeout) {
+        clearTimeout(typingHintTimeout);
+        typingHintTimeout = null;
+      }
+
+      currentStep++;
+
+      if (currentStep >= 3) {
+        // Completed all 3 steps for this item
+        const completedItem = learningItems[currentItemIndex];
+        trackItemLearned(completedItem);
+
+        // Move to next item
+        currentStep = 0;
+        currentItemIndex++;
+        itemsSinceQuiz++;
+
+        // Check if mini quiz is needed (only for words)
+        if (itemsSinceQuiz >= MINI_QUIZ_INTERVAL && currentItemIndex < learningItems.length) {
+          const recentWords = learningItems.slice(Math.max(0, currentItemIndex - MINI_QUIZ_INTERVAL), currentItemIndex)
+            .filter(item => item.type === 'word');
+          if (recentWords.length >= 3) {
+            showMiniQuiz();
+            return;
+          }
+        }
+
+        if (currentItemIndex >= learningItems.length) {
+          // Check if need to review weak words
+          if (weakWords.length > 0) {
+            showWeakWordsReview();
+            return;
+          }
+
+          // Finished all items
+          showCompletion();
+          return;
+        }
+      }
+
+      updateProgress();
+      showCurrentStep();
+    }
+
+    function replayAudio() {
+      const item = learningItems[currentItemIndex];
+      const stepName = STEPS[currentStep].name;
+
+      if (stepName === 'learn') {
+        replayLearning();
+      } else {
+        // In test step, just replay word
+        const text = item.type === 'word' ? item.word : item.en;
+        playSpeech(text, 'en-US');
+      }
+    }
+
+    // ============================================
+    // 🎯 MINI QUIZ (Every 5 items)
+    // ============================================
+    let miniQuizHintTimeout = null; // Track mini quiz hint timeout
+
+    function showMiniQuiz() {
+      const card = document.getElementById('learning-card');
+      const recentItems = learningItems.slice(Math.max(0, currentItemIndex - MINI_QUIZ_INTERVAL), currentItemIndex)
+        .filter(item => item.type === 'word'); // Only quiz words
+
+      if (recentItems.length === 0) {
+        itemsSinceQuiz = 0;
+        showCurrentStep();
+        return;
+      }
+
+      // Shuffle and pick 3 random items
+      const quizItems = recentItems.sort(() => Math.random() - 0.5).slice(0, 3);
+      let quizIndex = 0;
+
+      function showQuizQuestion() {
+        // Clear any existing hint timeout
+        if (miniQuizHintTimeout) {
+          clearTimeout(miniQuizHintTimeout);
+          miniQuizHintTimeout = null;
+        }
+
+        if (quizIndex >= quizItems.length) {
+          // Quiz completed
+          playSpeech('Giỏi lắm! Tiếp tục học nhé!', 'vi-VN');
+          itemsSinceQuiz = 0;
+          setTimeout(() => {
+            updateProgress();
+            showCurrentStep();
+          }, 2000);
+          return;
+        }
+
+        const item = quizItems[quizIndex];
+        const correctAnswer = item.word;
+
+        // Generate 3 wrong answers
+        const otherWords = LESSON_DATA.words
+          .filter(w => w.word !== correctAnswer)
+          .map(w => w.word);
+        const wrongAnswers = otherWords
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 3);
+
+        const options = [correctAnswer, ...wrongAnswers].sort(() => Math.random() - 0.5);
+
+        card.innerHTML = `
+        <div class="step-badge">Ôn tập nhanh ${quizIndex + 1}/${quizItems.length}</div>
+        <h2 class="step-title">🎯 Từ này là gì?</h2>
+        <div class="text-display text-vietnamese">${item.meaning}</div>
+        <div class="button-group" style="flex-direction: column; max-width: 400px; width: 100%;">
+          ${options.map(opt =>
+          `<button class="btn-fun quiz-option-btn" style="width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" 
+              data-waiting-for-retry="false"
+              onclick='checkMiniQuizAnswer(${JSON.stringify(opt)}, ${JSON.stringify(correctAnswer)})'>${opt}</button>`
+        ).join('')}
+          <button class="btn-fun btn-hint" id="mini-quiz-hint" onclick='showMiniQuizHint(${JSON.stringify(correctAnswer)})' 
+            style="opacity: 0; pointer-events: none; background: linear-gradient(135deg, #FFA726 0%, #FB8C00 100%); transition: opacity 0.5s ease; width: 100%;">
+            💡 Gợi ý
+          </button>
+        </div>
+      `;
+
+        playSpeech(item.meaning, 'vi-VN');
+
+        // Show hint button after 5 seconds
+        miniQuizHintTimeout = setTimeout(() => {
+          const hintBtn = document.getElementById('mini-quiz-hint');
+          if (hintBtn) {
+            hintBtn.style.opacity = '1';
+            hintBtn.style.pointerEvents = 'auto';
+            playSpeech('Nếu con không nhớ, nhấn nút gợi ý nhé!', 'vi-VN');
+          }
+        }, 5000);
+      }
+
+      window.showMiniQuizHint = function (correctAnswer) {
+        // Clear timeout
+        if (miniQuizHintTimeout) {
+          clearTimeout(miniQuizHintTimeout);
+          miniQuizHintTimeout = null;
+        }
+
+        // Highlight correct answer button
+        const buttons = document.querySelectorAll('.quiz-option-btn');
+        buttons.forEach(btn => {
+          if (btn.textContent === correctAnswer) {
+            btn.style.border = '4px solid #4CAF50';
+            btn.style.boxShadow = '0 0 20px rgba(76, 175, 80, 0.8)';
+            btn.style.animation = 'hintBlink 2s ease-in-out';
+          }
+        });
+
+        playSpeech('Đáp án là: ' + correctAnswer, 'vi-VN');
+
+        // Remove hint after 2 seconds
+        setTimeout(() => {
           buttons.forEach(btn => {
+            btn.style.border = '';
+            btn.style.boxShadow = '0 5px 12px rgba(0,0,0,0.2)';
+            btn.style.animation = '';
+          });
+        }, 2000);
+      };
+
+      window.checkMiniQuizAnswer = function (selected, correct) {
+        // Clear hint timeout
+        if (miniQuizHintTimeout) {
+          clearTimeout(miniQuizHintTimeout);
+          miniQuizHintTimeout = null;
+        }
+
+        const buttons = document.querySelectorAll('.quiz-option-btn');
+
+        // Kiểm tra xem có đang trong trạng thái chờ sửa lại không
+        const isWaitingForRetry = Array.from(buttons).some(btn => btn.dataset.waitingForRetry === 'true');
+
+        if (isWaitingForRetry) {
+          // Đang chờ sửa lại - chỉ cho phép chọn đáp án đúng
+          if (selected === correct) {
+            // Chọn đúng - chuyển tiếp
+            buttons.forEach(btn => {
+              btn.disabled = true;
+              btn.dataset.waitingForRetry = 'false';
+            });
+            playSpeech('Chính xác', 'vi-VN');
+            quizIndex++;
+            setTimeout(showQuizQuestion, 2000);
+          } else {
+            // Chọn sai lần nữa - chỉ báo sai
+            playSpeech('Vẫn chưa đúng, hãy chọn đáp án đúng nhé!', 'vi-VN');
+          }
+          return;
+        }
+
+        if (selected === correct) {
+          // Correct - chuyển tiếp
+          buttons.forEach(btn => {
+            if (btn.textContent === correct) {
+              btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%)';
+              btn.style.color = 'white';
+            }
             btn.disabled = true;
             btn.dataset.waitingForRetry = 'false';
           });
           playSpeech('Chính xác', 'vi-VN');
+
+          // Chuyển sang câu tiếp theo sau 2 giây
           quizIndex++;
           setTimeout(showQuizQuestion, 2000);
         } else {
-          // Chọn sai lần nữa - chỉ báo sai
-          playSpeech('Vẫn chưa đúng, hãy chọn đáp án đúng nhé!', 'vi-VN');
-        }
-        return;
-      }
-      
-      if (selected === correct) {
-        // Correct - chuyển tiếp
-        buttons.forEach(btn => {
-          if (btn.textContent === correct) {
-            btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%)';
-            btn.style.color = 'white';
-          }
-          btn.disabled = true;
-          btn.dataset.waitingForRetry = 'false';
-        });
-        playSpeech('Chính xác', 'vi-VN');
-        
-        // Chuyển sang câu tiếp theo sau 2 giây
-        quizIndex++;
-        setTimeout(showQuizQuestion, 2000);
-      } else {
-        // Wrong - phải sửa lại cho đúng
-        buttons.forEach(btn => {
-          if (btn.textContent === selected) {
-            btn.style.background = 'linear-gradient(135deg, #f5576c 0%, #f093fb 100%)';
-            btn.style.color = 'white';
-            btn.classList.add('wrong-answer');
-            btn.disabled = true; // Disable button đã chọn sai
-          }
-          if (btn.textContent === correct) {
-            btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%)';
-            btn.style.color = 'white';
-            btn.style.border = '3px solid #4CAF50';
-            btn.style.boxShadow = '0 0 15px rgba(76, 175, 80, 0.6)';
-            // Đánh dấu để có thể click vào button đúng
-            btn.dataset.waitingForRetry = 'true';
-          }
-        });
-        playSpeech('Sai rồi, hãy chọn đáp án đúng nhé!', 'vi-VN');
-        
-        // Re-enable button đúng sau 2 giây để cho phép chọn lại, KHÔNG tự động chuyển tiếp
-        setTimeout(() => {
+          // Wrong - phải sửa lại cho đúng
           buttons.forEach(btn => {
-            if (btn.dataset.waitingForRetry === 'true') {
-              btn.disabled = false;
-              // Cho phép click vào button đúng để chuyển tiếp
+            if (btn.textContent === selected) {
+              btn.style.background = 'linear-gradient(135deg, #f5576c 0%, #f093fb 100%)';
+              btn.style.color = 'white';
+              btn.classList.add('wrong-answer');
+              btn.disabled = true; // Disable button đã chọn sai
+            }
+            if (btn.textContent === correct) {
+              btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%)';
+              btn.style.color = 'white';
+              btn.style.border = '3px solid #4CAF50';
+              btn.style.boxShadow = '0 0 15px rgba(76, 175, 80, 0.6)';
+              // Đánh dấu để có thể click vào button đúng
+              btn.dataset.waitingForRetry = 'true';
             }
           });
-        }, 2000);
-      }
-    };
-    
-    showQuizQuestion();
-  }
+          playSpeech('Sai rồi, hãy chọn đáp án đúng nhé!', 'vi-VN');
 
-  // ============================================
-  // 🔄 WEAK WORDS REVIEW
-  // ============================================
-  function showWeakWordsReview() {
-    playSpeech('Bây giờ cô ôn lại những từ con còn chưa thuộc nhé!', 'vi-VN');
-    
-    setTimeout(() => {
-      // Add weak words back to learning queue
-      learningItems = [...learningItems, ...weakWords];
-      weakWords = []; // Clear for next round
-      
-      // Continue learning
-      updateProgress();
-      showCurrentStep();
-    }, 3000);
-  }
+          // Re-enable button đúng sau 2 giây để cho phép chọn lại, KHÔNG tự động chuyển tiếp
+          setTimeout(() => {
+            buttons.forEach(btn => {
+              if (btn.dataset.waitingForRetry === 'true') {
+                btn.disabled = false;
+                // Cho phép click vào button đúng để chuyển tiếp
+              }
+            });
+          }, 2000);
+        }
+      };
 
-  // ============================================
-  // 🎉 COMPLETION
-  // ============================================
-  function showCompletion() {
-    createConfetti();
-    
-    const card = document.getElementById('learning-card');
-    card.innerHTML = `
+      showQuizQuestion();
+    }
+
+    // ============================================
+    // 🔄 WEAK WORDS REVIEW
+    // ============================================
+    function showWeakWordsReview() {
+      playSpeech('Bây giờ cô ôn lại những từ con còn chưa thuộc nhé!', 'vi-VN');
+
+      setTimeout(() => {
+        // Add weak words back to learning queue
+        learningItems = [...learningItems, ...weakWords];
+        weakWords = []; // Clear for next round
+
+        // Continue learning
+        updateProgress();
+        showCurrentStep();
+      }, 3000);
+    }
+
+    // ============================================
+    // 🎉 COMPLETION
+    // ============================================
+    function showCompletion() {
+      createConfetti();
+
+      const card = document.getElementById('learning-card');
+      card.innerHTML = `
       <div class="completion-screen">
         <h2>🎉 XUẤT SẮC! 🎉</h2>
         <div class="completion-stars">⭐⭐⭐</div>
@@ -1642,97 +1847,98 @@
       </div>
     `;
 
-    playSpeech('Chúc mừng em đã hoàn thành bài học! Giỏi lắm!', 'vi-VN');
-  }
-
-  function createConfetti() {
-    const colors = ['#FF6B6B', '#4CAF50', '#2196F3', '#FFD93D', '#9C27B0'];
-    for (let i = 0; i < 50; i++) {
-      setTimeout(() => {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.animationDelay = Math.random() * 2 + 's';
-        document.body.appendChild(confetti);
-        setTimeout(() => confetti.remove(), 3000);
-      }, i * 50);
+      playSpeech('Chúc mừng em đã hoàn thành bài học! Giỏi lắm!', 'vi-VN');
     }
-  }
 
-  function restartLesson() {
-    location.reload();
-  }
-
-  function goToQuiz() {
-    window.location.href = `lambaitap.html?lesson=${currentLessonId}`;
-  }
-
-  function goHome() {
-    window.location.href = '../index.html';
-  }
-
-  // ============================================
-  // 🚀 INITIALIZE
-  // ============================================
-  window.addEventListener('load', async () => {
-    // Load voices
-    speechSynthesis.getVoices();
-    speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
-    
-    // Init Firebase first
-    await initFirebase();
-    
-    // Load data and start
-    loadData();
-  });
-  
-  // ===== FIREBASE INTEGRATION =====
-  async function initFirebase() {
-    try {
-      if (typeof ProgressManager !== 'undefined') {
-        await ProgressManager.init();
-        console.log('✅ Firebase initialized for hocbaimoi.html');
-      } else {
-        console.warn('⚠️ ProgressManager not loaded');
+    function createConfetti() {
+      const colors = ['#FF6B6B', '#4CAF50', '#2196F3', '#FFD93D', '#9C27B0'];
+      for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + 'vw';
+          confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.animationDelay = Math.random() * 2 + 's';
+          document.body.appendChild(confetti);
+          setTimeout(() => confetti.remove(), 3000);
+        }, i * 50);
       }
-    } catch (error) {
-      console.error('❌ Firebase init error:', error);
     }
-  }
-  
-  // Track when user completes learning an item
-  function trackItemLearned(item) {
-    if (typeof ProgressManager === 'undefined' || !ProgressManager.userId) {
-      console.log('📝 Progress tracking not available');
-      return;
+
+    function restartLesson() {
+      location.reload();
     }
-    
-    try {
-      const question = {
-        lessonId: currentLessonId,
-        word: item.type === 'word' ? item.word : null,
-        sentence: item.type === 'sentence' ? item.en : null,
-        question: item.type === 'sentence' ? item.vi : null,
-        correctAnswer: item.type === 'word' ? item.meaning : null
-      };
-      
-      // Mark as "studied" (always correct for learning mode)
-      ProgressManager.update(question, true);
-      console.log('☁️ Learned item synced to Firebase:', item.type === 'word' ? item.word : item.en);
-    } catch (error) {
-      console.error('❌ Error tracking progress:', error);
+
+    function goToQuiz() {
+      window.location.href = `lambaitap.html?lesson=${currentLessonId}`;
     }
-  }
+
+    function goHome() {
+      window.location.href = '../index.html';
+    }
+
+    // ============================================
+    // 🚀 INITIALIZE
+    // ============================================
+    window.addEventListener('load', async () => {
+      // Load voices
+      speechSynthesis.getVoices();
+      speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+
+      // Init Firebase first
+      await initFirebase();
+
+      // Load data and start
+      loadData();
+    });
+
+    // ===== FIREBASE INTEGRATION =====
+    async function initFirebase() {
+      try {
+        if (typeof ProgressManager !== 'undefined') {
+          await ProgressManager.init();
+          console.log('✅ Firebase initialized for hocbaimoi.html');
+        } else {
+          console.warn('⚠️ ProgressManager not loaded');
+        }
+      } catch (error) {
+        console.error('❌ Firebase init error:', error);
+      }
+    }
+
+    // Track when user completes learning an item
+    function trackItemLearned(item) {
+      if (typeof ProgressManager === 'undefined' || !ProgressManager.userId) {
+        console.log('📝 Progress tracking not available');
+        return;
+      }
+
+      try {
+        const question = {
+          lessonId: currentLessonId,
+          word: item.type === 'word' ? item.word : null,
+          sentence: item.type === 'sentence' ? item.en : null,
+          question: item.type === 'sentence' ? item.vi : null,
+          correctAnswer: item.type === 'word' ? item.meaning : null
+        };
+
+        // Mark as "studied" (always correct for learning mode)
+        ProgressManager.update(question, true);
+        console.log('☁️ Learned item synced to Firebase:', item.type === 'word' ? item.word : item.en);
+      } catch (error) {
+        console.error('❌ Error tracking progress:', error);
+      }
+    }
   </script>
-  
+
   <!-- ===== Firebase CDN ===== -->
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-  
+
   <!-- ===== Firebase Config & Progress Manager ===== -->
   <script src="../js/firebase-config.js"></script>
   <script src="../js/quiz-progress.js"></script>
 </body>
+
 </html>

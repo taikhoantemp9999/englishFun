@@ -410,6 +410,9 @@
   <!-- Progress Manager -->
   <script src="js/quiz-progress.js"></script>
 
+  <!-- Lesson Loader -->
+  <script src="js/lesson-loader.js"></script>
+
   <!-- Main App -->
   <script>
     // ===== GLOBAL STATE =====
@@ -447,9 +450,9 @@
           console.log('ℹ️ Config loaded (no user_id set)');
         }
 
-        // Load lessons
-        const lessonsRes = await fetch('data/lessons.json');
-        LESSONS_DATA = await lessonsRes.json();
+        // Load lessons using LessonLoader
+        // This will fetch lessons_index.json and then all individual lesson files
+        LESSONS_DATA = await LessonLoader.loadAllLessons();
         window.LESSONS_DATA = LESSONS_DATA;
 
         console.log('✅ Data loaded:', LESSONS_DATA.lessons.length, 'lessons');

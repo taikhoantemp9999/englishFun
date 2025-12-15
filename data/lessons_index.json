@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "total_lessons": 5
+    "total_lessons": 6
   },
   "lessons": [
     {
@@ -28,6 +28,11 @@
       "id": 5,
       "title": "Lesson 5: Body Parts",
       "description": "Các bộ phận cơ thể"
+    },
+    {
+      "id": 6,
+      "title": "Lesson 6: Animals",
+      "description": "Các con vật"
     }
   ]
 }
