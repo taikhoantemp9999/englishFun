@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🔥 Firebase Data Viewer - English Fun</title>
-  
+
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  
+
   <style>
-    html, body {
+    html,
+    body {
       height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       overflow-x: hidden;
     }
-    
+
     .header {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
@@ -25,13 +27,13 @@
       top: 0;
       z-index: 1000;
     }
-    
+
     .header .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .logo {
       font-size: 1.8em;
       font-weight: bold;
@@ -40,7 +42,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    
+
     .nav-menu {
       display: flex;
       gap: 20px;
@@ -48,7 +50,7 @@
       margin: 0;
       padding: 0;
     }
-    
+
     .nav-menu a {
       text-decoration: none;
       color: #495057;
@@ -57,18 +59,18 @@
       border-radius: 8px;
       transition: all 0.3s ease;
     }
-    
+
     .nav-menu a:hover {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
     }
-    
+
     .main-container {
       max-width: 1200px;
       margin: 30px auto;
       padding: 0 20px;
     }
-    
+
     .viewer-card {
       background: white;
       border-radius: 20px;
@@ -76,7 +78,7 @@
       margin-bottom: 20px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     }
-    
+
     .user-info-card {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
@@ -84,49 +86,49 @@
       padding: 25px;
       margin-bottom: 25px;
     }
-    
+
     .user-id-box {
       font-family: monospace;
-      background: rgba(0,0,0,0.2);
+      background: rgba(0, 0, 0, 0.2);
       padding: 15px;
       border-radius: 8px;
       margin: 15px 0;
       word-break: break-all;
       font-size: 0.9em;
     }
-    
+
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 15px;
       margin-top: 20px;
     }
-    
+
     .stat-box {
-      background: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.2);
       padding: 20px;
       border-radius: 10px;
       text-align: center;
     }
-    
+
     .stat-box .value {
       font-size: 2.5em;
       font-weight: bold;
       margin-bottom: 5px;
     }
-    
+
     .stat-box .label {
       font-size: 0.9em;
       opacity: 0.9;
     }
-    
+
     .action-buttons {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       margin-bottom: 25px;
     }
-    
+
     .btn-action {
       padding: 12px 24px;
       border: none;
@@ -136,37 +138,48 @@
       transition: all 0.3s ease;
       color: white;
     }
-    
+
     .btn-action:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
-    
-    .btn-export { background: #4CAF50; }
-    .btn-console { background: #FF9800; }
-    .btn-refresh { background: #2196F3; }
-    .btn-clear { background: #f44336; }
-    
+
+    .btn-export {
+      background: #4CAF50;
+    }
+
+    .btn-console {
+      background: #FF9800;
+    }
+
+    .btn-refresh {
+      background: #2196F3;
+    }
+
+    .btn-clear {
+      background: #f44336;
+    }
+
     .lesson-section {
       border: 2px solid #e0e0e0;
       border-radius: 15px;
       padding: 20px;
       margin-bottom: 20px;
     }
-    
+
     .lesson-title {
       font-size: 1.3em;
       font-weight: bold;
       color: #667eea;
       margin-bottom: 15px;
     }
-    
+
     .items-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 12px;
     }
-    
+
     .item-card {
       background: #f8f9fa;
       padding: 15px;
@@ -174,29 +187,37 @@
       border-left: 4px solid #ccc;
       transition: all 0.3s ease;
     }
-    
+
     .item-card:hover {
       transform: translateX(5px);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     }
-    
-    .item-card.mastered { border-left-color: #4CAF50; }
-    .item-card.learning { border-left-color: #FF9800; }
-    .item-card.weak { border-left-color: #f44336; }
-    
+
+    .item-card.mastered {
+      border-left-color: #4CAF50;
+    }
+
+    .item-card.learning {
+      border-left-color: #FF9800;
+    }
+
+    .item-card.weak {
+      border-left-color: #f44336;
+    }
+
     .item-text {
       font-weight: bold;
       font-size: 1.1em;
       margin-bottom: 8px;
       color: #2d3748;
     }
-    
+
     .item-stats {
       font-size: 0.9em;
       color: #666;
       margin-bottom: 5px;
     }
-    
+
     .item-meta {
       font-size: 0.8em;
       color: #999;
@@ -204,13 +225,13 @@
       padding-top: 8px;
       border-top: 1px solid #e0e0e0;
     }
-    
+
     .loading {
       text-align: center;
       padding: 80px 20px;
       color: white;
     }
-    
+
     .spinner {
       display: inline-block;
       width: 50px;
@@ -220,41 +241,44 @@
       border-top-color: white;
       animation: spin 1s ease-in-out infinite;
     }
-    
+
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
-    
+
     .empty-state {
       text-align: center;
       padding: 80px 20px;
       color: #999;
     }
-    
+
     .empty-state .icon {
       font-size: 5em;
       margin-bottom: 20px;
     }
-    
+
     @media (max-width: 768px) {
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      
+
       .items-grid {
         grid-template-columns: 1fr;
       }
-      
+
       .action-buttons {
         flex-direction: column;
       }
-      
+
       .btn-action {
         width: 100%;
       }
     }
   </style>
 </head>
+
 <body>
   <!-- Header -->
   <div class="header">
@@ -266,7 +290,7 @@
       </ul>
     </div>
   </div>
-  
+
   <!-- Main Container -->
   <div class="main-container">
     <div id="viewer-content" class="loading">
@@ -274,55 +298,59 @@
       <p style="margin-top: 20px; font-size: 1.2em;">Đang tải dữ liệu Firebase...</p>
     </div>
   </div>
-  
+
   <!-- Firebase CDN -->
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-  
+
   <!-- Firebase Config & Progress Manager -->
   <script src="../js/firebase-config.js"></script>
   <script src="../js/quiz-progress.js"></script>
-  
+
   <script>
     let LESSONS_DATA = null;
-    
+
     // ===== INIT =====
     window.addEventListener('load', async () => {
       await initApp();
     });
-    
+
     async function initApp() {
       try {
-        // Init Firebase
-        await ProgressManager.init();
-        
+        // Load config
+        const configRes = await fetch('../config.json');
+        const config = await configRes.json();
+
+        // Init Firebase with User ID
+        await ProgressManager.init(config.user_id);
+
         // Load lessons data
         const response = await fetch('../data/lessons.json');
         LESSONS_DATA = await response.json();
-        
+
         // Load and render
         await ProgressManager.load();
         renderViewer();
-        
+
       } catch (error) {
         console.error('Error initializing app:', error);
         showError('Có lỗi khi tải dữ liệu. Vui lòng refresh trang!');
       }
     }
-    
+
     // ===== RENDER VIEWER =====
     function renderViewer() {
       const container = document.getElementById('viewer-content');
-      
+
       if (!ProgressManager.userId) {
         showError('⚠️ Firebase chưa kết nối. Vui lòng đợi hoặc refresh trang.');
         return;
       }
-      
+
       const stats = ProgressManager.getStats();
       const progress = ProgressManager.data.progress || [];
-      
+
       let html = `
         <!-- User Info Card -->
         <div class="user-info-card">
@@ -376,7 +404,7 @@
           
           <h3 style="margin-bottom: 20px;">📋 Progress Data theo Bài học</h3>
       `;
-      
+
       // Group by lesson
       const byLesson = {};
       progress.forEach(item => {
@@ -384,10 +412,10 @@
         if (!byLesson[lessonId]) byLesson[lessonId] = [];
         byLesson[lessonId].push(item);
       });
-      
+
       // Render each lesson
       const sortedLessons = Object.keys(byLesson).sort((a, b) => parseInt(a) - parseInt(b));
-      
+
       if (sortedLessons.length === 0) {
         html += `
           <div class="empty-state">
@@ -404,7 +432,7 @@
           const items = byLesson[lessonId];
           const lesson = LESSONS_DATA?.lessons?.find(l => l.id === parseInt(lessonId));
           const lessonName = lesson ? `Bài ${lesson.id}: ${lesson.title}` : `Bài ${lessonId}`;
-          
+
           html += `
             <div class="lesson-section">
               <div class="lesson-title">
@@ -413,29 +441,29 @@
               </div>
               <div class="items-grid">
           `;
-          
+
           items.forEach(item => {
             const text = item.word || (item.sentence?.en || 'Unknown');
-            const meaning = item.word ? 
-              (lesson?.words.find(w => w.word === item.word)?.meaning || '') : 
+            const meaning = item.word ?
+              (lesson?.words.find(w => w.word === item.word)?.meaning || '') :
               (item.sentence?.vi || '');
-            
+
             const correct = item.correct || 0;
             const wrong = item.wrong || 0;
             const total = correct + wrong;
             const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
-            
+
             let status = 'weak';
             if (accuracy >= 80 && total >= 5 && wrong === 0) {
               status = 'mastered';
             } else if (total > 0) {
               status = 'learning';
             }
-            
+
             const statusLabel = status === 'mastered' ? '✅ Thành thạo' :
-                              status === 'learning' ? '📝 Đang học' :
-                              '🆕 Mới';
-            
+              status === 'learning' ? '📝 Đang học' :
+                '🆕 Mới';
+
             html += `
               <div class="item-card ${status}">
                 <div class="item-text">${text}</div>
@@ -450,29 +478,29 @@
                 ` : ''}
                 <div class="item-meta">
                   ${item.lastReviewed ? `📅 Học lần cuối: ${new Date(item.lastReviewed).toLocaleString('vi-VN', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                  })}` : '📅 Chưa học'}
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+              hour: '2-digit',
+              minute: '2-digit'
+            })}` : '📅 Chưa học'}
                 </div>
               </div>
             `;
           });
-          
+
           html += `
               </div>
             </div>
           `;
         }
       }
-      
+
       html += `</div>`; // Close viewer-card
-      
+
       container.innerHTML = html;
     }
-    
+
     // ===== ACTIONS =====
     function copyUserId() {
       const userId = ProgressManager.userId;
@@ -483,11 +511,11 @@
         prompt('Copy User ID này:', userId);
       });
     }
-    
+
     function exportData() {
       const data = ProgressManager.data;
       const json = JSON.stringify(data, null, 2);
-      const blob = new Blob([json], {type: 'application/json'});
+      const blob = new Blob([json], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
@@ -496,11 +524,11 @@
       URL.revokeObjectURL(url);
       alert('✅ Đã export backup file!\n\nFile chứa toàn bộ progress data từ Firebase.');
     }
-    
+
     function openFirebaseConsole() {
       window.open('https://console.firebase.google.com/project/english-fun-1937c/database/english-fun-1937c-default-rtdb/data', '_blank');
     }
-    
+
     async function refreshData() {
       const container = document.getElementById('viewer-content');
       container.innerHTML = `
@@ -509,14 +537,14 @@
           <p style="margin-top: 20px; font-size: 1.2em;">Đang tải lại dữ liệu...</p>
         </div>
       `;
-      
+
       await ProgressManager.load();
-      
+
       setTimeout(() => {
         renderViewer();
       }, 500);
     }
-    
+
     function confirmClearData() {
       const confirmed = confirm(
         '⚠️ CẢNH BÁO!\n\n' +
@@ -524,12 +552,12 @@
         'Hành động này KHÔNG THỂ HOÀN TÁC!\n\n' +
         'Nhấn OK để xác nhận xóa, hoặc Cancel để hủy.'
       );
-      
+
       if (confirmed) {
         const doubleConfirm = prompt(
           'Nhập "XOA" (viết hoa) để xác nhận xóa tất cả dữ liệu:'
         );
-        
+
         if (doubleConfirm === 'XOA') {
           clearAllData();
         } else {
@@ -537,7 +565,7 @@
         }
       }
     }
-    
+
     async function clearAllData() {
       try {
         // Clear Firebase
@@ -545,22 +573,22 @@
           await firebaseDB.ref(`users/${ProgressManager.userId}/progress`).remove();
           console.log('🗑️ Cleared Firebase data');
         }
-        
+
         // Clear ProgressManager
         ProgressManager.data = { progress: [] };
-        
+
         // Clear localStorage
         localStorage.removeItem('english_learning_progress');
-        
+
         alert('✅ Đã xóa tất cả dữ liệu!\n\nTrang sẽ được reload.');
         location.reload();
-        
+
       } catch (error) {
         console.error('Error clearing data:', error);
         alert('❌ Có lỗi khi xóa dữ liệu: ' + error.message);
       }
     }
-    
+
     function showError(message) {
       const container = document.getElementById('viewer-content');
       container.innerHTML = `
@@ -577,5 +605,5 @@
     }
   </script>
 </body>
-</html>
 
+</html>

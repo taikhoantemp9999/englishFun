@@ -824,6 +824,9 @@
         CONFIG = config;
         progressData = progress;
 
+        // Init Firebase with Config User ID
+        await initFirebase(CONFIG.user_id);
+
         // Load Lesson using LessonLoader
         currentLesson = await LessonLoader.loadLesson(currentLessonId);
 
@@ -1997,17 +2000,15 @@
       speechSynthesis.getVoices();
       speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
 
-      // Init Firebase first
-      await initFirebase();
-
       loadData();
     });
 
     // ===== FIREBASE INTEGRATION =====
-    async function initFirebase() {
+    // ===== FIREBASE INTEGRATION =====
+    async function initFirebase(configUserId) {
       try {
         if (typeof ProgressManager !== 'undefined') {
-          await ProgressManager.init();
+          await ProgressManager.init(configUserId);
           console.log('✅ Firebase initialized for lambaitap.html');
         } else {
           console.warn('⚠️ ProgressManager not loaded, using local progress');

@@ -825,6 +825,9 @@
         CONFIG = config;
         progressData = progress;
 
+        // Init Firebase with Config User ID
+        await initFirebase(CONFIG.user_id);
+
         // Load ALL lessons for comprehensive review
         LESSONS_DATA = await LessonLoader.loadAllLessons();
         currentLesson = LESSONS_DATA.lessons.find(l => l.id === currentLessonId);
@@ -1971,17 +1974,15 @@
       speechSynthesis.getVoices();
       speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
 
-      // Init Firebase first
-      await initFirebase();
-
       loadData();
     });
 
     // ===== FIREBASE INTEGRATION =====
-    async function initFirebase() {
+    // ===== FIREBASE INTEGRATION =====
+    async function initFirebase(configUserId) {
       try {
         if (typeof ProgressManager !== 'undefined') {
-          await ProgressManager.init();
+          await ProgressManager.init(configUserId);
           console.log('✅ Firebase initialized for luyentap.html');
         } else {
           console.warn('⚠️ ProgressManager not loaded, using local progress');

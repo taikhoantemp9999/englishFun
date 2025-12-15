@@ -38,6 +38,9 @@ async function loadData() {
         CONFIG = config;
         progressData = progress;
 
+        // Init Firebase with Config User ID
+        await initFirebase(CONFIG.user_id);
+
         // Load ALL lessons for comprehensive review
         // Note: LessonLoader must be loaded in the host HTML page
         if (typeof LessonLoader === 'undefined') {
@@ -1220,10 +1223,10 @@ function saveProgressFile() {
 
 // ==================== INITIALIZATION ====================
 
-async function initFirebase() {
+async function initFirebase(configUserId) {
     try {
         if (typeof ProgressManager !== 'undefined') {
-            await ProgressManager.init();
+            await ProgressManager.init(configUserId);
             console.log('✅ Firebase initialized for luyentap2.html');
         } else {
             console.warn('⚠️ ProgressManager not loaded, using local progress');
@@ -1237,6 +1240,5 @@ window.addEventListener('load', async () => {
     speechSynthesis.getVoices();
     speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
 
-    await initFirebase();
     loadData();
 });

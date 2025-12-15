@@ -1,5 +1,5 @@
 {
-  "user_id": "ZNqmu2TcUiSP5N04D85Bhb7FC6a2",
+  "": "ZNqmu2TcUiSP5N04D85Bhb7FC6a2",
   "new_lesson": {
     "max_questions": {
       "listen": 25,
@@ -51,7 +51,7 @@
       "listen_understand": {
         "enabled": true,
         "show_image": true,
-        "show_text_en": false,
+        "show_text_en": true,
         "show_text_vi": true,
         "auto_play_tts_en": true,
         "display_duration": 5000

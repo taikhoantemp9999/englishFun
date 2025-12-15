@@ -930,6 +930,9 @@
         const configRes = await fetch('../config.json');
         CONFIG = await configRes.json();
 
+        // Init Firebase with Config User ID
+        await initFirebase(CONFIG.user_id);
+
         // Load Lesson using LessonLoader
         LESSON_DATA = await LessonLoader.loadLesson(currentLessonId);
 
@@ -1131,11 +1134,21 @@
         hintText = '👀 Nhìn kỹ từng từ nhé!';
       }
 
+
+      // Get config for learn step (mapping 'learn' to 'listen_understand')
+      const stepConfig = CONFIG?.new_word_learning?.steps?.listen_understand || {
+        show_text_en: true,
+        show_text_vi: true
+      };
+
+      const showEn = stepConfig.show_text_en !== false; // Default true if missing
+      const showVi = stepConfig.show_text_vi !== false;
+
       textContainer.innerHTML = `
-      <div class="text-display text-vietnamese" style="font-size: 1.4em; margin-bottom: 15px;">
+      <div class="text-display text-vietnamese" style="font-size: 1.4em; margin-bottom: 15px; visibility: ${showVi ? 'visible' : 'hidden'}">
         ${meaning}
       </div>
-      <div class="text-display text-english" id="animated-word" style="font-size: ${item.type === 'word' ? '2.5em' : '1.8em'}; letter-spacing: ${item.type === 'word' ? '3px' : '0px'}; min-height: 80px; line-height: 1.4;">
+      <div class="text-display text-english" id="animated-word" style="font-size: ${item.type === 'word' ? '2.5em' : '1.8em'}; letter-spacing: ${item.type === 'word' ? '3px' : '0px'}; min-height: 80px; line-height: 1.4; visibility: ${showEn ? 'visible' : 'hidden'}">
         ${animatedHtml}
       </div>
       <div style="margin-top: 15px; font-size: 1em; color: #666;">
@@ -1292,7 +1305,7 @@
       <button class="btn-fun btn-hint" id="btn-hint" onclick="showHint()" style="opacity: 0; pointer-events: none; background: linear-gradient(135deg, #FFA726 0%, #FB8C00 100%); transition: opacity 0.5s ease;">💡 Gợi ý</button>
     `;
 
-      // Show hint button after 5 seconds
+      // Show hint button after 3 seconds (reduced from 5s)
       hintTimeout = setTimeout(() => {
         const hintBtn = document.getElementById('btn-hint');
         if (hintBtn) {
@@ -1300,7 +1313,7 @@
           hintBtn.style.pointerEvents = 'auto';
           playSpeech('Nếu con không nhớ, nhấn nút gợi ý nhé!', 'vi-VN');
         }
-      }, 5000);
+      }, 3000);
     }
 
     window.showHint = function () {
@@ -1453,7 +1466,7 @@
         input.addEventListener('keydown', handleTypingKeydown);
       }
 
-      // Show hint button after 5 seconds
+      // Show hint button after 3 seconds (reduced from 5s)
       typingHintTimeout = setTimeout(() => {
         const hintBtn = document.getElementById('typing-hint');
         if (hintBtn) {
@@ -1461,7 +1474,7 @@
           hintBtn.style.pointerEvents = 'auto';
           playSpeech('Nếu con không nhớ, nhấn nút gợi ý nhé!', 'vi-VN');
         }
-      }, 5000);
+      }, 3000);
 
       // Auto play word
       playSpeech(word, 'en-US');
@@ -1885,18 +1898,15 @@
       speechSynthesis.getVoices();
       speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
 
-      // Init Firebase first
-      await initFirebase();
-
-      // Load data and start
+      // Load data and start (Firebase init will happen inside after config load)
       loadData();
     });
 
     // ===== FIREBASE INTEGRATION =====
-    async function initFirebase() {
+    async function initFirebase(configUserId) {
       try {
         if (typeof ProgressManager !== 'undefined') {
-          await ProgressManager.init();
+          await ProgressManager.init(configUserId);
           console.log('✅ Firebase initialized for hocbaimoi.html');
         } else {
           console.warn('⚠️ ProgressManager not loaded');

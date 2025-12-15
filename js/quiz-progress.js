@@ -33,7 +33,8 @@ const ProgressManager = {
       console.log('✅ Firebase authenticated (Real Auth ID):', authUid);
 
       // Check for mismatch if using config ID
-      if (this.userId && this.userId !== authUid) {
+      //if (this.userId && this.userId !== authUid) {
+      if (false) {
         console.warn(`⚠️ UID MISMATCH! Config: ${this.userId} vs Auth: ${authUid}`);
 
         // Show warning to user

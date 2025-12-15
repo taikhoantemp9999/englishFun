@@ -1,60 +1,72 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>📊 Tiến độ học tập - English Fun</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    html, body { 
-      height: 100%; 
-      background: #f7fafc; 
+    html,
+    body {
+      height: 100%;
+      background: #f7fafc;
     }
+
     .container-main {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
     }
+
     .header-nav {
       background: #fff;
       border-radius: 12px;
       padding: 15px 25px;
       margin-bottom: 25px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     .nav-title {
       font-size: 1.5rem;
       font-weight: bold;
       color: #333;
     }
+
     .stat-item {
       padding: 10px;
     }
+
     .stat-item h3 {
       margin: 0;
       font-size: 2rem;
       font-weight: bold;
     }
+
     .lesson-progress-item {
       border-bottom: 1px solid #e9ecef;
       padding-bottom: 15px;
     }
+
     .lesson-progress-item:last-child {
       border-bottom: none;
     }
+
     .card {
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       border: none;
       margin-bottom: 20px;
     }
+
     .card-header {
       font-weight: bold;
     }
   </style>
 </head>
+
 <body>
   <!-- Header với menu điều hướng -->
   <div class="header-nav">
@@ -87,25 +99,25 @@
           await ProgressManager.load();
           console.log('📊 Loaded progress from Firebase:', ProgressManager.data.progress.length, 'items');
           return ProgressManager.data;
-        } catch(e) {
+        } catch (e) {
           console.error('❌ Error loading from Firebase:', e);
         }
       }
-      
+
       // Priority 2: localStorage
       const d = localStorage.getItem("progressData");
-      if(d) {
+      if (d) {
         try {
           const parsed = JSON.parse(d);
           if (parsed && parsed.progress && Array.isArray(parsed.progress)) {
             console.log('📂 Loaded progress from localStorage:', parsed.progress.length, 'items');
             return parsed;
           }
-        } catch(e) {
+        } catch (e) {
           console.error("Lỗi parse progress:", e);
         }
       }
-      
+
       // Priority 3: file
       try {
         const response = await fetch('../data/progress.json');
@@ -117,10 +129,10 @@
             return fileData;
           }
         }
-      } catch(e) {
+      } catch (e) {
         console.error("Lỗi đọc file progress:", e);
       }
-      
+
       console.log('📝 No progress data found, starting fresh');
       return { progress: [] };
     }
@@ -130,7 +142,7 @@
       try {
         const response = await fetch('../data/lessons.json');
         return await response.json();
-      } catch(e) {
+      } catch (e) {
         console.error("Lỗi đọc lessons:", e);
         return { lessons: [] };
       }
@@ -155,7 +167,7 @@
           dailyProgress: []
         };
       }
-      
+
       const stats = {
         totalItems: progress.progress.length,
         masteredItems: 0,
@@ -171,19 +183,19 @@
         achievements: [],
         dailyProgress: []
       };
-      
+
       const MIN_ATTEMPTS_FOR_MASTERY = 5;
-      
+
       progress.progress.forEach(item => {
         const correct = item.correct || 0;
         const wrong = item.wrong || 0;
         const total = correct + wrong;
         const accuracy = total > 0 ? (correct / total) * 100 : 0;
-        
+
         const isFullyMastered = accuracy >= 80 && total >= MIN_ATTEMPTS_FOR_MASTERY && wrong === 0;
-        
+
         let itemStatus = 'new';
-        
+
         if (total === 0) {
           stats.newItems++;
           itemStatus = 'new';
@@ -207,12 +219,12 @@
           stats.learningItems++;
           itemStatus = 'weak';
         }
-        
+
         // Thống kê theo bài
         const lessonId = item.lessonId || 'unknown';
         if (!stats.lessonStats[lessonId]) {
-          stats.lessonStats[lessonId] = { 
-            total: 0, mastered: 0, good: 0, needReview: 0, 
+          stats.lessonStats[lessonId] = {
+            total: 0, mastered: 0, good: 0, needReview: 0,
             average: 0, weak: 0, new: 0, learning: 0
           };
         }
@@ -221,19 +233,19 @@
         if (itemStatus !== 'new' && itemStatus !== 'mastered') {
           stats.lessonStats[lessonId].learning++;
         }
-        
+
         // Kiểm tra cần ôn
         if (item.nextReview && new Date(item.nextReview) <= new Date()) {
           stats.dueItems.push(item);
         }
       });
-      
-      stats.masteryPercentage = stats.totalItems > 0 ? 
+
+      stats.masteryPercentage = stats.totalItems > 0 ?
         Math.round((stats.masteredItems / stats.totalItems) * 100) : 0;
-      
+
       stats.achievements = calculateAchievements(stats);
       stats.dailyProgress = generateDailyProgressData(progress);
-      
+
       return stats;
     }
 
@@ -243,13 +255,13 @@
       Object.keys(lessonStats).forEach(lessonId => {
         const lesson = lessonStats[lessonId];
         const lessonName = getLessonName(lessonId, lessonsData);
-        const masteryPercent = lesson.total > 0 ? 
+        const masteryPercent = lesson.total > 0 ?
           Math.round((lesson.mastered / lesson.total) * 100) : 0;
         const goodPercent = lesson.total > 0 ? (lesson.good / lesson.total * 100).toFixed(1) : 0;
         const needReviewPercent = lesson.total > 0 ? (lesson.needReview / lesson.total * 100).toFixed(1) : 0;
         const averagePercent = lesson.total > 0 ? (lesson.average / lesson.total * 100).toFixed(1) : 0;
         const weakPercent = lesson.total > 0 ? (lesson.weak / lesson.total * 100).toFixed(1) : 0;
-        
+
         html += `
           <div class="lesson-progress-item mb-3">
             <div class="d-flex justify-content-between align-items-center mb-2">
@@ -298,14 +310,14 @@
       if (dueItems.length === 0) {
         return '<p class="text-success">🎉 Tuyệt vời! Không có từ/câu nào cần ôn luyện.</p>';
       }
-      
+
       let html = '<div class="row">';
       dueItems.slice(0, 12).forEach(item => {
-        const itemName = item.type === 'word' ? item.word : 
+        const itemName = item.type === 'word' ? item.word :
           (item.sentence ? item.sentence.en : 'Unknown');
-        const daysOverdue = item.nextReview ? 
+        const daysOverdue = item.nextReview ?
           Math.floor((new Date() - new Date(item.nextReview)) / (1000 * 60 * 60 * 24)) : 0;
-        
+
         html += `
           <div class="col-md-6 col-lg-4 mb-2">
             <div class="card border-warning">
@@ -320,18 +332,18 @@
         `;
       });
       html += '</div>';
-      
+
       if (dueItems.length > 12) {
         html += `<p class="text-center mt-3"><small>Còn ${dueItems.length - 12} từ/câu khác...</small></p>`;
       }
-      
+
       return html;
     }
 
     // ===== THÀNH TÍCH =====
     function calculateAchievements(stats) {
       const achievements = [];
-      
+
       if (stats.masteredItems >= 10) {
         achievements.push({
           icon: '🎓',
@@ -339,7 +351,7 @@
           description: `Đã thành thạo ${stats.masteredItems} từ/câu`
         });
       }
-      
+
       if (stats.totalItems >= 50) {
         achievements.push({
           icon: '📚',
@@ -347,7 +359,7 @@
           description: `Đã học ${stats.totalItems} từ/câu`
         });
       }
-      
+
       if (stats.masteryPercentage >= 80) {
         achievements.push({
           icon: '⭐',
@@ -355,7 +367,7 @@
           description: `Tỷ lệ thành thạo ${stats.masteryPercentage}%`
         });
       }
-      
+
       if (stats.dueItems.length === 0) {
         achievements.push({
           icon: '🔥',
@@ -363,7 +375,7 @@
           description: 'Không có từ/câu nào cần ôn'
         });
       }
-      
+
       return achievements;
     }
 
@@ -371,7 +383,7 @@
       if (achievements.length === 0) {
         return '<p class="text-muted">Chưa có thành tích nào. Hãy tiếp tục học tập!</p>';
       }
-      
+
       let html = '<div class="row">';
       achievements.forEach(achievement => {
         html += `
@@ -387,7 +399,7 @@
         `;
       });
       html += '</div>';
-      
+
       return html;
     }
 
@@ -395,11 +407,11 @@
     function generateDailyProgressData(progress) {
       const data = [];
       const now = new Date();
-      
+
       for (let i = 6; i >= 0; i--) {
         const date = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
         const dateStr = date.toISOString().split('T')[0];
-        
+
         const studiedToday = progress.progress.filter(item => {
           if (!item.lastReviewed) return false;
           try {
@@ -409,39 +421,39 @@
             return false;
           }
         }).length;
-        
+
         data.push({
           date: dateStr,
           studied: studiedToday,
           label: date.toLocaleDateString('vi-VN', { weekday: 'short' })
         });
       }
-      
+
       return data;
     }
 
     function drawProgressChart(dailyData) {
       const canvas = document.getElementById('progressChart');
       if (!canvas) return;
-      
+
       const ctx = canvas.getContext('2d');
       const width = canvas.width;
       const height = canvas.height;
-      
+
       ctx.clearRect(0, 0, width, height);
-      
+
       const maxValue = Math.max(...dailyData.map(d => d.studied), 1);
       const barWidth = width / dailyData.length * 0.8;
       const barSpacing = width / dailyData.length * 0.2;
-      
+
       dailyData.forEach((data, index) => {
         const barHeight = (data.studied / maxValue) * height * 0.7;
         const x = index * (barWidth + barSpacing) + barSpacing / 2;
         const y = height - barHeight - 30;
-        
+
         ctx.fillStyle = data.studied > 0 ? '#28a745' : '#e9ecef';
         ctx.fillRect(x, y, barWidth, barHeight);
-        
+
         ctx.fillStyle = '#333';
         ctx.font = '12px Arial';
         ctx.textAlign = 'center';
@@ -455,7 +467,7 @@
       try {
         const progress = await getProgress();
         const dataStr = JSON.stringify(progress, null, 2);
-        const dataBlob = new Blob([dataStr], {type: 'application/json'});
+        const dataBlob = new Blob([dataStr], { type: 'application/json' });
         const url = URL.createObjectURL(dataBlob);
         const link = document.createElement('a');
         link.href = url;
@@ -466,7 +478,7 @@
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
         alert('✅ Đã xuất file tiến độ!');
-      } catch(e) {
+      } catch (e) {
         console.error("Lỗi xuất tiến độ:", e);
         alert('❌ Lỗi xuất tiến độ: ' + e.message);
       }
@@ -478,7 +490,7 @@
         const progress = await getProgress();
         const lessonsData = await getLessonsData();
         const stats = calculateLearningStats(progress, lessonsData);
-        
+
         const dashboardHTML = `
           <div class="row">
             <!-- Tổng quan -->
@@ -543,17 +555,17 @@
                       <div class="progress-bar bg-success" style="width: ${stats.masteryPercentage}%" title="Thành thạo: ${stats.masteredItems}">
                         ${stats.masteryPercentage > 5 ? stats.masteredItems : ''}
                       </div>
-                      <div class="progress-bar bg-info" style="width: ${(stats.goodItems/stats.totalItems*100).toFixed(1)}%" title="Tốt: ${stats.goodItems}">
-                        ${stats.goodItems > 0 && stats.goodItems/stats.totalItems*100 > 5 ? stats.goodItems : ''}
+                      <div class="progress-bar bg-info" style="width: ${(stats.goodItems / stats.totalItems * 100).toFixed(1)}%" title="Tốt: ${stats.goodItems}">
+                        ${stats.goodItems > 0 && stats.goodItems / stats.totalItems * 100 > 5 ? stats.goodItems : ''}
                       </div>
-                      <div class="progress-bar bg-danger" style="width: ${(stats.needReviewItems/stats.totalItems*100).toFixed(1)}%" title="Cần ôn: ${stats.needReviewItems}">
-                        ${stats.needReviewItems > 0 && stats.needReviewItems/stats.totalItems*100 > 5 ? stats.needReviewItems : ''}
+                      <div class="progress-bar bg-danger" style="width: ${(stats.needReviewItems / stats.totalItems * 100).toFixed(1)}%" title="Cần ôn: ${stats.needReviewItems}">
+                        ${stats.needReviewItems > 0 && stats.needReviewItems / stats.totalItems * 100 > 5 ? stats.needReviewItems : ''}
                       </div>
-                      <div class="progress-bar bg-warning" style="width: ${(stats.averageItems/stats.totalItems*100).toFixed(1)}%" title="Trung bình: ${stats.averageItems}">
-                        ${stats.averageItems > 0 && stats.averageItems/stats.totalItems*100 > 5 ? stats.averageItems : ''}
+                      <div class="progress-bar bg-warning" style="width: ${(stats.averageItems / stats.totalItems * 100).toFixed(1)}%" title="Trung bình: ${stats.averageItems}">
+                        ${stats.averageItems > 0 && stats.averageItems / stats.totalItems * 100 > 5 ? stats.averageItems : ''}
                       </div>
-                      <div class="progress-bar bg-secondary" style="width: ${(stats.weakItems/stats.totalItems*100).toFixed(1)}%" title="Yếu: ${stats.weakItems}">
-                        ${stats.weakItems > 0 && stats.weakItems/stats.totalItems*100 > 5 ? stats.weakItems : ''}
+                      <div class="progress-bar bg-secondary" style="width: ${(stats.weakItems / stats.totalItems * 100).toFixed(1)}%" title="Yếu: ${stats.weakItems}">
+                        ${stats.weakItems > 0 && stats.weakItems / stats.totalItems * 100 > 5 ? stats.weakItems : ''}
                       </div>
                     </div>
                     <small class="text-muted">Tỷ lệ thành thạo: ${stats.masteryPercentage}% (${stats.masteredItems}/${stats.totalItems})</small>
@@ -623,15 +635,15 @@
             <button class="btn btn-info" onclick="exportProgress()">💾 Xuất tiến độ</button>
           </div>
         `;
-        
+
         document.getElementById('dashboard-content').innerHTML = dashboardHTML;
-        
+
         // Vẽ biểu đồ sau khi render
         setTimeout(() => {
           drawProgressChart(stats.dailyProgress);
         }, 100);
-        
-      } catch(e) {
+
+      } catch (e) {
         console.error("Lỗi hiển thị dashboard:", e);
         document.getElementById('dashboard-content').innerHTML = `
           <div class="alert alert-danger">
@@ -645,15 +657,26 @@
 
     // Tải dashboard khi trang load
     window.addEventListener('DOMContentLoaded', async () => {
-      await initFirebase();
+      // 1. Load Config first to get User ID
+      try {
+        const configRes = await fetch('../config.json');
+        const CONFIG = await configRes.json();
+
+        // 2. Init Firebase with Config User ID
+        await initFirebase(CONFIG.user_id);
+      } catch (e) {
+        console.warn('Cannot load config.json, using default/auth ID', e);
+        await initFirebase();
+      }
+
       showDashboard();
     });
-    
+
     // ===== FIREBASE INTEGRATION =====
-    async function initFirebase() {
+    async function initFirebase(configUserId) {
       try {
         if (typeof ProgressManager !== 'undefined') {
-          await ProgressManager.init();
+          await ProgressManager.init(configUserId);
           console.log('✅ Firebase initialized for dashboard.html');
         } else {
           console.warn('⚠️ ProgressManager not loaded');
@@ -663,15 +686,15 @@
       }
     }
   </script>
-  
+
   <!-- ===== Firebase CDN ===== -->
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-  
+
   <!-- ===== Firebase Config & Progress Manager ===== -->
   <script src="../js/firebase-config.js"></script>
   <script src="../js/quiz-progress.js"></script>
 </body>
-</html>
 
+</html>
