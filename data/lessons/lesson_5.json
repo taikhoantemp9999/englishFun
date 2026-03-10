@@ -1,100 +1,149 @@
 {
     "id": 5,
-    "title": "Lesson 5: Body Parts",
-    "description": "Các bộ phận cơ thể",
+    "title": "Lesson 5: Animals",
+    "description": "Các con vật",
     "words": [
         {
-            "word": "arm",
-            "meaning": "Cánh tay",
+            "word": "dog",
+            "meaning": "Con chó",
             "images": [
-                "data/images/lesson5/arm.png"
+                "data/images/lesson5/dog.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "cat",
+            "meaning": "Con mèo",
+            "images": [
+                "data/images/lesson5/cat.png"
             ],
             "sentences": [
                 {
-                    "en": "This is my arm.",
-                    "vi": "Đây là tay của tôi.",
+                    "en": "I like cat",
+                    "vi": "Tôi thích mèo.",
                     "images": [
-                        "data/images/lesson5/thisismyarm.png"
-                    ]
-                },
-                {
-                    "en": "Touch your arm",
-                    "vi": "Chạm vào cánh tay của bạn.",
-                    "images": [
-                        "data/images/lesson5/touchyourarm.png"
+                        "data/images/lesson5/ilikecat.png"
                     ]
                 }
             ]
         },
         {
-            "word": "Leg",
-            "meaning": "Chân",
+            "word": "bird",
+            "meaning": "Con chim",
             "images": [
-                "data/images/lesson5/leg.png"
+                "data/images/lesson5/bird.png"
             ],
             "sentences": [
                 {
-                    "en": "Touch your leg .",
-                    "vi": "Chạm vào chân của bạn.",
+                    "en": "I like bird",
+                    "vi": "Tôi thích chim.",
                     "images": [
-                        "data/images/lesson5/touchyourleg.png"
+                        "data/images/lesson5/ilikebird.png"
                     ]
                 }
             ]
         },
         {
-            "word": "Head",
-            "meaning": "Đầu",
+            "word": "elephant",
+            "meaning": "Con voi",
             "images": [
-                "data/images/lesson5/head.png"
+                "data/images/lesson5/elephant.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "monkey",
+            "meaning": "Con khỉ",
+            "images": [
+                "data/images/lesson5/monkey.png"
             ],
             "sentences": [
                 {
-                    "en": "Touch your head",
-                    "vi": "Chạm vào đầu của bạn.",
+                    "en": "This is a monkey",
+                    "vi": "Đây là một con khỉ.",
                     "images": [
-                        "data/images/lesson5/touchyourhead.png"
+                        "data/images/lesson5/thisisamonkey.png"
                     ]
                 }
             ]
         },
         {
-            "word": "neck",
-            "meaning": "Cổ",
+            "word": "bear",
+            "meaning": "Con gấu",
             "images": [
-                "data/images/lesson5/neck.png"
+                "data/images/lesson5/bear.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is a bear",
+                    "vi": "Đây là một con gấu.",
+                    "images": [
+                        "data/images/lesson5/thisisabear.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "snake",
+            "meaning": "Con rắn",
+            "images": [
+                "data/images/lesson5/snake.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is a snake",
+                    "vi": "Đây là một con rắn.",
+                    "images": [
+                        "data/images/lesson5/thisisasnake.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "G",
+            "meaning": "G",
+            "images": [
+                "data/images/lesson5/g.png"
             ],
             "sentences": []
         },
         {
-            "word": "hand",
-            "meaning": "Tay",
+            "word": "Girl",
+            "meaning": "Bé gái",
             "images": [
-                "data/images/lesson5/hand.png"
+                "data/images/lesson5/girl.png"
             ],
             "sentences": []
         },
         {
-            "word": "foot",
-            "meaning": "Chân",
+            "word": "H",
+            "meaning": "Chữ H",
             "images": [
-                "data/images/lesson5/foot.png"
+                "data/images/lesson5/h.png"
             ],
             "sentences": []
         },
         {
-            "word": "finger",
-            "meaning": "Ngón tay",
+            "word": "Hop",
+            "meaning": "Nhảy lò cò",
             "images": [
-                "data/images/lesson5/finger.png"
+                "data/images/lesson5/hop.png"
             ],
             "sentences": []
         },
         {
-            "word": "toe",
-            "meaning": "Ngón chân",
+            "word": "I'm sorry",
+            "meaning": "Tôi xin lỗi",
             "images": [
-                "data/images/lesson5/toe.png"
+                "data/images/lesson5/imsorry.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "That's OK",
+            "meaning": "Không sao",
+            "images": [
+                "data/images/lesson5/thats_ok.png"
             ],
             "sentences": []
         }

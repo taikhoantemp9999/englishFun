@@ -1,55 +1,55 @@
 {
     "id": 6,
-    "title": "Lesson 6: Animals",
-    "description": "Các con vật",
+    "title": "Lesson 6: Activities",
+    "description": "Các hoạt động",
     "words": [
         {
-            "word": "dog",
-            "meaning": "Con chó",
+            "word": "swim",
+            "meaning": "Bơi",
             "images": [
-                "data/images/lesson6/dog.png"
+                "data/images/lesson6/swim.png"
             ],
-            "sentences": []
+            "sentences": [
+                {
+                    "en": "I can swim",
+                    "vi": "Tôi có thể bơi",
+                    "images": [
+                        "data/images/lesson6/i_can_swim.png"
+                    ]
+                }
+            ]
         },
         {
-            "word": "cat",
-            "meaning": "Con mèo",
+            "word": "sing",
+            "meaning": "Hát",
             "images": [
-                "data/images/lesson6/cat.png"
+                "data/images/lesson6/sing.png"
             ],
-            "sentences": []
+            "sentences": [
+                {
+                    "en": "I can sing",
+                    "vi": "Tôi có thể hát",
+                    "images": [
+                        "data/images/lesson6/i_can_sing.png"
+                    ]
+                }
+            ]
         },
         {
-            "word": "bird",
-            "meaning": "Con chim",
+            "word": "run",
+            "meaning": "Chạy",
             "images": [
-                "data/images/lesson6/bird.png"
+                "data/images/lesson6/run.png"
             ],
-            "sentences": []
-        },
-        {
-            "word": "elephant",
-            "meaning": "Con voi",
-            "images": [
-                "data/images/lesson6/elephant.png"
-            ],
-            "sentences": []
-        },
-        {
-            "word": "monkey",
-            "meaning": "Con khỉ",
-            "images": [
-                "data/images/lesson6/monkey.png"
-            ],
-            "sentences": []
-        },
-        {
-            "word": "snake",
-            "meaning": "Con rắn",
-            "images": [
-                "data/images/lesson6/snake.png"
-            ],
-            "sentences": []
+            "sentences": [
+                {
+                    "en": "I can run",
+                    "vi": "Tôi có thể chạy",
+                    "images": [
+                        "data/images/lesson6/i_can_run.png"
+                    ]
+                }
+            ]
         }
     ]
 }

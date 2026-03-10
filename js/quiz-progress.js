@@ -89,6 +89,9 @@ const ProgressManager = {
       if (snapshot.exists()) {
         this.data = snapshot.val();
         console.log('✅ Loaded from Firebase:', this.data.progress.length, 'items');
+
+        // Deduplicate to fix >100% bug
+        this.deduplicate();
       } else {
         console.log('📝 No data in Firebase, starting fresh');
         this.data = { progress: [] };
@@ -305,6 +308,47 @@ const ProgressManager = {
     URL.revokeObjectURL(url);
 
     alert('✅ Đã xuất file: ' + filename);
+  },
+
+  // ===== DEDUPLICATE =====
+  deduplicate() {
+    if (!this.data.progress || this.data.progress.length === 0) return;
+
+    const unique = new Map();
+    let removedCount = 0;
+
+    this.data.progress.forEach(item => {
+      let key;
+      if (item.word) {
+        key = `w_${item.lessonId}_${item.word.toLowerCase()}`;
+      } else if (item.sentence && item.sentence.en) {
+        key = `s_${item.lessonId}_${item.sentence.en.toLowerCase()}`;
+      } else {
+        // Fallback for invalid items (skip them or keep them unique by random?)
+        // Let's filter invalid items out actually
+        return;
+      }
+
+      if (unique.has(key)) {
+        // Keep the one with more progress (higher repetitions or attempts)
+        const existing = unique.get(key);
+        const existingTotal = (existing.correct || 0) + (existing.wrong || 0);
+        const currentTotal = (item.correct || 0) + (item.wrong || 0);
+
+        if (currentTotal > existingTotal) {
+          unique.set(key, item);
+        }
+        removedCount++;
+      } else {
+        unique.set(key, item);
+      }
+    });
+
+    if (removedCount > 0) {
+      this.data.progress = Array.from(unique.values());
+      console.log(`🧹 Deduplicated: Removed ${removedCount} duplicate items`);
+      this.saveToFirebase(); // Persist cleanup
+    }
   },
 
   // ===== UTILS =====

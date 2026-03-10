@@ -778,6 +778,27 @@
                     <button class="btn-mode" onclick="startQuiz('read')">👁️ Đọc</button>
                     <button class="btn-mode" onclick="startQuiz('write')">✍️ Viết</button>
                     <button class="btn-mode" onclick="startQuiz('mix')">🌀 Trộn</button>
+                    <button class="btn-mode" onclick="previewSelection()" style="background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%); font-size: 1em; padding: 15px 30px;">🔍 Xem lý do chọn</button>
+                </div>
+                
+                <div id="preview-area" class="hidden" style="margin-top: 20px; text-align: left; max-height: 400px; overflow-y: auto; background: #f8f9fa; padding: 15px; border-radius: 10px;">
+                    <h3 style="color: #2d3748; font-size: 1.2em; margin-bottom: 10px;">📊 Phân tích thuật toán chọn đề</h3>
+                    <div style="font-size: 0.9em; margin-bottom: 15px; color: #666;">
+                        <i>Hệ thống chọn 50% câu hỏi từ bài mới (Quota) và 50% câu từ các bài cũ có điểm ưu tiên cao nhất (hay sai, lâu chưa học).</i>
+                    </div>
+                    <table class="table table-sm table-bordered" style="font-size: 0.85em; background: white;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Bài</th>
+                                <th>Nội dung</th>
+                                <th>Điểm Ưu Tiên</th>
+                                <th>Lý do</th>
+                            </tr>
+                        </thead>
+                        <tbody id="preview-table-body"></tbody>
+                    </table>
+                    <button class="btn btn-sm btn-secondary mt-2" onclick="document.getElementById('preview-area').classList.add('hidden')">Đóng</button>
                 </div>
             </div>
 

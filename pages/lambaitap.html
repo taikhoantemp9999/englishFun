@@ -813,7 +813,7 @@
     async function loadData() {
       try {
         const urlParams = new URLSearchParams(window.location.search);
-        currentLessonId = parseInt(urlParams.get('lesson') || '1');
+        currentLessonId = parseInt(urlParams.get('lesson') || '0');
 
         // Load config and progress
         const [config, progress] = await Promise.all([

@@ -1,0 +1,132 @@
+{
+    "id": 7,
+    "title": "Lesson 7: Numbers",
+    "description": "Số đếm",
+    "words": [
+        {
+            "word": "one",
+            "meaning": "Một",
+            "images": [
+                "data/images/lesson7/one.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "two",
+            "meaning": "Hai",
+            "images": [
+                "data/images/lesson7/two.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "three",
+            "meaning": "Ba",
+            "images": [
+                "data/images/lesson7/three.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "four",
+            "meaning": "Bốn",
+            "images": [
+                "data/images/lesson7/four.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "five",
+            "meaning": "Năm",
+            "images": [
+                "data/images/lesson7/five.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "six",
+            "meaning": "Sáu",
+            "images": [
+                "data/images/lesson7/six.png"
+            ],
+            "sentences": [
+                {
+                    "en": "How old are you?",
+                    "vi": "Bạn bao nhiêu tuổi?",
+                    "images": [
+                        "data/images/lesson7/how_old_are_you.png"
+                    ]
+                },
+                {
+                    "en": "I'm six.",
+                    "vi": "Tôi sáu tuổi.",
+                    "images": [
+                        "data/images/lesson7/im_six.png"
+                    ]
+                },
+                {
+                    "en": "Bình's four",
+                    "vi": "Bình bốn tuổi",
+                    "images": [
+                        "data/images/lesson7/binh_four.png"
+                    ]
+                },
+                {
+                    "en": "Phương's five",
+                    "vi": "Phương năm tuổi",
+                    "images": [
+                        "data/images/lesson7/phuong_five.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "I",
+            "meaning": "Chữ I",
+            "images": [
+                "data/images/lesson7/i.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "insect",
+            "meaning": "Côn trùng",
+            "images": [
+                "data/images/lesson7/insect.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "ink",
+            "meaning": "Mực",
+            "images": [
+                "data/images/lesson7/ink.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "J",
+            "meaning": "Chữ J",
+            "images": [
+                "data/images/lesson7/j.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "jump",
+            "meaning": "Nhảy",
+            "images": [
+                "data/images/lesson7/jump.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "juice",
+            "meaning": "Nước ép",
+            "images": [
+                "data/images/lesson7/juice.png"
+            ],
+            "sentences": []
+        }
+    ]
+}

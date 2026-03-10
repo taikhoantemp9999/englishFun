@@ -1,38 +1,63 @@
 {
   "metadata": {
     "version": "1.0",
-    "total_lessons": 6
+    "total_lessons": 11
   },
   "lessons": [
     {
-      "id": 1,
-      "title": "Lesson 1: Getting Started",
+      "id": 0,
+      "title": "Lesson 0: Getting Started",
       "description": "Chào hỏi và các hiệu lệnh trong lớp"
     },
     {
-      "id": 2,
-      "title": "Lesson 2: Family",
+      "id": 1,
+      "title": "Lesson 1: Family",
       "description": "Giới thiệu các thành viên trong gia đình và làm quen"
     },
     {
-      "id": 3,
-      "title": "Lesson 3: School",
+      "id": 2,
+      "title": "Lesson 2: School",
       "description": "Những đồ vật quen thuộc ở trường học"
     },
     {
-      "id": 4,
-      "title": "Lesson 4: Colors",
+      "id": 3,
+      "title": "Lesson 3: Colors",
       "description": "Màu sắc cơ bản"
     },
     {
-      "id": 5,
-      "title": "Lesson 5: Body Parts",
+      "id": 4,
+      "title": "Lesson 4: Body Parts",
       "description": "Các bộ phận cơ thể"
     },
     {
-      "id": 6,
-      "title": "Lesson 6: Animals",
+      "id": 5,
+      "title": "Lesson 5: Animals",
       "description": "Các con vật"
+    },
+    {
+      "id": 6,
+      "title": "Lesson 6: Activities",
+      "description": "Các hoạt động"
+    },
+    {
+      "id": 7,
+      "title": "Lesson 7: Numbers",
+      "description": "Số đếm"
+    },
+    {
+      "id": 8,
+      "title": "Lesson 8: Food",
+      "description": "Đồ ăn"
+    },
+    {
+      "id": 9,
+      "title": "Lesson 9: Toys",
+      "description": "Đồ chơi"
+    },
+    {
+      "id": 10,
+      "title": "Lesson 10: My house",
+      "description": "Ngôi nhà của tôi"
     }
   ]
 }

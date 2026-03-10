@@ -815,7 +815,7 @@
     async function loadData() {
       try {
         const urlParams = new URLSearchParams(window.location.search);
-        currentLessonId = parseInt(urlParams.get('lesson') || '1');
+        currentLessonId = parseInt(urlParams.get('lesson') || '0');
 
         const [config, progress] = await Promise.all([
           fetch('../config.json').then(r => r.json()),
@@ -838,7 +838,7 @@
           return;
         }
 
-        document.getElementById('lesson-info').textContent = `Ôn tập: Bài 1 → Bài ${currentLessonId}`;
+        document.getElementById('lesson-info').textContent = `Ôn tập: Bài 0 → Bài ${currentLessonId}`;
       } catch (error) {
         console.error('Lỗi tải dữ liệu:', error);
 
@@ -1925,7 +1925,7 @@
       <div class="summary-screen">
         <h2>🎉 Hoàn thành Ôn Tập!</h2>
         <div class="summary-stars">${stars}</div>
-        <p style="color: #11998e; font-size: 1.1em; margin: 10px 0;">📚 Bài 1 → Bài ${currentLessonId}</p>
+        <p style="color: #11998e; font-size: 1.1em; margin: 10px 0;">📚 Bài 0 → Bài ${currentLessonId}</p>
         <div class="summary-stats">
           ✅ Đúng: ${quizCorrect}/${total} (${accuracy}%)<br>
           ❌ Sai: ${quizWrong}<br>

@@ -30,16 +30,23 @@ async function loadData() {
         const urlParams = new URLSearchParams(window.location.search);
         currentLessonId = parseInt(urlParams.get('lesson') || '1');
 
-        const [config, progress] = await Promise.all([
-            fetch('../config.json').then(r => r.json()),
-            loadProgress()
-        ]);
+        const configRes = await fetch('../config.json');
+        CONFIG = await configRes.json();
 
-        CONFIG = config;
-        progressData = progress;
+        // Initialize ProgressManager (Firebase/LocalStorage)
+        // Ensure quiz-progress.js is loaded in HTML
+        if (typeof ProgressManager !== 'undefined') {
+            await ProgressManager.init(CONFIG.user_id);
+            await ProgressManager.load();
+            progressData = ProgressManager.data;
+            console.log('✅ Loaded progress from ProgressManager:', progressData.progress.length, 'items');
+        } else {
+            console.error('❌ ProgressManager not found! Using empty progress.');
+            progressData = { progress: [] };
+        }
 
-        // Init Firebase with Config User ID
-        await initFirebase(CONFIG.user_id);
+        // Init Firebase (Legacy? ProgressManager handles this now but keep if other things need it)
+        // await initFirebase(CONFIG.user_id); 
 
         // Load ALL lessons for comprehensive review
         // Note: LessonLoader must be loaded in the host HTML page
@@ -89,19 +96,46 @@ async function loadProgress() {
 
 // ==================== AUDIO & VISUAL EFFECTS ====================
 
+// Global utterance to prevent GC
+window.currentUtterance = null;
+
 function playSpeech(text, lang = 'en-US') {
     if (!text) return;
+
+    // Cancel any ongoing speech
     speechSynthesis.cancel();
+
+    // Small delay to ensure cancellation takes effect and engine is ready
     setTimeout(() => {
-        const utterance = new SpeechSynthesisUtterance(text);
+        // Add a leading space/period. This is a common hack to prevent 
+        // the first syllable from being cut off by some TTS engines.
+        // e.g. " mother" instead of "mother"
+        const safeText = " . " + text;
+
+        const utterance = new SpeechSynthesisUtterance(safeText);
         utterance.lang = lang;
         utterance.rate = 0.85;
         utterance.pitch = 1.1;
+
+        // Select voice
         const voices = speechSynthesis.getVoices();
         const voice = voices.find(v => v.lang.startsWith(lang.split('-')[0]));
         if (voice) utterance.voice = voice;
+
+        // Prevent Garbage Collection by storing in global scope
+        window.currentUtterance = utterance;
+
+        utterance.onend = function () {
+            window.currentUtterance = null;
+        };
+
+        utterance.onerror = function (e) {
+            console.error('Speech error:', e);
+            window.currentUtterance = null;
+        };
+
         speechSynthesis.speak(utterance);
-    }, 180);
+    }, 150);
 }
 
 function playCorrectSound() {
@@ -203,6 +237,41 @@ function startQuiz(mode) {
     showNextQuestion();
 }
 
+/**
+ * DEBUG: Preview the algorithm selection
+ */
+function previewSelection() {
+    const lessonsToReview = LESSONS_DATA.lessons.filter(l => l.id <= currentLessonId);
+    const cfg = CONFIG.daily_review.max_questions;
+
+    // Generate questions in 'preview' mode to get metadata
+    // We pass 'mix' limit (usually 30) but 'preview' mode flag
+    const selectedItems = generateReviewQuestions(lessonsToReview, cfg, 'preview');
+
+    const tbody = document.getElementById('preview-table-body');
+    tbody.innerHTML = '';
+
+    selectedItems.forEach((item, index) => {
+        const tr = document.createElement('tr');
+
+        // Determine content
+        let content = '';
+        if (item.type === 'word') content = item.data.word;
+        else content = item.data.sentence ? (item.data.sentence.en || item.data.sentence) : 'Sentence';
+
+        tr.innerHTML = `
+            <td>${index + 1}</td>
+            <td style="text-align: center;"><span class="badge bg-secondary">Bài ${item.data.lessonId}</span></td>
+            <td><b>${content}</b></td>
+            <td style="text-align: center; font-weight: bold; color: ${item.priority > 5 ? 'red' : 'green'}">${item.priority.toFixed(1)}</td>
+            <td><small>${item.reason}</small></td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    document.getElementById('preview-area').classList.remove('hidden');
+}
+
 // ==================== QUESTION GENERATION WITH PRIORITY ALGORITHM ====================
 
 /**
@@ -256,8 +325,77 @@ function generateReviewQuestions(lessons, cfg, mode) {
     // Sort by priority (highest first)
     mixedPool.sort((a, b) => b.priority - a.priority);
 
+    // If in preview mode, return the raw pool for analysis
+    if (mode === 'preview') {
+        // Run the stratified logic just to tag items
+        const previewItems = [];
+        const currentLessonQuota = Math.floor(limit * 0.5);
+        const usedIndices = new Set();
+        let currentLessonCount = 0;
+
+        // 1. Quota
+        for (let i = 0; i < mixedPool.length; i++) {
+            if (currentLessonCount >= currentLessonQuota) break;
+            if (!usedIndices.has(i) && mixedPool[i].data.lessonId === currentLessonId) {
+                previewItems.push({ ...mixedPool[i], reason: 'Quota (Bài mới)' });
+                usedIndices.add(i);
+                currentLessonCount++;
+            }
+        }
+
+        // 2. High Priority
+        for (let i = 0; i < mixedPool.length; i++) {
+            if (!usedIndices.has(i)) {
+                previewItems.push({ ...mixedPool[i], reason: 'Ưu tiên cao (Học lại/Hay sai)' });
+                usedIndices.add(i);
+            }
+            if (previewItems.length >= limit) break;
+        }
+
+        return previewItems;
+    }
+
+    // --- IMPROVED STRATIFIED SAMPLING ---
+    // Goal: Prioritize target lesson (50%+) but don't force mastered items from old lessons
+    const stratifiedPool = [];
+    const usedIndices = new Set();
+
+    // 1. Quota for CURRENT LESSON ONLY (e.g. 50% of questions)
+    // This ensures we focus on what the user actually selected to review
+    const currentLessonQuota = Math.floor(limit * 0.5);
+    let currentLessonCount = 0;
+
+    for (let i = 0; i < mixedPool.length; i++) {
+        // If we hit quota, stop forcing
+        if (currentLessonCount >= currentLessonQuota) break;
+
+        // mixedPool[i] is { type, data, priority }
+        // data has lessonId
+        if (!usedIndices.has(i) && mixedPool[i].data.lessonId === currentLessonId) {
+            stratifiedPool.push(mixedPool[i]);
+            usedIndices.add(i);
+            currentLessonCount++;
+        }
+    }
+
+    // 2. Fill the rest with HIGHEST PRIORITY items from ANY lesson
+    // This allows old "struggling" items to naturally float to the top
+    // independent of which lesson they are from.
+    for (let i = 0; i < mixedPool.length; i++) {
+        if (!usedIndices.has(i)) {
+            stratifiedPool.push(mixedPool[i]);
+            usedIndices.add(i);
+        }
+
+        // Stop if we filled the limit
+        if (stratifiedPool.length >= limit) break;
+    }
+
+    // Use the re-ordered pool for selection
+    const poolToUse = stratifiedPool;
+
     // Select balanced mix of words and sentences
-    const balancedPool = selectBalancedItems(mixedPool, limit, sentenceRatio);
+    const balancedPool = selectBalancedItems(poolToUse, limit, sentenceRatio);
 
     // Apply weighted randomization for variety
     const selectedItems = selectItemsWithRandomization(balancedPool, balancedPool.length);

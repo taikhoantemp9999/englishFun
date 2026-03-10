@@ -1,116 +1,256 @@
 {
     "id": 3,
-    "title": "Lesson 3: School",
-    "description": "Những đồ vật quen thuộc ở trường học",
+    "title": "Lesson 3: Colors",
+    "description": "Màu sắc cơ bản",
     "words": [
         {
-            "word": "bag",
-            "meaning": "cái cặp",
+            "word": "red",
+            "meaning": "màu đỏ",
             "images": [
-                "data/images/school/bag_1.png"
+                "data/images/lesson3/red.png"
             ],
             "sentences": [
                 {
-                    "en": "It's a bag.",
-                    "vi": "Đó là một cái cặp.",
+                    "en": "It's a red.",
+                    "vi": "Đó là màu đỏ.",
                     "images": [
-                        "data/images/school/bag_on_desk.png"
+                        "data/images/lesson3/red.png"
                     ]
                 }
             ]
         },
         {
-            "word": "book",
-            "meaning": "quyển sách",
+            "word": "green",
+            "meaning": "màu xanh lá",
             "images": [
-                "data/images/school/book_1.png"
+                "data/images/lesson3/green.png"
             ],
             "sentences": [
                 {
-                    "en": "It's a book.",
-                    "vi": "Đó là một quyển sách.",
+                    "en": "It's a green.",
+                    "vi": "Đó là màu xanh lá.",
                     "images": [
-                        "data/images/school/book_open.png"
+                        "data/images/lesson3/green.png"
                     ]
                 }
             ]
         },
         {
-            "word": "pencil",
-            "meaning": "bút chì",
+            "word": "purple",
+            "meaning": "màu tím",
             "images": [
-                "data/images/school/pencil_1.png"
+                "data/images/lesson3/purple.png"
             ],
             "sentences": [
                 {
-                    "en": "It's a pencil.",
-                    "vi": "Đó là một cây bút chì.",
+                    "en": "It's a purple.",
+                    "vi": "Đó là màu tím.",
                     "images": [
-                        "data/images/school/pencil_case.png"
+                        "data/images/lesson3/purple.png"
                     ]
                 }
             ]
         },
         {
-            "word": "door",
-            "meaning": "cửa ra vào",
+            "word": "grey",
+            "meaning": "màu xám",
             "images": [
-                "data/images/school/door_1.png"
+                "data/images/lesson3/grey.png"
             ],
             "sentences": [
                 {
-                    "en": "It's a door.",
-                    "vi": "Đó là một cánh cửa.",
+                    "en": "It's a grey.",
+                    "vi": "Đó là màu xám.",
                     "images": [
-                        "data/images/school/classroom_door.png"
+                        "data/images/lesson3/grey.png"
                     ]
                 }
             ]
         },
         {
-            "word": "C",
-            "meaning": "Chữ C",
+            "word": "black",
+            "meaning": "màu đen",
             "images": [
-                "data/images/school/c.png"
+                "data/images/lesson3/black.png"
             ],
             "sentences": [
                 {
-                    "en": "C is for cap.",
-                    "vi": "C là cái mũ lưỡi trai.",
+                    "en": "It's a black.",
+                    "vi": "Đó là màu đen.",
                     "images": [
-                        "data/images/school/c_for_cap.png"
+                        "data/images/lesson3/black.png"
                     ]
                 }
             ]
         },
         {
-            "word": "D",
-            "meaning": "Chữ D",
+            "word": "orange",
+            "meaning": "màu cam",
             "images": [
-                "data/images/school/d.png"
+                "data/images/lesson3/orange.png"
             ],
             "sentences": [
                 {
-                    "en": "D is for door.",
-                    "vi": "D là cánh cửa.",
+                    "en": "It's a orange.",
+                    "vi": "Đó là màu cam.",
                     "images": [
-                        "data/images/school/classroom_door.png"
+                        "data/images/lesson3/orange.png"
                     ]
                 }
             ]
         },
         {
-            "word": "cap",
-            "meaning": "mũ lưỡi trai",
+            "word": "brown",
+            "meaning": "màu nâu",
             "images": [
-                "data/images/school/cap_1.png"
+                "data/images/lesson3/brown.png"
             ],
             "sentences": [
                 {
-                    "en": "It's a cap.",
-                    "vi": "Đó là một cái mũ",
+                    "en": "It's a brown.",
+                    "vi": "Đó là màu nâu.",
                     "images": [
-                        "data/images/school/boy_with_cap.png"
+                        "data/images/lesson3/brown.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "yellow",
+            "meaning": "màu vàng",
+            "images": [
+                "data/images/lesson3/yellow.png"
+            ],
+            "sentences": [
+                {
+                    "en": "It's a yellow.",
+                    "vi": "Đó là màu vàng.",
+                    "images": [
+                        "data/images/lesson3/yellow.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "blue",
+            "meaning": "màu xanh dương",
+            "images": [
+                "data/images/lesson3/blue.png"
+            ],
+            "sentences": [
+                {
+                    "en": "It's a blue.",
+                    "vi": "Đó là màu xanh dương.",
+                    "images": [
+                        "data/images/lesson3/blue.png"
+                    ]
+                },
+                {
+                    "en": "It's a blue book.",
+                    "vi": "Đó là một quyển sách màu xanh dương.",
+                    "images": [
+                        "data/images/lesson3/bluebook.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "pink",
+            "meaning": "màu hồng",
+            "images": [
+                "data/images/lesson3/pink.png"
+            ],
+            "sentences": [
+                {
+                    "en": "It's a pink flower.",
+                    "vi": "Đó là một bông hoa màu hồng.",
+                    "images": [
+                        "data/images/lesson3/pinkflower.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "white",
+            "meaning": "màu trắng",
+            "images": [
+                "data/images/lesson3/white.png"
+            ],
+            "sentences": [
+                {
+                    "en": "It's a white bag.",
+                    "vi": "Đó là một cái cặp màu trắng.",
+                    "images": [
+                        "data/images/lesson3/whitebag.png"
+                    ]
+                },
+                {
+                    "en": "It's a white hat.",
+                    "vi": "Đó là một cái mũ màu trắng.",
+                    "images": [
+                        "data/images/lesson3/whitehat.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "flower",
+            "meaning": "bông hoa",
+            "images": [
+                "data/images/lesson3/pinkflower.png"
+            ],
+            "sentences": [
+                {
+                    "en": "It's a pink flower.",
+                    "vi": "Đó là một bông hoa màu hồng.",
+                    "images": [
+                        "data/images/lesson3/pinkflower.png"
+                    ]
+                },
+                {
+                    "en": "It's a blue flower.",
+                    "vi": "Đó là một bông hoa màu xanh dương.",
+                    "images": [
+                        "data/images/lesson3/blueflower.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Thank you",
+            "meaning": "Cảm ơn bạn",
+            "images": [
+                "data/images/lesson3/thankyou.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Thank you.",
+                    "vi": "Cảm ơn bạn.",
+                    "images": [
+                        "data/images/lesson3/thankyou.png"
+                    ]
+                },
+                {
+                    "en": "Thank you, Khôi.",
+                    "vi": "Cảm ơn Khôi.",
+                    "images": [
+                        "data/images/lesson3/thankyou.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "You're welcome",
+            "meaning": "Không có gì",
+            "images": [
+                "data/images/lesson3/yourewellcome.png"
+            ],
+            "sentences": [
+                {
+                    "en": "You're welcome.",
+                    "vi": "Không có gì.",
+                    "images": [
+                        "data/images/lesson3/yourewellcome.png"
                     ]
                 }
             ]
