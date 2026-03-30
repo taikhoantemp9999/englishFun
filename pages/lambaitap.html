@@ -1012,24 +1012,45 @@
       // Select balanced mix of words and sentences
       const balancedPool = selectBalancedItems(mixedPool, limit, sentenceRatio);
 
-      // Apply weighted randomization for variety
-      const selectedItems = selectItemsWithRandomization(balancedPool, balancedPool.length);
+      // Generate exactly 'limit' questions, repeating items if necessary
+      const usedItems = new Set();
+      for (let i = 0; i < limit; i++) {
+        let item;
 
-      // Generate questions from selected items
-      for (const item of selectedItems) {
-        let question = null;
-        try {
-          if (item.type === 'word') {
-            question = makeQuestion(mode, item.data);
-          } else {
-            question = makeQuestionFromSentence(mode, item.data);
-          }
+        // Try to pick an item we haven't picked yet
+        const unusedItems = balancedPool.filter(it => {
+          const key = it.type === 'word' ? it.data.word : it.data.en;
+          return !usedItems.has(key);
+        });
 
-          if (question && question.type && question.correctAnswer) {
-            arr.push(question);
+        if (unusedItems.length > 0) {
+          item = selectItemsWithRandomization(unusedItems, 1)[0];
+          const key = item.type === 'word' ? item.data.word : item.data.en;
+          usedItems.add(key);
+        } else {
+          // If we've used all items, clear the set and pick again from the full pool
+          if (balancedPool.length === 0) break; // Defensive check
+          usedItems.clear();
+          item = selectItemsWithRandomization(balancedPool, 1)[0];
+          const key = item.type === 'word' ? item.data.word : item.data.en;
+          usedItems.add(key);
+        }
+
+        if (item) {
+          let question = null;
+          try {
+            if (item.type === 'word') {
+              question = makeQuestion(mode, item.data);
+            } else {
+              question = makeQuestionFromSentence(mode, item.data);
+            }
+
+            if (question && question.type && question.correctAnswer) {
+              arr.push(question);
+            }
+          } catch (e) {
+            console.error('Lỗi tạo câu hỏi:', e, item);
           }
-        } catch (e) {
-          console.error('Lỗi tạo câu hỏi:', e, item);
         }
       }
 

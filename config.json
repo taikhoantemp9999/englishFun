@@ -2,9 +2,9 @@
   "user_id": "ZNqmu2TcUiSP5N04D85Bhb7FC6a2",
   "new_lesson": {
     "max_questions": {
-      "listen": 25,
-      "read": 25,
-      "write": 25
+      "listen": 30,
+      "read": 30,
+      "write": 30
     },
     "max_minutes": 5
   },
