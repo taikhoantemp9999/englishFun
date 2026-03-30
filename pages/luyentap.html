@@ -1010,24 +1010,43 @@
       // Sort theo priority (cao nhất trước)
       mixedPool.sort((a, b) => b.priority - a.priority);
 
-      // Chọn items với randomization
-      const selectedItems = selectItemsWithRandomization(mixedPool, limit);
+      // Chọn items với randomization lặp lại nếu thiếu
+      const usedItems = new Set();
+      for (let i = 0; i < limit; i++) {
+        let item;
 
-      // Tạo câu hỏi
-      for (const item of selectedItems) {
-        let question = null;
-        try {
-          if (item.type === 'word') {
-            question = makeQuestion(mode, item.data);
-          } else {
-            question = makeQuestionFromSentence(mode, item.data);
-          }
+        const unusedItems = mixedPool.filter(it => {
+          const key = it.type === 'word' ? it.data.word : it.data.en;
+          return !usedItems.has(key);
+        });
 
-          if (question && question.type && question.correctAnswer) {
-            arr.push(question);
+        if (unusedItems.length > 0) {
+          item = selectItemsWithRandomization(unusedItems, 1)[0];
+          const key = item.type === 'word' ? item.data.word : item.data.en;
+          usedItems.add(key);
+        } else {
+          if (mixedPool.length === 0) break;
+          usedItems.clear();
+          item = selectItemsWithRandomization(mixedPool, 1)[0];
+          const key = item.type === 'word' ? item.data.word : item.data.en;
+          usedItems.add(key);
+        }
+
+        if (item) {
+          let question = null;
+          try {
+            if (item.type === 'word') {
+              question = makeQuestion(mode, item.data);
+            } else {
+              question = makeQuestionFromSentence(mode, item.data);
+            }
+
+            if (question && question.type && question.correctAnswer) {
+              arr.push(question);
+            }
+          } catch (e) {
+            console.error('Lỗi tạo câu hỏi:', e, item);
           }
-        } catch (e) {
-          console.error('Lỗi tạo câu hỏi:', e, item);
         }
       }
 
