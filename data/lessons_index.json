@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "1.0",
-    "total_lessons": 11
+    "total_lessons": 12
   },
   "lessons": [
     {
@@ -58,6 +58,11 @@
       "id": 10,
       "title": "Lesson 10: My house",
       "description": "Ngôi nhà của tôi"
+    },
+    {
+      "id": 11,
+      "title": "Lesson 11: Days of a week",
+      "description": "Các ngày trong tuần"
     }
   ]
 }
