@@ -898,24 +898,37 @@
     // ============================================
     // 🎤 TTS MANAGER
     // ============================================
+    window.currentUtterance = null;
     function playSpeech(text, lang = 'en-US', callback = null) {
       if (!text) return;
 
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = lang;
-      utterance.rate = 0.85;
-      utterance.pitch = 1.1;
-
-      const voices = speechSynthesis.getVoices();
-      const voice = voices.find(v => v.lang.startsWith(lang.split('-')[0]));
-      if (voice) utterance.voice = voice;
-
-      if (callback) {
-        utterance.onend = callback;
-      }
-
       speechSynthesis.cancel();
-      speechSynthesis.speak(utterance);
+
+      setTimeout(() => {
+        const safeText = text;
+        const utterance = new SpeechSynthesisUtterance(safeText);
+        utterance.lang = lang;
+        utterance.rate = 0.8;
+        utterance.pitch = 1.0;
+
+        const voices = speechSynthesis.getVoices();
+        const voice = voices.find(v => v.lang.startsWith(lang.split('-')[0]));
+        if (voice) utterance.voice = voice;
+
+        window.currentUtterance = utterance;
+
+        utterance.onend = function() {
+          window.currentUtterance = null;
+          if (callback) callback();
+        };
+
+        utterance.onerror = function(e) {
+          console.error('Speech error:', e);
+          window.currentUtterance = null;
+        };
+
+        speechSynthesis.speak(utterance);
+      }, 150);
     }
 
     // ============================================

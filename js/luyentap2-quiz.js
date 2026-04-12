@@ -110,12 +110,12 @@ function playSpeech(text, lang = 'en-US') {
         // Add a leading space/period. This is a common hack to prevent 
         // the first syllable from being cut off by some TTS engines.
         // e.g. " mother" instead of "mother"
-        const safeText = " . " + text;
+        const safeText = " " + text;
 
         const utterance = new SpeechSynthesisUtterance(safeText);
         utterance.lang = lang;
-        utterance.rate = 0.85;
-        utterance.pitch = 1.1;
+        utterance.rate = 0.8;
+        utterance.pitch = 1.0;
 
         // Select voice
         const voices = speechSynthesis.getVoices();
