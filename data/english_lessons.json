@@ -1,0 +1,167 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Unit 1: At my birthday party",
+      "description": "Học phát âm âm /p/ và các từ liên quan đến bữa tiệc sinh nhật",
+      "words": [
+        { "word": "popcorn", "meaning": "bắp rang bơ", "images": [], "sentences": [{ "en": "I like popcorn.", "vi": "Tớ thích bắp rang bơ." }] },
+        { "word": "pasta", "meaning": "mì ống", "images": [], "sentences": [{ "en": "I am eating pasta.", "vi": "Tớ đang ăn mì ống." }] },
+        { "word": "pizza", "meaning": "bánh pizza", "images": [], "sentences": [{ "en": "Do you like pizza?", "vi": "Bạn có thích bánh pizza không?" }] }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Unit 2: In the back yard",
+      "description": "Học phát âm âm /k/ qua các từ vựng trong sân nhà",
+      "words": [
+        { "word": "kitten", "meaning": "mèo con", "images": [], "sentences": [{ "en": "The kitten is cute.", "vi": "Chú mèo con thật đáng yêu." }] },
+        { "word": "kite", "meaning": "con diều", "images": [], "sentences": [{ "en": "I have a red kite.", "vi": "Tớ có một con diều màu đỏ." }] },
+        { "word": "key", "meaning": "chìa khóa", "images": [], "sentences": [{ "en": "Here is the key.", "vi": "Chìa khóa đây rồi." }] },
+        { "word": "bike", "meaning": "xe đạp", "images": [], "sentences": [{ "en": "He rides a bike.", "vi": "Cậu ấy đi xe đạp." }] }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Unit 3: At the seaside",
+      "description": "Học phát âm âm /s/ qua các từ vựng về bãi biển",
+      "words": [
+        { "word": "sea", "meaning": "biển", "images": [], "sentences": [{ "en": "I can see the sea.", "vi": "Tớ có thể nhìn thấy biển." }] },
+        { "word": "sand", "meaning": "cát", "images": [], "sentences": [{ "en": "They play on the sand.", "vi": "Họ chơi đùa trên cát." }] },
+        { "word": "sail", "meaning": "cánh buồm / thuyền buồm", "images": [], "sentences": [{ "en": "The sail is white.", "vi": "Cánh buồm màu trắng." }] }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Unit 4: In the countryside",
+      "description": "Học phát âm âm /r/ qua các từ vựng về nông thôn",
+      "words": [
+        { "word": "river", "meaning": "dòng sông", "images": [], "sentences": [{ "en": "The river is long.", "vi": "Dòng sông này dài." }] },
+        { "word": "road", "meaning": "con đường", "images": [], "sentences": [{ "en": "This is a quiet road.", "vi": "Đây là một con đường yên tĩnh." }] },
+        { "word": "rainbow", "meaning": "cầu vồng", "images": [], "sentences": [{ "en": "Look at the rainbow!", "vi": "Hãy nhìn cầu vồng kìa!" }] }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Unit 5: In the classroom",
+      "description": "Học phát âm âm /dʒ/ qua các từ vựng đồ ăn ngọt trong lớp học",
+      "words": [
+        { "word": "juice", "meaning": "nước hoa quả", "images": [], "sentences": [{ "en": "I like orange juice.", "vi": "Tớ thích nước cam." }] },
+        { "word": "jelly", "meaning": "thạch", "images": [], "sentences": [{ "en": "The jelly is sweet.", "vi": "Thạch rất ngọt." }] },
+        { "word": "jam", "meaning": "mứt", "images": [], "sentences": [{ "en": "Pass me the jam, please.", "vi": "Làm ơn đưa tớ lọ mứt." }] }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Unit 6: On the farm",
+      "description": "Học phát âm âm /f/ qua các từ vựng về nông trại",
+      "words": [
+        { "word": "farm", "meaning": "nông trại", "images": [], "sentences": [{ "en": "My grandpa has a farm.", "vi": "Ông tớ có một nông trại." }] },
+        { "word": "fox", "meaning": "con cáo", "images": [], "sentences": [{ "en": "The fox is orange.", "vi": "Con cáo màu cam." }] },
+        { "word": "fish", "meaning": "con cá", "images": [], "sentences": [{ "en": "The fish is swimming.", "vi": "Con cá đang bơi." }] },
+        { "word": "frog", "meaning": "con ếch", "images": [], "sentences": [{ "en": "The frog jumps high.", "vi": "Con ếch nhảy cao." }] }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Unit 7: In the kitchen",
+      "description": "Học phát âm âm /g/ qua các từ vựng trong bếp và khu vườn",
+      "words": [
+        { "word": "gate", "meaning": "cánh cổng", "images": [], "sentences": [{ "en": "Open the gate, please.", "vi": "Làm ơn mở cổng ra." }] },
+        { "word": "garden", "meaning": "khu vườn", "images": [], "sentences": [{ "en": "The garden has many flowers.", "vi": "Khu vườn có nhiều hoa." }] },
+        { "word": "girl", "meaning": "cô gái", "images": [], "sentences": [{ "en": "She is a happy girl.", "vi": "Cô ấy là một cô gái vui vẻ." }] },
+        { "word": "goat", "meaning": "con dê", "images": [], "sentences": [{ "en": "The goat eats grass.", "vi": "Con dê ăn cỏ." }] }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Unit 8: In the village",
+      "description": "Học phát âm âm /v/ qua các từ vựng ở làng quê",
+      "words": [
+        { "word": "village", "meaning": "ngôi làng", "images": [], "sentences": [{ "en": "I live in a small village.", "vi": "Tớ sống trong một ngôi làng nhỏ." }] },
+        { "word": "van", "meaning": "xe tải nhỏ / xe bán tải", "images": [], "sentences": [{ "en": "He drives a blue van.", "vi": "Chú ấy lái chiếc xe tải nhỏ màu xanh." }] },
+        { "word": "volleyball", "meaning": "bóng chuyền", "images": [], "sentences": [{ "en": "They play volleyball.", "vi": "Họ chơi bóng chuyền." }] }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Unit 9: In the grocery store",
+      "description": "Học phát âm âm /l/ qua các từ vựng ở cửa hàng tạp hóa",
+      "words": [
+        { "word": "lemon", "meaning": "quả chanh vàng", "images": [], "sentences": [{ "en": "The lemon is yellow.", "vi": "Quả chanh này màu vàng." }] },
+        { "word": "leaf", "meaning": "chiếc lá", "images": [], "sentences": [{ "en": "The leaf is green.", "vi": "Chiếc lá màu xanh." }] },
+        { "word": "lake", "meaning": "hồ nước", "images": [], "sentences": [{ "en": "The lake is clean.", "vi": "Hồ nước thật sạch." }] }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Unit 10: At the zoo",
+      "description": "Học phát âm âm /z/ qua các con vật trong sở thú",
+      "words": [
+        { "word": "zoo", "meaning": "sở thú", "images": [], "sentences": [{ "en": "Let's go to the zoo.", "vi": "Chúng mình cùng đi sở thú nhé." }] },
+        { "word": "zebra", "meaning": "con ngựa vằn", "images": [], "sentences": [{ "en": "Look at the zebra.", "vi": "Hãy nhìn con ngựa vằn kìa." }] },
+        { "word": "zebu", "meaning": "bò u", "images": [], "sentences": [{ "en": "The zebu has a hump.", "vi": "Con bò u có một cái bướu." }] }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Unit 11: In the playground",
+      "description": "Học phát âm âm /m/ qua các từ ở sân chơi",
+      "words": [
+        { "word": "monkey", "meaning": "con khỉ", "images": [], "sentences": [{ "en": "The monkey swings on trees.", "vi": "Con khỉ đu trên cây." }] },
+        { "word": "mother", "meaning": "mẹ", "images": [], "sentences": [{ "en": "I love my mother.", "vi": "Tớ yêu mẹ của tớ." }] },
+        { "word": "mouse", "meaning": "con chuột", "images": [], "sentences": [{ "en": "The mouse runs fast.", "vi": "Con chuột chạy rất nhanh." }] }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Unit 12: At the cafe",
+      "description": "Học phát âm âm /n/ tại quán cà phê",
+      "words": [
+        { "word": "nurse", "meaning": "y tá", "images": [], "sentences": [{ "en": "The nurse is helpful.", "vi": "Cô y tá rất tận tình giúp đỡ." }] },
+        { "word": "nest", "meaning": "tổ chim", "images": [], "sentences": [{ "en": "The nest is on the tree.", "vi": "Tổ chim ở trên cây." }] },
+        { "word": "net", "meaning": "cái lưới", "images": [], "sentences": [{ "en": "We use a net to fish.", "vi": "Chúng tớ dùng lưới để bắt cá." }] }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Unit 13: At the math class",
+      "description": "Học phát âm âm /o/ trong lớp học toán",
+      "words": [
+        { "word": "mop", "meaning": "cây lau nhà", "images": [], "sentences": [{ "en": "Use the mop to clean.", "vi": "Dùng cây lau nhà để dọn dẹp." }] },
+        { "word": "pot", "meaning": "cái nồi", "images": [], "sentences": [{ "en": "The soup is in the pot.", "vi": "Súp đang ở trong nồi." }] },
+        { "word": "lock", "meaning": "cái khóa", "images": [], "sentences": [{ "en": "The lock is strong.", "vi": "Cái khóa này rất chắc." }] }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Unit 14: At home",
+      "description": "Học phát âm âm /ʃ/ qua các từ trang phục tại nhà",
+      "words": [
+        { "word": "shoes", "meaning": "đôi giày", "images": [], "sentences": [{ "en": "My shoes are red.", "vi": "Đôi giày của tớ màu đỏ." }] },
+        { "word": "shorts", "meaning": "quần đùi / quần soóc", "images": [], "sentences": [{ "en": "He wears blue shorts.", "vi": "Cậu ấy mặc quần đùi xanh." }] },
+        { "word": "shirt", "meaning": "áo sơ mi", "images": [], "sentences": [{ "en": "I have a new shirt.", "vi": "Tớ có một chiếc áo sơ mi mới." }] }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Unit 15: In the clothes shop",
+      "description": "Học phát âm âm /ð/ qua các từ về gia đình tại cửa hàng quần áo",
+      "words": [
+        { "word": "father", "meaning": "bố / cha", "images": [], "sentences": [{ "en": "This is my father.", "vi": "Đây là bố của tớ." }] },
+        { "word": "mother", "meaning": "mẹ", "images": [], "sentences": [{ "en": "My mother is nice.", "vi": "Mẹ của tớ rất tốt bụng." }] },
+        { "word": "brother", "meaning": "anh / em trai", "images": [], "sentences": [{ "en": "That is my brother.", "vi": "Kia là em trai tớ." }] }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Unit 16: At the campsite",
+      "description": "Học phát âm âm /w/ tại khu cắm trại",
+      "words": [
+        { "word": "wheel", "meaning": "bánh xe", "images": [], "sentences": [{ "en": "The wheel turns round.", "vi": "Bánh xe quay tròn." }] },
+        { "word": "white", "meaning": "màu trắng", "images": [], "sentences": [{ "en": "The cloud is white.", "vi": "Đám mây màu trắng." }] },
+        { "word": "whale", "meaning": "cá voi", "images": [], "sentences": [{ "en": "The whale is huge.", "vi": "Con cá voi thật khổng lồ." }] }
+      ]
+    }
+  ]
+}

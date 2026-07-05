@@ -1,0 +1,700 @@
+{
+  "progress": [
+    {
+      "lessonId": 1,
+      "word": "Hello",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Hello, teacher.",
+        "vi": "Em chào cô ạ.",
+        "images": [
+          "data/images/greetings/hello_teacher.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Hello, Khôi.",
+        "vi": "Chào Khôi.",
+        "images": [
+          "data/images/greetings/hello_friends.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Hello, father.",
+        "vi": "Chào bố ạ.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Hello, mother.",
+        "vi": "Chào mẹ ạ.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Hello, Long.",
+        "vi": "Chào Long nhé.",
+        "images": [
+          "data/images/greetings/hello_long.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "word": "Goodbye",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Goodbye, teacher.",
+        "vi": "Tạm biệt cô ạ.",
+        "images": [
+          "data/images/greetings/goodbye_teacher.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Goodbye, see you again.",
+        "vi": "Tạm biệt, hẹn gặp lại nhé.",
+        "images": [
+          "data/images/greetings/goodbye_friends.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Goodbye, father.",
+        "vi": "Tạm biệt, bố ạ.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Goodbye, mother.",
+        "vi": "Tạm biệt, mẹ ạ.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Goodbye, em Sữa.",
+        "vi": "Tạm biệt, em Sữa ạ.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "word": "Stand up",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Stand up, please.",
+        "vi": "Mời các em đứng lên.",
+        "images": [
+          "data/images/greetings/stand_up_class.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Stand up, Khôi.",
+        "vi": "Mời bạn Khôi đứng lên.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Stand up, Sữa.",
+        "vi": "Mời bạn Sữa đứng lên.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "word": "Sit down",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Sit down, please.",
+        "vi": "Mời các em ngồi xuống.",
+        "images": [
+          "data/images/greetings/sit_down_class.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Sit down, Khôi.",
+        "vi": "Mời Khôi ngồi xuống.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Sit down, Sữa.",
+        "vi": "Mời Sữa ngồi xuống.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "word": "Listen",
+      "correct": 1,
+      "wrong": 0,
+      "lastReviewed": "2025-10-23T12:49:00.919Z",
+      "type": "word",
+      "interval": 1,
+      "easeFactor": 2.6,
+      "repetitions": 1,
+      "nextReview": "2025-10-24T12:49:00.919Z"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Listen.",
+        "vi": "Lắng nghe",
+        "images": [
+          "data/images/greetings/listen_teacher.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Listen to the teacher.",
+        "vi": "Lắng nghe cô giáo giảng bài.",
+        "images": [
+          "data/images/greetings/students_listening.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Listen to the mother.",
+        "vi": "Lắng nghe mẹ nói.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Listen to the father.",
+        "vi": "Lắng nghe bố nói.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 1,
+      "sentence": {
+        "en": "Listen to the Duy.",
+        "vi": "Lắng nghe Duy nói.",
+        "images": []
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 2,
+      "word": "father",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 2,
+      "sentence": {
+        "en": "This is my father.",
+        "vi": "Đây là bố của tớ.",
+        "images": [
+          "data/images/family/father_intro.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 2,
+      "word": "mother",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 2,
+      "sentence": {
+        "en": "This is my mother.",
+        "vi": "Đây là mẹ của tớ.",
+        "images": [
+          "data/images/family/mother_intro.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 2,
+      "word": "brother",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 2,
+      "sentence": {
+        "en": "This is my brother.",
+        "vi": "Đây là anh trai của tớ.",
+        "images": [
+          "data/images/family/brother_intro.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 2,
+      "word": "sister",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 2,
+      "sentence": {
+        "en": "This is my sister.",
+        "vi": "Đây là em gái của tớ.",
+        "images": [
+          "data/images/family/sister_intro.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 2,
+      "word": "Nice to meet you",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 2,
+      "word": "Nice to meet you, too",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 2,
+      "word": "A",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 2,
+      "sentence": {
+        "en": "A is for ant.",
+        "vi": "A là con kiến.",
+        "images": [
+          "data/images/family/a_for_ant.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 2,
+      "word": "B",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 2,
+      "sentence": {
+        "en": "B is for boy.",
+        "vi": "B là cậu bé.",
+        "images": [
+          "data/images/family/b_for_boy.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 2,
+      "sentence": {
+        "en": "B is for baby.",
+        "vi": "B là em bé.",
+        "images": [
+          "data/images/family/b_for_baby.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 2,
+      "word": "ant",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 2,
+      "sentence": {
+        "en": "I see an ant.",
+        "vi": "Tớ nhìn thấy một con kiến.",
+        "images": [
+          "data/images/family/ant_close_up.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 2,
+      "word": "boy",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 2,
+      "sentence": {
+        "en": "He is a boy.",
+        "vi": "Bạn ấy là một cậu bé.",
+        "images": [
+          "data/images/family/boy_playing.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 2,
+      "word": "baby",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 2,
+      "sentence": {
+        "en": "This is a baby.",
+        "vi": "Đây là một em bé.",
+        "images": [
+          "data/images/family/baby_sleeping.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 3,
+      "word": "bag",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 3,
+      "sentence": {
+        "en": "It's a bag.",
+        "vi": "Đó là một cái cặp.",
+        "images": [
+          "data/images/school/bag_on_desk.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 3,
+      "word": "book",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 3,
+      "sentence": {
+        "en": "It's a book.",
+        "vi": "Đó là một quyển sách.",
+        "images": [
+          "data/images/school/book_open.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 3,
+      "word": "pencil",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 3,
+      "sentence": {
+        "en": "It's a pencil.",
+        "vi": "Đó là một cây bút chì.",
+        "images": [
+          "data/images/school/pencil_case.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 3,
+      "word": "door",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 3,
+      "sentence": {
+        "en": "It's a door.",
+        "vi": "Đó là một cánh cửa.",
+        "images": [
+          "data/images/school/classroom_door.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 3,
+      "word": "C",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 3,
+      "sentence": {
+        "en": "C is for cap.",
+        "vi": "C là cái mũ lưỡi trai.",
+        "images": [
+          "data/images/school/c_for_cap.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 3,
+      "word": "D",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 3,
+      "sentence": {
+        "en": "D is for door.",
+        "vi": "D là cánh cửa.",
+        "images": [
+          "data/images/school/classroom_door.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    },
+    {
+      "lessonId": 3,
+      "word": "cap",
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "word"
+    },
+    {
+      "lessonId": 3,
+      "sentence": {
+        "en": "It's a cap.",
+        "vi": "Đó là một cái mũ",
+        "images": [
+          "data/images/school/boy_with_cap.png"
+        ]
+      },
+      "correct": 0,
+      "wrong": 0,
+      "lastReviewed": null,
+      "type": "sentence"
+    }
+  ]
+}

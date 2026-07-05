@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔢 Học Toán - English Fun</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    /* Giao diện vui nhộn - Gradient màu sắc cho toán học */
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container-main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 10px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .fun-header {
+      background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
+      border-radius: 20px;
+      padding: 15px 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+      animation: bounceIn 0.8s ease-out;
+      flex-shrink: 0;
+    }
+
+    .fun-header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .progress-container {
+      background: white;
+      border-radius: 15px;
+      padding: 10px 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      margin-bottom: 10px;
+      animation: slideDown 0.6s ease-out;
+      flex-shrink: 0;
+    }
+
+    .progress-text {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #667eea;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .progress-bar-custom {
+      height: 30px;
+      background: linear-gradient(90deg, #e0e0e0 0%, #f0f0f0 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      transition: width 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 0.95em;
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+    }
+
+    .score-display {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+
+    .score-item {
+      background: white;
+      padding: 8px 18px;
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      font-size: 1.1em;
+      font-weight: bold;
+      animation: slideDown 0.6s ease-out;
+    }
+
+    .score-correct { color: #4CAF50; }
+    .score-wrong { color: #f5576c; }
+    .score-streak {
+      color: #FF9800;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .main-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: zoomIn 0.5s ease-out;
+      position: relative;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .main-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .quiz-area {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      position: relative;
+      z-index: 5;
+      min-height: 0;
+    }
+
+    .question-display {
+      font-size: 4em;
+      font-weight: bold;
+      color: #667eea;
+      text-align: center;
+      margin: 30px 0;
+      animation: fadeIn 0.8s ease-out;
+      position: relative;
+      z-index: 5;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .question-display .number {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 0 5px;
+      background: linear-gradient(135deg, #FFD93D 0%, #FFB74D 100%);
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      color: #333;
+      min-width: 80px;
+    }
+
+    .question-display .operator {
+      display: inline-block;
+      padding: 10px 15px;
+      margin: 0 5px;
+      font-size: 1.2em;
+      color: #667eea;
+    }
+
+    .question-display .equals {
+      display: inline-block;
+      margin: 0 10px;
+      color: #667eea;
+      font-size: 0.8em;
+    }
+
+    .question-display .blank {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 0 5px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      color: white;
+      min-width: 80px;
+      border: 3px dashed white;
+      animation: blink 1.5s infinite;
+    }
+
+    .question-display .comparison-operator {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 0 5px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      color: white;
+      min-width: 100px;
+      border: 3px dashed white;
+      animation: blink 1.5s infinite;
+      font-size: 0.6em;
+    }
+
+    .options-container {
+      width: 100%;
+      max-width: 600px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 30px 0;
+      position: relative;
+      z-index: 5;
+    }
+
+    .option-btn {
+      font-size: 2em;
+      padding: 25px;
+      border: 4px solid #ddd;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      color: #333;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .option-btn:hover:not(.disabled) {
+      transform: translateY(-5px) scale(1.05);
+      border-color: #667eea;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .option-btn.correct {
+      background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+      color: white;
+      border-color: #4CAF50;
+      animation: correctPulse 0.6s ease-out;
+    }
+
+    .option-btn.wrong {
+      background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+      color: white;
+      border-color: #f5576c;
+      animation: shake 0.5s ease-out;
+    }
+
+    .option-btn.disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .btn-fun {
+      font-size: 1.3em;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      margin: 10px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .btn-fun:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .btn-start {
+      background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+      color: white;
+      font-size: 1.5em;
+      padding: 20px 50px;
+    }
+
+    .btn-home {
+      background: linear-gradient(135deg, #9E9E9E 0%, #BDBDBD 100%);
+      color: white;
+    }
+
+    .btn-retry {
+      background: linear-gradient(135deg, #2196F3 0%, #64B5F6 100%);
+      color: white;
+    }
+
+    .summary-screen {
+      text-align: center;
+      animation: zoomIn 0.8s ease-out;
+      position: relative;
+      z-index: 5;
+    }
+
+    .summary-screen h2 {
+      font-size: 2.5em;
+      color: #4CAF50;
+      margin-bottom: 20px;
+      animation: bounce 1s ease-out;
+    }
+
+    .summary-stats {
+      font-size: 1.5em;
+      color: #666;
+      margin: 20px 0;
+    }
+
+    .summary-stars {
+      font-size: 5em;
+      margin: 20px 0;
+      animation: starPop 0.8s ease-out;
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      animation: confetti-fall 3s linear forwards;
+      z-index: 9999;
+    }
+
+    .star-pop {
+      position: fixed;
+      font-size: 3em;
+      animation: starFloat 1.5s ease-out forwards;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    .streak-display {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4em;
+      font-weight: bold;
+      color: #FFD700;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+      animation: streakPop 1s ease-out forwards;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    .start-screen {
+      text-align: center;
+      animation: fadeIn 0.8s ease-out;
+      position: relative;
+      z-index: 5;
+    }
+
+    .start-screen h2 {
+      font-size: 2.5em;
+      color: #667eea;
+      margin-bottom: 30px;
+    }
+
+    .start-screen p {
+      font-size: 1.3em;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.05); }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes correctPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    @keyframes confetti-fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes starFloat {
+      0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(0, -100px) scale(1.2);
+      }
+      100% {
+        transform: translate(0, -150px) scale(0);
+        opacity: 0;
+      }
+    }
+
+    @keyframes starPop {
+      0% { transform: scale(0) rotate(0deg); }
+      50% { transform: scale(1.2) rotate(180deg); }
+      100% { transform: scale(1) rotate(360deg); }
+    }
+
+    @keyframes streakPop {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+      }
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 768px) {
+      .container-main { padding: 5px; }
+      .fun-header h1 { font-size: 1.4em; }
+      .question-display { font-size: 2.5em; }
+      .options-container { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .option-btn { font-size: 1.5em; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-main">
+    <div class="fun-header">
+      <h1>
+        <span>🔢</span>
+        <span>Học Toán Lớp 1</span>
+        <span>📐</span>
+      </h1>
+    </div>
+
+    <div class="progress-container hidden" id="progress-container">
+      <div class="progress-text" id="progress-text">Câu 1/20</div>
+      <div class="progress-bar-custom">
+        <div class="progress-bar-fill" id="progress-bar" style="width: 0%">0%</div>
+      </div>
+    </div>
+
+    <div class="score-display hidden" id="score-display">
+      <div class="score-item score-correct">
+        ✅ <span id="score-correct">0</span>
+      </div>
+      <div class="score-item score-wrong">
+        ❌ <span id="score-wrong">0</span>
+      </div>
+      <div class="score-item score-streak">
+        🔥 <span id="score-streak">0</span>
+      </div>
+    </div>
+
+    <div class="main-card" id="main-card">
+      <div class="start-screen" id="start-screen">
+        <h2>🎮 Sẵn sàng học toán chưa?</h2>
+        <p>Em sẽ được làm các phép tính cộng, trừ và so sánh số!<br>Hãy cố gắng trả lời đúng nhiều nhất nhé! 🌟</p>
+        <button class="btn-fun btn-start" onclick="startQuiz()">🚀 Bắt đầu</button>
+        <button class="btn-fun btn-home" onclick="location.href='../index.html'">🏠 Trang chủ</button>
+      </div>
+
+      <div class="quiz-area hidden" id="quiz-area"></div>
+    </div>
+  </div>
+
+  <script>
+  'use strict';
+
+  // GLOBAL STATE
+  let CONFIG = null;
+  let mathQuestions = [];
+  let currentQuestionIndex = 0;
+  let correctCount = 0;
+  let wrongCount = 0;
+  let correctStreak = 0;
+  let maxStreak = 0;
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+  // Load config
+  async function loadConfig() {
+    try {
+      const response = await fetch('../config.json');
+      CONFIG = await response.json();
+    } catch (error) {
+      console.error('Lỗi tải config:', error);
+      // Default config for grade 1
+      CONFIG = {
+        math: {
+          grade1: {
+            max_questions: 20,
+            number_range: { min: 0, max: 20 },
+            operations: { addition: true, subtraction: true, comparison: true },
+            operation_weights: { addition: 0.4, subtraction: 0.4, comparison: 0.2 }
+          }
+        }
+      };
+    }
+  }
+
+  // Sound effects
+  function playCorrectSound() {
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    osc.connect(gain);
+    gain.connect(audioContext.destination);
+    osc.frequency.value = 800;
+    osc.type = 'sine';
+    gain.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+    osc.start(audioContext.currentTime);
+    osc.stop(audioContext.currentTime + 0.3);
+  }
+
+  function playWrongSound() {
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    osc.connect(gain);
+    gain.connect(audioContext.destination);
+    osc.frequency.value = 200;
+    osc.type = 'sawtooth';
+    gain.gain.setValueAtTime(0.2, audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+    osc.start(audioContext.currentTime);
+    osc.stop(audioContext.currentTime + 0.2);
+  }
+
+  // Visual effects
+  function createConfetti() {
+    const colors = ['#FF6B6B', '#4CAF50', '#2196F3', '#FFD93D', '#9C27B0', '#f093fb'];
+    for (let i = 0; i < 30; i++) {
+      setTimeout(() => {
+        const conf = document.createElement('div');
+        conf.className = 'confetti';
+        conf.style.left = Math.random() * 100 + 'vw';
+        conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+        conf.style.animationDelay = Math.random() * 2 + 's';
+        document.body.appendChild(conf);
+        setTimeout(() => conf.remove(), 3000);
+      }, i * 30);
+    }
+  }
+
+  function createStar(x, y) {
+    const star = document.createElement('div');
+    star.className = 'star-pop';
+    star.textContent = '⭐';
+    star.style.left = x + 'px';
+    star.style.top = y + 'px';
+    document.body.appendChild(star);
+    setTimeout(() => star.remove(), 1500);
+  }
+
+  function showStreakCombo(streak) {
+    if (streak < 3) return;
+    const div = document.createElement('div');
+    div.className = 'streak-display';
+    div.textContent = `🔥 ${streak} COMBO!`;
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 1000);
+  }
+
+  // Generate math questions with duplicate prevention and progressive difficulty
+  function generateMathQuestions() {
+    const mathConfig = CONFIG.math.grade1;
+    const range = mathConfig.number_range;
+    const maxQuestions = mathConfig.max_questions;
+    const weights = mathConfig.operation_weights;
+    
+    const questions = [];
+    const usedQuestions = new Set(); // Track used questions to avoid duplicates
+    let attempts = 0;
+    const maxAttempts = maxQuestions * 100; // Prevent infinite loop
+    
+    // Calculate cumulative weights
+    const totalWeight = weights.addition + weights.subtraction + weights.comparison;
+    const additionThreshold = weights.addition / totalWeight;
+    const subtractionThreshold = (weights.addition + weights.subtraction) / totalWeight;
+    
+    // Progressive difficulty: divide questions into difficulty levels
+    const difficultyLevels = 4; // 4 levels of difficulty
+    const questionsPerLevel = Math.floor(maxQuestions / difficultyLevels);
+    
+    while (questions.length < maxQuestions && attempts < maxAttempts) {
+      attempts++;
+      
+      // Calculate current difficulty level (0 = easier, 3 = hardest)
+      const currentLevel = Math.min(difficultyLevels - 1, Math.floor(questions.length / questionsPerLevel));
+      const difficulty = currentLevel / (difficultyLevels - 1); // 0 to 1
+      
+      const rand = Math.random();
+      let question;
+      
+      // Determine question type based on weights
+      if (rand < additionThreshold && mathConfig.operations.addition) {
+        question = generateAdditionQuestion(range, difficulty);
+      } else if (rand < subtractionThreshold && mathConfig.operations.subtraction) {
+        question = generateSubtractionQuestion(range, difficulty);
+      } else if (mathConfig.operations.comparison) {
+        question = generateComparisonQuestion(range, difficulty);
+      } else {
+        // Fallback to addition
+        question = generateAdditionQuestion(range, difficulty);
+      }
+      
+      // Create unique key for question
+      const questionKey = getQuestionKey(question);
+      
+      // Check if question already exists
+      if (!usedQuestions.has(questionKey)) {
+        usedQuestions.add(questionKey);
+        questions.push(question);
+      }
+    }
+    
+    // If we still don't have enough questions, fill with harder variants
+    if (questions.length < maxQuestions) {
+      console.warn(`Chỉ tạo được ${questions.length} câu hỏi không trùng lặp. Tạo thêm câu hỏi khó hơn.`);
+      // Generate harder questions to fill remaining slots
+      while (questions.length < maxQuestions && attempts < maxAttempts * 2) {
+        attempts++;
+        const rand = Math.random();
+        let question;
+        const difficulty = 0.8; // Hard difficulty
+        
+        if (rand < additionThreshold && mathConfig.operations.addition) {
+          question = generateAdditionQuestion(range, difficulty);
+        } else if (rand < subtractionThreshold && mathConfig.operations.subtraction) {
+          question = generateSubtractionQuestion(range, difficulty);
+        } else if (mathConfig.operations.comparison) {
+          question = generateComparisonQuestion(range, difficulty);
+        } else {
+          question = generateAdditionQuestion(range, difficulty);
+        }
+        
+        const questionKey = getQuestionKey(question);
+        if (!usedQuestions.has(questionKey)) {
+          usedQuestions.add(questionKey);
+          questions.push(question);
+        }
+      }
+    }
+    
+    // Shuffle to mix difficulty levels (optional - comment out to keep progressive order)
+    // return shuffleArray(questions);
+    return questions;
+  }
+  
+  // Create unique key for question to detect duplicates
+  function getQuestionKey(question) {
+    if (question.type === 'addition') {
+      // For addition, a+b and b+a are the same, so sort them
+      const sorted = [question.a, question.b].sort((x, y) => x - y);
+      return `${question.type}_${sorted[0]}_${sorted[1]}`;
+    } else if (question.type === 'subtraction') {
+      // For subtraction, a-b and b-a are different, so don't sort
+      // Also, we need to ensure b <= a (no negative results)
+      return `${question.type}_${Math.max(question.a, question.b)}_${Math.min(question.a, question.b)}`;
+    } else if (question.type === 'comparison') {
+      // For comparison, a>b is different from b>a, but we want to avoid exact duplicates
+      return `${question.type}_${question.a}_${question.b}_${question.answer}`;
+    }
+    return `${question.type}_${question.a}_${question.b}`;
+  }
+
+  function generateAdditionQuestion(range, difficulty = 0) {
+    // difficulty: 0 = easier, 1 = harder
+    let a, b;
+    
+    // Use full range, but adjust based on difficulty
+    // Higher difficulty = use larger numbers and more complex combinations
+    const rangeSize = range.max - range.min;
+    const difficultyOffset = Math.floor(rangeSize * difficulty * 0.6); // Use more of the range as difficulty increases
+    
+    // For harder questions, prefer larger numbers
+    if (difficulty > 0.5) {
+      // Hard mode: use larger numbers (upper 60% of range)
+      const minNum = range.min + Math.floor(rangeSize * 0.4);
+      a = Math.floor(Math.random() * (range.max - minNum + 1)) + minNum;
+      // Ensure we can still get valid result
+      const maxB = Math.min(range.max - a, range.max);
+      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
+    } else if (difficulty > 0.2) {
+      // Medium mode: use middle to upper range
+      const minNum = range.min + Math.floor(rangeSize * 0.2);
+      a = Math.floor(Math.random() * (range.max - minNum + 1)) + minNum;
+      const maxB = Math.min(range.max - a, range.max);
+      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
+    } else {
+      // Easy mode: can use any numbers, but start smaller
+      a = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+      const maxB = Math.min(range.max - a, range.max);
+      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
+    }
+    
+    // Ensure we use the full range when possible
+    if (a + b < range.max && difficulty > 0.3) {
+      // Try to make it use larger numbers
+      const remaining = range.max - a;
+      if (remaining > 0) {
+        b = Math.min(b + Math.floor(Math.random() * Math.min(remaining, 3)), range.max - a);
+      }
+    }
+    
+    const answer = a + b;
+    const wrongAnswers = generateWrongAnswers(answer, range, difficulty);
+    
+    return {
+      type: 'addition',
+      a: a,
+      b: b,
+      answer: answer,
+      options: shuffleArray([answer, ...wrongAnswers])
+    };
+  }
+
+  function generateSubtractionQuestion(range, difficulty = 0) {
+    // difficulty: 0 = easier, 1 = harder
+    let a, b;
+    
+    const rangeSize = range.max - range.min;
+    
+    // For harder questions, use larger numbers and larger differences
+    if (difficulty > 0.5) {
+      // Hard mode: use larger minuend and allow larger subtrahend
+      const minA = range.min + Math.floor(rangeSize * 0.5);
+      a = Math.floor(Math.random() * (range.max - minA + 1)) + minA;
+      // Allow larger subtrahend (can be up to 70% of a)
+      const maxB = Math.min(a, Math.floor(a * 0.7) + range.min);
+      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
+    } else if (difficulty > 0.2) {
+      // Medium mode: use medium numbers
+      const minA = range.min + Math.floor(rangeSize * 0.3);
+      a = Math.floor(Math.random() * (range.max - minA + 1)) + minA;
+      // Allow subtrahend up to 60% of a
+      const maxB = Math.min(a, Math.floor(a * 0.6) + range.min);
+      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
+    } else {
+      // Easy mode: smaller numbers, smaller differences
+      a = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+      // Smaller subtrahend for easier calculation
+      const maxB = Math.min(a, Math.floor(a * 0.5) + range.min);
+      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
+    }
+    
+    // Ensure b <= a (no negative results)
+    if (b > a) {
+      [a, b] = [b, a];
+    }
+    
+    const answer = a - b;
+    const wrongAnswers = generateWrongAnswers(answer, range, difficulty);
+    
+    return {
+      type: 'subtraction',
+      a: a,
+      b: b,
+      answer: answer,
+      options: shuffleArray([answer, ...wrongAnswers])
+    };
+  }
+
+  function generateComparisonQuestion(range, difficulty = 0) {
+    // difficulty: 0 = easier, 1 = harder
+    let a, b;
+    
+    const rangeSize = range.max - range.min;
+    
+    // For harder questions, use numbers that are closer together (harder to compare)
+    // and use larger numbers
+    if (difficulty > 0.5) {
+      // Hard mode: use larger numbers that are very close together
+      const minNum = range.min + Math.floor(rangeSize * 0.4);
+      a = Math.floor(Math.random() * (range.max - minNum + 1)) + minNum;
+      
+      // Make numbers very close (difference of 0-2) - this is harder to compare
+      const diff = Math.floor(Math.random() * 3); // 0-2
+      const direction = Math.random() < 0.5 ? 1 : -1;
+      b = a + (direction * diff);
+      
+      // Clamp to range
+      b = Math.max(range.min, Math.min(range.max, b));
+      
+      // If equal, sometimes make them differ by 1
+      if (a === b && Math.random() < 0.5) {
+        if (a < range.max) b = a + 1;
+        else if (a > range.min) b = a - 1;
+      }
+    } else if (difficulty > 0.2) {
+      // Medium mode: use medium numbers with small differences
+      const minNum = range.min + Math.floor(rangeSize * 0.2);
+      a = Math.floor(Math.random() * (range.max - minNum + 1)) + minNum;
+      
+      // Small difference (0-3)
+      const diff = Math.floor(Math.random() * 4);
+      const direction = Math.random() < 0.5 ? 1 : -1;
+      b = a + (direction * diff);
+      b = Math.max(range.min, Math.min(range.max, b));
+    } else {
+      // Easy mode: can have larger differences, easier to see
+      a = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+      // Allow larger differences for easier comparison
+      const diff = Math.floor(Math.random() * Math.min(6, rangeSize));
+      const direction = Math.random() < 0.5 ? 1 : -1;
+      b = a + (direction * diff);
+      b = Math.max(range.min, Math.min(range.max, b));
+    }
+    
+    let correctOperator;
+    if (a > b) correctOperator = '>';
+    else if (a < b) correctOperator = '<';
+    else correctOperator = '=';
+    
+    const operators = ['>', '<', '='];
+    const wrongOperators = operators.filter(op => op !== correctOperator);
+    const options = shuffleArray([correctOperator, ...wrongOperators]);
+    
+    return {
+      type: 'comparison',
+      a: a,
+      b: b,
+      answer: correctOperator,
+      options: options
+    };
+  }
+
+  function generateWrongAnswers(correctAnswer, range, difficulty = 0) {
+    // difficulty: 0 = easier (wrong answers far from correct), 1 = harder (wrong answers close to correct)
+    const wrongAnswers = new Set();
+    const maxAttempts = 200;
+    let attempts = 0;
+    
+    while (wrongAnswers.size < 2 && attempts < maxAttempts) {
+      attempts++;
+      let wrong;
+      
+      if (difficulty > 0.5) {
+        // Hard mode: wrong answers are very close to correct answer (difference of 1-2)
+        // This makes it much harder to choose the right answer
+        const offsets = [1, 2, -1, -2];
+        const shuffledOffsets = shuffleArray([...offsets]);
+        
+        for (const offset of shuffledOffsets) {
+          wrong = correctAnswer + offset;
+          wrong = Math.max(range.min, Math.min(range.max, wrong));
+          
+          if (wrong !== correctAnswer && !wrongAnswers.has(wrong)) {
+            wrongAnswers.add(wrong);
+            break;
+          }
+        }
+        
+        // If still need more, try difference of 3
+        if (wrongAnswers.size < 2) {
+          const offsets2 = [3, -3];
+          for (const offset of offsets2) {
+            wrong = correctAnswer + offset;
+            wrong = Math.max(range.min, Math.min(range.max, wrong));
+            if (wrong !== correctAnswer && !wrongAnswers.has(wrong)) {
+              wrongAnswers.add(wrong);
+              if (wrongAnswers.size >= 2) break;
+            }
+          }
+        }
+      } else if (difficulty > 0.2) {
+        // Medium mode: wrong answers are moderately close (difference of 1-4)
+        const offset = Math.floor(Math.random() * 4) + 1; // 1-4
+        const direction = Math.random() < 0.5 ? 1 : -1;
+        wrong = correctAnswer + (direction * offset);
+        wrong = Math.max(range.min, Math.min(range.max, wrong));
+        
+        if (wrong === correctAnswer || wrongAnswers.has(wrong)) {
+          // Try opposite direction
+          wrong = correctAnswer - (direction * offset);
+          wrong = Math.max(range.min, Math.min(range.max, wrong));
+        }
+        
+        if (wrong !== correctAnswer && !wrongAnswers.has(wrong)) {
+          wrongAnswers.add(wrong);
+        } else {
+          // Fallback: random but ensure it's different
+          do {
+            wrong = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+          } while (wrong === correctAnswer || wrongAnswers.has(wrong));
+          wrongAnswers.add(wrong);
+        }
+      } else {
+        // Easy mode: wrong answers can be farther away (easier to distinguish)
+        // But still try to make them somewhat reasonable
+        const offset = Math.floor(Math.random() * 5) + 2; // 2-6
+        const direction = Math.random() < 0.5 ? 1 : -1;
+        wrong = correctAnswer + (direction * offset);
+        wrong = Math.max(range.min, Math.min(range.max, wrong));
+        
+        if (wrong === correctAnswer || wrongAnswers.has(wrong)) {
+          // Try random
+          do {
+            wrong = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+          } while (wrong === correctAnswer || wrongAnswers.has(wrong) || Math.abs(wrong - correctAnswer) < 2);
+        }
+        
+        if (wrong !== correctAnswer && !wrongAnswers.has(wrong)) {
+          wrongAnswers.add(wrong);
+        }
+      }
+    }
+    
+    // If we couldn't generate enough, fill with any valid wrong answer
+    while (wrongAnswers.size < 2) {
+      let wrong = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+      if (wrong !== correctAnswer && !wrongAnswers.has(wrong)) {
+        wrongAnswers.add(wrong);
+      }
+    }
+    
+    return Array.from(wrongAnswers);
+  }
+
+  function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  // Start quiz
+  function startQuiz() {
+    document.getElementById('start-screen').classList.add('hidden');
+    document.getElementById('progress-container').classList.remove('hidden');
+    document.getElementById('score-display').classList.remove('hidden');
+    document.getElementById('quiz-area').classList.remove('hidden');
+    
+    mathQuestions = generateMathQuestions();
+    currentQuestionIndex = 0;
+    correctCount = 0;
+    wrongCount = 0;
+    correctStreak = 0;
+    maxStreak = 0;
+    
+    updateScoreDisplay();
+    showNextQuestion();
+  }
+
+  // Show question
+  function showNextQuestion() {
+    if (currentQuestionIndex >= mathQuestions.length) {
+      showSummary();
+      return;
+    }
+    
+    const question = mathQuestions[currentQuestionIndex];
+    updateProgress();
+    
+    const area = document.getElementById('quiz-area');
+    let html = '';
+    
+    if (question.type === 'addition') {
+      html = `
+        <div class="question-display">
+          <span class="number">${question.a}</span>
+          <span class="operator">+</span>
+          <span class="number">${question.b}</span>
+          <span class="equals">=</span>
+          <span class="blank">?</span>
+        </div>
+        <div class="options-container">
+          ${question.options.map(opt => `
+            <button class="option-btn" data-answer="${question.answer}" data-selected="${opt}">
+              ${opt}
+            </button>
+          `).join('')}
+        </div>
+      `;
+    } else if (question.type === 'subtraction') {
+      html = `
+        <div class="question-display">
+          <span class="number">${question.a}</span>
+          <span class="operator">-</span>
+          <span class="number">${question.b}</span>
+          <span class="equals">=</span>
+          <span class="blank">?</span>
+        </div>
+        <div class="options-container">
+          ${question.options.map(opt => `
+            <button class="option-btn" data-answer="${question.answer}" data-selected="${opt}">
+              ${opt}
+            </button>
+          `).join('')}
+        </div>
+      `;
+    } else if (question.type === 'comparison') {
+      html = `
+        <div class="question-display">
+          <span class="number">${question.a}</span>
+          <span class="comparison-operator">?</span>
+          <span class="number">${question.b}</span>
+        </div>
+        <div class="options-container">
+          ${question.options.map(opt => `
+            <button class="option-btn" data-answer="${question.answer}" data-selected="${opt}" style="font-size: 1.5em;">
+              ${opt === '>' ? '&gt;' : opt === '<' ? '&lt;' : '='}
+            </button>
+          `).join('')}
+        </div>
+      `;
+    }
+    
+    area.innerHTML = html;
+    
+    // Attach event listeners
+    document.querySelectorAll('.option-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const selected = parseInt(this.dataset.selected) || this.dataset.selected;
+        const answer = parseInt(this.dataset.answer) || this.dataset.answer;
+        handleAnswer(selected === answer || selected == answer, this);
+      });
+    });
+  }
+
+  // Handle answer
+  function handleAnswer(isCorrect, clickedButton) {
+    const buttons = document.querySelectorAll('.option-btn');
+    buttons.forEach(btn => btn.classList.add('disabled'));
+    
+    const question = mathQuestions[currentQuestionIndex];
+    const correctAnswer = question.answer;
+    
+    buttons.forEach(btn => {
+      const selected = parseInt(btn.dataset.selected) || btn.dataset.selected;
+      if (selected === correctAnswer || selected == correctAnswer) {
+        btn.classList.add('correct');
+      } else if (clickedButton && btn === clickedButton) {
+        btn.classList.add('wrong');
+      }
+    });
+    
+    if (isCorrect) {
+      correctCount++;
+      correctStreak++;
+      maxStreak = Math.max(maxStreak, correctStreak);
+      
+      playCorrectSound();
+      createConfetti();
+      
+      if (correctStreak >= 3) {
+        showStreakCombo(correctStreak);
+      }
+      
+      const rect = clickedButton ? clickedButton.getBoundingClientRect() : null;
+      const x = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
+      const y = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
+      createStar(x, y);
+    } else {
+      wrongCount++;
+      correctStreak = 0;
+      playWrongSound();
+    }
+    
+    updateScoreDisplay();
+    
+    setTimeout(() => {
+      currentQuestionIndex++;
+      showNextQuestion();
+    }, 2000);
+  }
+
+  // Update progress
+  function updateProgress() {
+    const total = mathQuestions.length;
+    const current = currentQuestionIndex + 1;
+    const percent = Math.round((currentQuestionIndex / total) * 100);
+    
+    document.getElementById('progress-text').textContent = `Câu ${current}/${total}`;
+    document.getElementById('progress-bar').style.width = percent + '%';
+    document.getElementById('progress-bar').textContent = percent + '%';
+  }
+
+  // Update score display
+  function updateScoreDisplay() {
+    document.getElementById('score-correct').textContent = correctCount;
+    document.getElementById('score-wrong').textContent = wrongCount;
+    document.getElementById('score-streak').textContent = correctStreak;
+  }
+
+  // Show summary
+  function showSummary() {
+    document.getElementById('progress-container').classList.add('hidden');
+    document.getElementById('score-display').classList.add('hidden');
+    
+    const total = mathQuestions.length;
+    const accuracy = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+    let stars = '⭐';
+    if (accuracy >= 90) stars = '⭐⭐⭐';
+    else if (accuracy >= 70) stars = '⭐⭐';
+    
+    createConfetti();
+    
+    const area = document.getElementById('quiz-area');
+    area.innerHTML = `
+      <div class="summary-screen">
+        <h2>🎉 Hoàn thành!</h2>
+        <div class="summary-stars">${stars}</div>
+        <div class="summary-stats">
+          ✅ Đúng: ${correctCount}/${total} (${accuracy}%)<br>
+          ❌ Sai: ${wrongCount}<br>
+          🔥 Streak tốt nhất: ${maxStreak}
+        </div>
+        <div style="margin-top: 30px;">
+          <button class="btn-fun btn-retry" onclick="location.reload()">🔄 Làm lại</button>
+          <button class="btn-fun btn-home" onclick="location.href='../index.html'">🏠 Trang chủ</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // Initialize
+  window.addEventListener('load', async () => {
+    await loadConfig();
+  });
+  </script>
+</body>
+</html>
+

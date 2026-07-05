@@ -1,0 +1,135 @@
+{
+    "id": 11,
+    "title": "Lesson 11: Days of a week",
+    "description": "Các ngày trong tuần",
+    "words": [
+        {
+            "word": "Monday",
+            "meaning": "Thứ Hai",
+            "images": [
+                "data/images/days/monday_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Today is Monday.",
+                    "vi": "Hôm nay là thứ Hai.",
+                    "images": [
+                        "data/images/days/monday_sentence.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Tuesday",
+            "meaning": "Thứ Ba",
+            "images": [
+                "data/images/days/tuesday_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Today is Tuesday.",
+                    "vi": "Hôm nay là thứ Ba.",
+                    "images": [
+                        "data/images/days/tuesday_sentence.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Wednesday",
+            "meaning": "Thứ Tư",
+            "images": [
+                "data/images/days/wednesday_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Today is Wednesday.",
+                    "vi": "Hôm nay là thứ Tư.",
+                    "images": [
+                        "data/images/days/wednesday_sentence.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Thursday",
+            "meaning": "Thứ Năm",
+            "images": [
+                "data/images/days/thursday_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Today is Thursday.",
+                    "vi": "Hôm nay là thứ Năm.",
+                    "images": [
+                        "data/images/days/thursday_sentence.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Friday",
+            "meaning": "Thứ Sáu",
+            "images": [
+                "data/images/days/friday_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Today is Friday.",
+                    "vi": "Hôm nay là thứ Sáu.",
+                    "images": [
+                        "data/images/days/friday_sentence.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Saturday",
+            "meaning": "Thứ Bảy",
+            "images": [
+                "data/images/days/saturday_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Today is Saturday.",
+                    "vi": "Hôm nay là thứ Bảy.",
+                    "images": [
+                        "data/images/days/saturday_sentence.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Sunday",
+            "meaning": "Chủ Nhật",
+            "images": [
+                "data/images/days/sunday_1.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Today is Sunday.",
+                    "vi": "Hôm nay là Chủ Nhật.",
+                    "images": [
+                        "data/images/days/sunday_sentence.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "What day is it today?",
+            "meaning": "Hôm nay là thứ mấy?",
+            "images": [
+                "data/images/days/what_day.png"
+            ],
+            "sentences": [
+                {
+                    "en": "What day is it today? It's Monday.",
+                    "vi": "Hôm nay là thứ mấy? Hôm nay là thứ Hai.",
+                    "images": [
+                        "data/images/days/what_day_sentence.png"
+                    ]
+                }
+            ]
+        }
+    ]
+}

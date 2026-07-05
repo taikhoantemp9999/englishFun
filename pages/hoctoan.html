@@ -1,271 +1,252 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🔢 Học Toán - English Fun</title>
+  <title>🔢 Bé Học Toán Lớp 2 - Tự Học Trực Quan</title>
+  
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    /* Giao diện vui nhộn - Gradient màu sắc cho toán học */
-    html, body {
-      height: 100%;
+    /* ===== MODERN MATH PREMIUM UI ===== */
+    * {
       margin: 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-      font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      font-family: 'Outfit', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      color: #2d3748;
       overflow-x: hidden;
     }
 
     .container-main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 10px;
-      height: 100vh;
+      padding: 20px;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
     }
 
+    /* Header */
     .fun-header {
-      background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
-      border-radius: 20px;
-      padding: 15px 20px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      margin-bottom: 10px;
-      animation: bounceIn 0.8s ease-out;
-      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 24px;
+      padding: 20px 30px;
+      box-shadow: 0 8px 25px rgba(237, 137, 54, 0.15);
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
     }
 
     .fun-header h1 {
       margin: 0;
-      font-size: 1.8em;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      justify-content: center;
+      font-size: 2em;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ed8936 0%, #f6ad55 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
+    .lesson-title-sub {
+      font-size: 1.1em;
+      color: #718096;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    /* Progress bar */
     .progress-container {
       background: white;
-      border-radius: 15px;
-      padding: 10px 15px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-      margin-bottom: 10px;
-      animation: slideDown 0.6s ease-out;
-      flex-shrink: 0;
+      border-radius: 20px;
+      padding: 15px 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
     }
 
     .progress-text {
       font-size: 1.1em;
-      font-weight: bold;
-      color: #667eea;
-      margin-bottom: 8px;
+      font-weight: 700;
+      color: #ed8936;
+      margin-bottom: 10px;
       text-align: center;
     }
 
     .progress-bar-custom {
-      height: 30px;
-      background: linear-gradient(90deg, #e0e0e0 0%, #f0f0f0 100%);
-      border-radius: 20px;
+      height: 24px;
+      background: #edf2f7;
+      border-radius: 12px;
       overflow: hidden;
       position: relative;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .progress-bar-fill {
       height: 100%;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-      border-radius: 20px;
-      transition: width 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+      border-radius: 12px;
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-weight: bold;
-      font-size: 0.95em;
-      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+      font-weight: 700;
+      font-size: 0.9em;
+      box-shadow: 0 2px 8px rgba(253, 160, 133, 0.4);
     }
 
+    /* Scoreboard */
     .score-display {
       display: flex;
-      gap: 10px;
+      gap: 15px;
       justify-content: center;
-      margin-bottom: 10px;
-      flex-shrink: 0;
+      margin-bottom: 20px;
     }
 
     .score-item {
       background: white;
-      padding: 8px 18px;
-      border-radius: 15px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 10px 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
       font-size: 1.1em;
-      font-weight: bold;
-      animation: slideDown 0.6s ease-out;
+      font-weight: 700;
     }
 
-    .score-correct { color: #4CAF50; }
-    .score-wrong { color: #f5576c; }
-    .score-streak {
-      color: #FF9800;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
+    .score-correct { color: #48bb78; }
+    .score-wrong { color: #f56565; }
+    .score-streak { color: #ed8936; }
 
+    /* Learning Card */
     .main-card {
       background: white;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      animation: zoomIn 0.5s ease-out;
       position: relative;
-      overflow: hidden;
-      min-height: 0;
     }
 
-    .main-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-      animation: rotate 20s linear infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .quiz-area {
+    /* Instruction Screen styling */
+    .instruction-screen {
       width: 100%;
+      max-width: 750px;
+      animation: slideUp 0.6s ease-out;
+    }
+
+    .instruction-title {
+      font-size: 1.8em;
+      font-weight: 700;
+      color: #dd6b20;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .instruction-content {
+      background: #fffaf0;
+      border: 2px solid #feebc8;
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 25px;
+      font-size: 1.1em;
+      line-height: 1.7;
+    }
+
+    /* Question Display styles */
+    .question-display-area {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    .math-expression {
+      font-size: 3.5em;
+      font-weight: 800;
+      color: #2d3748;
+      letter-spacing: 5px;
+      margin: 20px 0;
+    }
+
+    .math-text-question {
+      font-size: 1.5em;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* Interactive SVG Containers */
+    .visual-container {
+      margin: 20px 0;
+      background: #f7fafc;
+      border-radius: 20px;
+      padding: 20px;
+      border: 2px dashed #e2e8f0;
+      display: flex;
       justify-content: center;
-      flex: 1;
-      position: relative;
-      z-index: 5;
-      min-height: 0;
+      align-items: center;
+      min-height: 200px;
+      width: 100%;
+      max-width: 500px;
     }
 
-    .question-display {
-      font-size: 4em;
-      font-weight: bold;
-      color: #667eea;
-      text-align: center;
-      margin: 30px 0;
-      animation: fadeIn 0.8s ease-out;
-      position: relative;
-      z-index: 5;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .question-display .number {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 0 5px;
-      background: linear-gradient(135deg, #FFD93D 0%, #FFB74D 100%);
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      color: #333;
-      min-width: 80px;
-    }
-
-    .question-display .operator {
-      display: inline-block;
-      padding: 10px 15px;
-      margin: 0 5px;
-      font-size: 1.2em;
-      color: #667eea;
-    }
-
-    .question-display .equals {
-      display: inline-block;
-      margin: 0 10px;
-      color: #667eea;
-      font-size: 0.8em;
-    }
-
-    .question-display .blank {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 0 5px;
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      color: white;
-      min-width: 80px;
-      border: 3px dashed white;
-      animation: blink 1.5s infinite;
-    }
-
-    .question-display .comparison-operator {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 0 5px;
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      color: white;
-      min-width: 100px;
-      border: 3px dashed white;
-      animation: blink 1.5s infinite;
-      font-size: 0.6em;
-    }
-
-    .options-container {
+    /* Options buttons Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
       width: 100%;
       max-width: 600px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin: 30px 0;
-      position: relative;
-      z-index: 5;
+      margin-top: 20px;
     }
 
     .option-btn {
-      font-size: 2em;
-      padding: 25px;
-      border: 4px solid #ddd;
+      font-size: 1.5em;
+      font-weight: 700;
+      padding: 20px;
+      border: 3px solid #e2e8f0;
       border-radius: 20px;
-      background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+      background: white;
       cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: bold;
-      color: #333;
-      position: relative;
-      z-index: 10;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: #2d3748;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
     }
 
     .option-btn:hover:not(.disabled) {
-      transform: translateY(-5px) scale(1.05);
-      border-color: #667eea;
-      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+      transform: translateY(-4px);
+      border-color: #fda085;
+      box-shadow: 0 10px 20px rgba(253, 160, 133, 0.25);
+      background: #fffaf0;
     }
 
     .option-btn.correct {
-      background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+      background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
       color: white;
-      border-color: #4CAF50;
-      animation: correctPulse 0.6s ease-out;
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(72, 187, 120, 0.4);
     }
 
     .option-btn.wrong {
-      background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+      background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
       color: white;
-      border-color: #f5576c;
-      animation: shake 0.5s ease-out;
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(245, 101, 101, 0.4);
     }
 
     .option-btn.disabled {
@@ -273,68 +254,109 @@
       opacity: 0.6;
     }
 
+    /* Vertical Math Explanation Panel */
+    .explanation-panel {
+      width: 100%;
+      max-width: 500px;
+      background: #fffaf0;
+      border-radius: 20px;
+      border: 2px solid #feebc8;
+      padding: 25px;
+      margin-top: 25px;
+      box-shadow: 0 4px 15px rgba(221, 107, 32, 0.05);
+      animation: slideUp 0.5s ease-out;
+    }
+
+    .explanation-title {
+      font-weight: 700;
+      color: #dd6b20;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .vertical-calc {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 2.2em;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: right;
+      width: fit-content;
+      margin: 0 auto 20px auto;
+      padding: 10px 20px;
+      border-bottom: 4px double #4a5568;
+    }
+
+    .vertical-line-detail {
+      font-size: 1.05em;
+      line-height: 1.6;
+      color: #4a5568;
+    }
+
+    .step-number-badge {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: #dd6b20;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 0.85em;
+      line-height: 24px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    /* Welcome / Summary Screen */
+    .welcome-container {
+      text-align: center;
+    }
+
     .btn-fun {
-      font-size: 1.3em;
-      padding: 15px 35px;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      font-weight: 700;
       border: none;
-      border-radius: 25px;
-      font-weight: bold;
+      border-radius: 20px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      color: white;
       margin: 10px;
-      position: relative;
-      z-index: 10;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn-fun:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
     .btn-start {
-      background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
-      color: white;
-      font-size: 1.5em;
-      padding: 20px 50px;
+      background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
     }
 
     .btn-home {
-      background: linear-gradient(135deg, #9E9E9E 0%, #BDBDBD 100%);
-      color: white;
+      background: linear-gradient(135deg, #a0aec0 0%, #718096 100%);
     }
 
     .btn-retry {
-      background: linear-gradient(135deg, #2196F3 0%, #64B5F6 100%);
-      color: white;
+      background: linear-gradient(135deg, #ed8936 0%, #f6ad55 100%);
     }
 
-    .summary-screen {
-      text-align: center;
-      animation: zoomIn 0.8s ease-out;
-      position: relative;
-      z-index: 5;
+    .hidden {
+      display: none !important;
     }
 
-    .summary-screen h2 {
-      font-size: 2.5em;
-      color: #4CAF50;
-      margin-bottom: 20px;
-      animation: bounce 1s ease-out;
+    /* Animations */
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
-    .summary-stats {
-      font-size: 1.5em;
-      color: #666;
-      margin: 20px 0;
-    }
-
-    .summary-stars {
-      font-size: 5em;
-      margin: 20px 0;
-      animation: starPop 0.8s ease-out;
-    }
-
+    /* Confetti & Stars */
     .confetti {
       position: fixed;
       width: 10px;
@@ -351,88 +373,6 @@
       pointer-events: none;
     }
 
-    .streak-display {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 4em;
-      font-weight: bold;
-      color: #FFD700;
-      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-      animation: streakPop 1s ease-out forwards;
-      z-index: 9999;
-      pointer-events: none;
-    }
-
-    .start-screen {
-      text-align: center;
-      animation: fadeIn 0.8s ease-out;
-      position: relative;
-      z-index: 5;
-    }
-
-    .start-screen h2 {
-      font-size: 2.5em;
-      color: #667eea;
-      margin-bottom: 30px;
-    }
-
-    .start-screen p {
-      font-size: 1.3em;
-      color: #666;
-      margin-bottom: 40px;
-    }
-
-    @keyframes bounceIn {
-      0% { transform: scale(0.3); opacity: 0; }
-      50% { transform: scale(1.05); }
-      70% { transform: scale(0.9); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes zoomIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-10px); }
-      75% { transform: translateX(10px); }
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes correctPulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-      100% { transform: scale(1); }
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
     @keyframes confetti-fall {
       to {
         transform: translateY(100vh) rotate(360deg);
@@ -441,748 +381,726 @@
     }
 
     @keyframes starFloat {
-      0% {
-        transform: translate(0, 0) scale(0);
-        opacity: 1;
-      }
-      50% {
-        transform: translate(0, -100px) scale(1.2);
-      }
-      100% {
-        transform: translate(0, -150px) scale(0);
-        opacity: 0;
-      }
-    }
-
-    @keyframes starPop {
-      0% { transform: scale(0) rotate(0deg); }
-      50% { transform: scale(1.2) rotate(180deg); }
-      100% { transform: scale(1) rotate(360deg); }
-    }
-
-    @keyframes streakPop {
-      0% {
-        transform: translate(-50%, -50%) scale(0);
-        opacity: 0;
-      }
-      50% {
-        transform: translate(-50%, -50%) scale(1.3);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(-50%, -50%) scale(0);
-        opacity: 0;
-      }
-    }
-
-    .hidden { display: none !important; }
-
-    @media (max-width: 768px) {
-      .container-main { padding: 5px; }
-      .fun-header h1 { font-size: 1.4em; }
-      .question-display { font-size: 2.5em; }
-      .options-container { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .option-btn { font-size: 1.5em; padding: 20px; }
+      0% { transform: translate(0, 0) scale(0); opacity: 1; }
+      50% { transform: translate(0, -100px) scale(1.2); }
+      100% { transform: translate(0, -150px) scale(0); opacity: 0; }
     }
   </style>
 </head>
+
 <body>
   <div class="container-main">
+    <!-- Header -->
     <div class="fun-header">
-      <h1>
-        <span>🔢</span>
-        <span>Học Toán Lớp 1</span>
-        <span>📐</span>
-      </h1>
+      <h1 id="page-title">🔢 Bé Học Toán Lớp 2</h1>
+      <div class="lesson-title-sub" id="lesson-title">Đang tải bài học...</div>
     </div>
 
+    <!-- Progress Indicator -->
     <div class="progress-container hidden" id="progress-container">
-      <div class="progress-text" id="progress-text">Câu 1/20</div>
+      <div class="progress-text" id="progress-text">Câu 1/10</div>
       <div class="progress-bar-custom">
         <div class="progress-bar-fill" id="progress-bar" style="width: 0%">0%</div>
       </div>
     </div>
 
+    <!-- Scoreboard -->
     <div class="score-display hidden" id="score-display">
-      <div class="score-item score-correct">
-        ✅ <span id="score-correct">0</span>
-      </div>
-      <div class="score-item score-wrong">
-        ❌ <span id="score-wrong">0</span>
-      </div>
-      <div class="score-item score-streak">
-        🔥 <span id="score-streak">0</span>
-      </div>
+      <div class="score-item score-correct">✅ Đúng: <span id="score-correct">0</span></div>
+      <div class="score-item score-wrong">❌ Sai: <span id="score-wrong">0</span></div>
+      <div class="score-item score-streak">🔥 Streak: <span id="score-streak">0</span></div>
     </div>
 
+    <!-- Main Learning Card -->
     <div class="main-card" id="main-card">
-      <div class="start-screen" id="start-screen">
-        <h2>🎮 Sẵn sàng học toán chưa?</h2>
-        <p>Em sẽ được làm các phép tính cộng, trừ và so sánh số!<br>Hãy cố gắng trả lời đúng nhiều nhất nhé! 🌟</p>
-        <button class="btn-fun btn-start" onclick="startQuiz()">🚀 Bắt đầu</button>
-        <button class="btn-fun btn-home" onclick="location.href='../index.html'">🏠 Trang chủ</button>
+      <!-- Màn hình chào -->
+      <div class="welcome-container" id="welcome-screen">
+        <h2>🎮 Con đã sẵn sàng học toán chưa?</h2>
+        <p class="text-muted mt-3 mb-4">Con hãy xem qua phần hướng dẫn tự học trước khi bắt đầu luyện tập làm bài nhé! 🌟</p>
+        <button class="btn-fun btn-start" onclick="showInstruction()">💡 Xem hướng dẫn tự học</button>
+        <a href="../index.html" class="btn-fun btn-home">🏠 Trang chủ</a>
       </div>
 
+      <!-- Vùng câu hỏi sẽ hiển thị động -->
       <div class="quiz-area hidden" id="quiz-area"></div>
+      
+      <!-- Panel giải thích khi chọn sai -->
+      <div class="explanation-panel hidden" id="explanation-panel"></div>
     </div>
   </div>
 
+  <!-- Firebase CDN -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+  <!-- Static Lesson Data fallbacks -->
+  <script src="../data/english_lessons.js"></script>
+  <script src="../data/math_lessons.js"></script>
+
+  <!-- Configs & Managers -->
+  <script src="../js/firebase-config.js"></script>
+  <script src="../js/quiz-progress.js"></script>
+  <script src="../js/lesson-loader.js"></script>
+  <script src="../js/math-question-gen.js"></script>
+
+  <!-- Interactive Logic Script -->
   <script>
-  'use strict';
-
-  // GLOBAL STATE
-  let CONFIG = null;
-  let mathQuestions = [];
-  let currentQuestionIndex = 0;
-  let correctCount = 0;
-  let wrongCount = 0;
-  let correctStreak = 0;
-  let maxStreak = 0;
-  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-
-  // Load config
-  async function loadConfig() {
-    try {
-      const response = await fetch('../config.json');
-      CONFIG = await response.json();
-    } catch (error) {
-      console.error('Lỗi tải config:', error);
-      // Default config for grade 1
-      CONFIG = {
-        math: {
-          grade1: {
-            max_questions: 20,
-            number_range: { min: 0, max: 20 },
-            operations: { addition: true, subtraction: true, comparison: true },
-            operation_weights: { addition: 0.4, subtraction: 0.4, comparison: 0.2 }
-          }
-        }
-      };
-    }
-  }
-
-  // Sound effects
-  function playCorrectSound() {
-    const osc = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    osc.connect(gain);
-    gain.connect(audioContext.destination);
-    osc.frequency.value = 800;
-    osc.type = 'sine';
-    gain.gain.setValueAtTime(0.3, audioContext.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-    osc.start(audioContext.currentTime);
-    osc.stop(audioContext.currentTime + 0.3);
-  }
-
-  function playWrongSound() {
-    const osc = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    osc.connect(gain);
-    gain.connect(audioContext.destination);
-    osc.frequency.value = 200;
-    osc.type = 'sawtooth';
-    gain.gain.setValueAtTime(0.2, audioContext.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
-    osc.start(audioContext.currentTime);
-    osc.stop(audioContext.currentTime + 0.2);
-  }
-
-  // Visual effects
-  function createConfetti() {
-    const colors = ['#FF6B6B', '#4CAF50', '#2196F3', '#FFD93D', '#9C27B0', '#f093fb'];
-    for (let i = 0; i < 30; i++) {
-      setTimeout(() => {
-        const conf = document.createElement('div');
-        conf.className = 'confetti';
-        conf.style.left = Math.random() * 100 + 'vw';
-        conf.style.background = colors[Math.floor(Math.random() * colors.length)];
-        conf.style.animationDelay = Math.random() * 2 + 's';
-        document.body.appendChild(conf);
-        setTimeout(() => conf.remove(), 3000);
-      }, i * 30);
-    }
-  }
-
-  function createStar(x, y) {
-    const star = document.createElement('div');
-    star.className = 'star-pop';
-    star.textContent = '⭐';
-    star.style.left = x + 'px';
-    star.style.top = y + 'px';
-    document.body.appendChild(star);
-    setTimeout(() => star.remove(), 1500);
-  }
-
-  function showStreakCombo(streak) {
-    if (streak < 3) return;
-    const div = document.createElement('div');
-    div.className = 'streak-display';
-    div.textContent = `🔥 ${streak} COMBO!`;
-    document.body.appendChild(div);
-    setTimeout(() => div.remove(), 1000);
-  }
-
-  // Generate math questions with duplicate prevention and progressive difficulty
-  function generateMathQuestions() {
-    const mathConfig = CONFIG.math.grade1;
-    const range = mathConfig.number_range;
-    const maxQuestions = mathConfig.max_questions;
-    const weights = mathConfig.operation_weights;
+    let currentLessonId = '';
+    let lessonData = null;
+    let quizQuestions = [];
+    let currentQuestionIndex = 0;
     
-    const questions = [];
-    const usedQuestions = new Set(); // Track used questions to avoid duplicates
-    let attempts = 0;
-    const maxAttempts = maxQuestions * 100; // Prevent infinite loop
+    let correctCount = 0;
+    let wrongCount = 0;
+    let streakCount = 0;
+    let maxStreak = 0;
     
-    // Calculate cumulative weights
-    const totalWeight = weights.addition + weights.subtraction + weights.comparison;
-    const additionThreshold = weights.addition / totalWeight;
-    const subtractionThreshold = (weights.addition + weights.subtraction) / totalWeight;
-    
-    // Progressive difficulty: divide questions into difficulty levels
-    const difficultyLevels = 4; // 4 levels of difficulty
-    const questionsPerLevel = Math.floor(maxQuestions / difficultyLevels);
-    
-    while (questions.length < maxQuestions && attempts < maxAttempts) {
-      attempts++;
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Khởi tạo ProgressManager
+      await ProgressManager.init();
+
+      // 2. Load dữ liệu bài học từ URL
+      const urlParams = new URLSearchParams(window.location.search);
+      currentLessonId = urlParams.get('lesson') || 'M1';
       
-      // Calculate current difficulty level (0 = easier, 3 = hardest)
-      const currentLevel = Math.min(difficultyLevels - 1, Math.floor(questions.length / questionsPerLevel));
-      const difficulty = currentLevel / (difficultyLevels - 1); // 0 to 1
-      
-      const rand = Math.random();
-      let question;
-      
-      // Determine question type based on weights
-      if (rand < additionThreshold && mathConfig.operations.addition) {
-        question = generateAdditionQuestion(range, difficulty);
-      } else if (rand < subtractionThreshold && mathConfig.operations.subtraction) {
-        question = generateSubtractionQuestion(range, difficulty);
-      } else if (mathConfig.operations.comparison) {
-        question = generateComparisonQuestion(range, difficulty);
-      } else {
-        // Fallback to addition
-        question = generateAdditionQuestion(range, difficulty);
-      }
-      
-      // Create unique key for question
-      const questionKey = getQuestionKey(question);
-      
-      // Check if question already exists
-      if (!usedQuestions.has(questionKey)) {
-        usedQuestions.add(questionKey);
-        questions.push(question);
-      }
-    }
-    
-    // If we still don't have enough questions, fill with harder variants
-    if (questions.length < maxQuestions) {
-      console.warn(`Chỉ tạo được ${questions.length} câu hỏi không trùng lặp. Tạo thêm câu hỏi khó hơn.`);
-      // Generate harder questions to fill remaining slots
-      while (questions.length < maxQuestions && attempts < maxAttempts * 2) {
-        attempts++;
-        const rand = Math.random();
-        let question;
-        const difficulty = 0.8; // Hard difficulty
-        
-        if (rand < additionThreshold && mathConfig.operations.addition) {
-          question = generateAdditionQuestion(range, difficulty);
-        } else if (rand < subtractionThreshold && mathConfig.operations.subtraction) {
-          question = generateSubtractionQuestion(range, difficulty);
-        } else if (mathConfig.operations.comparison) {
-          question = generateComparisonQuestion(range, difficulty);
+      try {
+        lessonData = await LessonLoader.loadLesson('math', currentLessonId);
+        if (lessonData) {
+          document.getElementById('lesson-title').textContent = lessonData.title;
         } else {
-          question = generateAdditionQuestion(range, difficulty);
+          document.getElementById('lesson-title').textContent = 'Bài học không tồn tại';
         }
-        
-        const questionKey = getQuestionKey(question);
-        if (!usedQuestions.has(questionKey)) {
-          usedQuestions.add(questionKey);
-          questions.push(question);
-        }
+      } catch (e) {
+        console.error('Error loading math lesson:', e);
+        document.getElementById('lesson-title').textContent = 'Lỗi tải bài học';
       }
-    }
-    
-    // Shuffle to mix difficulty levels (optional - comment out to keep progressive order)
-    // return shuffleArray(questions);
-    return questions;
-  }
-  
-  // Create unique key for question to detect duplicates
-  function getQuestionKey(question) {
-    if (question.type === 'addition') {
-      // For addition, a+b and b+a are the same, so sort them
-      const sorted = [question.a, question.b].sort((x, y) => x - y);
-      return `${question.type}_${sorted[0]}_${sorted[1]}`;
-    } else if (question.type === 'subtraction') {
-      // For subtraction, a-b and b-a are different, so don't sort
-      // Also, we need to ensure b <= a (no negative results)
-      return `${question.type}_${Math.max(question.a, question.b)}_${Math.min(question.a, question.b)}`;
-    } else if (question.type === 'comparison') {
-      // For comparison, a>b is different from b>a, but we want to avoid exact duplicates
-      return `${question.type}_${question.a}_${question.b}_${question.answer}`;
-    }
-    return `${question.type}_${question.a}_${question.b}`;
-  }
+    });
 
-  function generateAdditionQuestion(range, difficulty = 0) {
-    // difficulty: 0 = easier, 1 = harder
-    let a, b;
-    
-    // Use full range, but adjust based on difficulty
-    // Higher difficulty = use larger numbers and more complex combinations
-    const rangeSize = range.max - range.min;
-    const difficultyOffset = Math.floor(rangeSize * difficulty * 0.6); // Use more of the range as difficulty increases
-    
-    // For harder questions, prefer larger numbers
-    if (difficulty > 0.5) {
-      // Hard mode: use larger numbers (upper 60% of range)
-      const minNum = range.min + Math.floor(rangeSize * 0.4);
-      a = Math.floor(Math.random() * (range.max - minNum + 1)) + minNum;
-      // Ensure we can still get valid result
-      const maxB = Math.min(range.max - a, range.max);
-      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
-    } else if (difficulty > 0.2) {
-      // Medium mode: use middle to upper range
-      const minNum = range.min + Math.floor(rangeSize * 0.2);
-      a = Math.floor(Math.random() * (range.max - minNum + 1)) + minNum;
-      const maxB = Math.min(range.max - a, range.max);
-      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
-    } else {
-      // Easy mode: can use any numbers, but start smaller
-      a = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
-      const maxB = Math.min(range.max - a, range.max);
-      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
-    }
-    
-    // Ensure we use the full range when possible
-    if (a + b < range.max && difficulty > 0.3) {
-      // Try to make it use larger numbers
-      const remaining = range.max - a;
-      if (remaining > 0) {
-        b = Math.min(b + Math.floor(Math.random() * Math.min(remaining, 3)), range.max - a);
+    // HIỂN THỊ MÀN HÌNH HƯỚNG DẪN TỰ HỌC TRỰC QUAN (LÝ THUYẾT BAN ĐẦU)
+    function showInstruction() {
+      if (!lessonData) {
+        alert('Đang tải dữ liệu bài học, vui lòng đợi...');
+        return;
       }
-    }
-    
-    const answer = a + b;
-    const wrongAnswers = generateWrongAnswers(answer, range, difficulty);
-    
-    return {
-      type: 'addition',
-      a: a,
-      b: b,
-      answer: answer,
-      options: shuffleArray([answer, ...wrongAnswers])
-    };
-  }
 
-  function generateSubtractionQuestion(range, difficulty = 0) {
-    // difficulty: 0 = easier, 1 = harder
-    let a, b;
-    
-    const rangeSize = range.max - range.min;
-    
-    // For harder questions, use larger numbers and larger differences
-    if (difficulty > 0.5) {
-      // Hard mode: use larger minuend and allow larger subtrahend
-      const minA = range.min + Math.floor(rangeSize * 0.5);
-      a = Math.floor(Math.random() * (range.max - minA + 1)) + minA;
-      // Allow larger subtrahend (can be up to 70% of a)
-      const maxB = Math.min(a, Math.floor(a * 0.7) + range.min);
-      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
-    } else if (difficulty > 0.2) {
-      // Medium mode: use medium numbers
-      const minA = range.min + Math.floor(rangeSize * 0.3);
-      a = Math.floor(Math.random() * (range.max - minA + 1)) + minA;
-      // Allow subtrahend up to 60% of a
-      const maxB = Math.min(a, Math.floor(a * 0.6) + range.min);
-      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
-    } else {
-      // Easy mode: smaller numbers, smaller differences
-      a = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
-      // Smaller subtrahend for easier calculation
-      const maxB = Math.min(a, Math.floor(a * 0.5) + range.min);
-      b = Math.floor(Math.random() * (maxB - range.min + 1)) + range.min;
-    }
-    
-    // Ensure b <= a (no negative results)
-    if (b > a) {
-      [a, b] = [b, a];
-    }
-    
-    const answer = a - b;
-    const wrongAnswers = generateWrongAnswers(answer, range, difficulty);
-    
-    return {
-      type: 'subtraction',
-      a: a,
-      b: b,
-      answer: answer,
-      options: shuffleArray([answer, ...wrongAnswers])
-    };
-  }
+      document.getElementById('welcome-screen').classList.add('hidden');
+      
+      const mainCard = document.getElementById('main-card');
+      const insDiv = document.createElement('div');
+      insDiv.className = 'instruction-screen';
 
-  function generateComparisonQuestion(range, difficulty = 0) {
-    // difficulty: 0 = easier, 1 = harder
-    let a, b;
-    
-    const rangeSize = range.max - range.min;
-    
-    // For harder questions, use numbers that are closer together (harder to compare)
-    // and use larger numbers
-    if (difficulty > 0.5) {
-      // Hard mode: use larger numbers that are very close together
-      const minNum = range.min + Math.floor(rangeSize * 0.4);
-      a = Math.floor(Math.random() * (range.max - minNum + 1)) + minNum;
-      
-      // Make numbers very close (difference of 0-2) - this is harder to compare
-      const diff = Math.floor(Math.random() * 3); // 0-2
-      const direction = Math.random() < 0.5 ? 1 : -1;
-      b = a + (direction * diff);
-      
-      // Clamp to range
-      b = Math.max(range.min, Math.min(range.max, b));
-      
-      // If equal, sometimes make them differ by 1
-      if (a === b && Math.random() < 0.5) {
-        if (a < range.max) b = a + 1;
-        else if (a > range.min) b = a - 1;
-      }
-    } else if (difficulty > 0.2) {
-      // Medium mode: use medium numbers with small differences
-      const minNum = range.min + Math.floor(rangeSize * 0.2);
-      a = Math.floor(Math.random() * (range.max - minNum + 1)) + minNum;
-      
-      // Small difference (0-3)
-      const diff = Math.floor(Math.random() * 4);
-      const direction = Math.random() < 0.5 ? 1 : -1;
-      b = a + (direction * diff);
-      b = Math.max(range.min, Math.min(range.max, b));
-    } else {
-      // Easy mode: can have larger differences, easier to see
-      a = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
-      // Allow larger differences for easier comparison
-      const diff = Math.floor(Math.random() * Math.min(6, rangeSize));
-      const direction = Math.random() < 0.5 ? 1 : -1;
-      b = a + (direction * diff);
-      b = Math.max(range.min, Math.min(range.max, b));
-    }
-    
-    let correctOperator;
-    if (a > b) correctOperator = '>';
-    else if (a < b) correctOperator = '<';
-    else correctOperator = '=';
-    
-    const operators = ['>', '<', '='];
-    const wrongOperators = operators.filter(op => op !== correctOperator);
-    const options = shuffleArray([correctOperator, ...wrongOperators]);
-    
-    return {
-      type: 'comparison',
-      a: a,
-      b: b,
-      answer: correctOperator,
-      options: options
-    };
-  }
+      const type = lessonData.type;
+      let explanationHtml = '';
+      let visualHtml = '';
 
-  function generateWrongAnswers(correctAnswer, range, difficulty = 0) {
-    // difficulty: 0 = easier (wrong answers far from correct), 1 = harder (wrong answers close to correct)
-    const wrongAnswers = new Set();
-    const maxAttempts = 200;
-    let attempts = 0;
-    
-    while (wrongAnswers.size < 2 && attempts < maxAttempts) {
-      attempts++;
-      let wrong;
-      
-      if (difficulty > 0.5) {
-        // Hard mode: wrong answers are very close to correct answer (difference of 1-2)
-        // This makes it much harder to choose the right answer
-        const offsets = [1, 2, -1, -2];
-        const shuffledOffsets = shuffleArray([...offsets]);
-        
-        for (const offset of shuffledOffsets) {
-          wrong = correctAnswer + offset;
-          wrong = Math.max(range.min, Math.min(range.max, wrong));
-          
-          if (wrong !== correctAnswer && !wrongAnswers.has(wrong)) {
-            wrongAnswers.add(wrong);
-            break;
-          }
-        }
-        
-        // If still need more, try difference of 3
-        if (wrongAnswers.size < 2) {
-          const offsets2 = [3, -3];
-          for (const offset of offsets2) {
-            wrong = correctAnswer + offset;
-            wrong = Math.max(range.min, Math.min(range.max, wrong));
-            if (wrong !== correctAnswer && !wrongAnswers.has(wrong)) {
-              wrongAnswers.add(wrong);
-              if (wrongAnswers.size >= 2) break;
-            }
-          }
-        }
-      } else if (difficulty > 0.2) {
-        // Medium mode: wrong answers are moderately close (difference of 1-4)
-        const offset = Math.floor(Math.random() * 4) + 1; // 1-4
-        const direction = Math.random() < 0.5 ? 1 : -1;
-        wrong = correctAnswer + (direction * offset);
-        wrong = Math.max(range.min, Math.min(range.max, wrong));
-        
-        if (wrong === correctAnswer || wrongAnswers.has(wrong)) {
-          // Try opposite direction
-          wrong = correctAnswer - (direction * offset);
-          wrong = Math.max(range.min, Math.min(range.max, wrong));
-        }
-        
-        if (wrong !== correctAnswer && !wrongAnswers.has(wrong)) {
-          wrongAnswers.add(wrong);
-        } else {
-          // Fallback: random but ensure it's different
-          do {
-            wrong = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
-          } while (wrong === correctAnswer || wrongAnswers.has(wrong));
-          wrongAnswers.add(wrong);
-        }
+      // Tự động đọc lời chào của bài hướng dẫn
+      speakText(`Chào mừng con đến với phần hướng dẫn tự học của bài: ${lessonData.title}. Hãy cùng cô xem qua cách làm nhé!`);
+
+      // Sinh nội dung hướng dẫn trực quan theo loại bài học (lessonData.type)
+      if (type.includes('addition_carry')) {
+        // Cộng có nhớ
+        explanationHtml = `
+          <p><b>1. Đặt tính thẳng cột:</b> Viết các số sao cho chữ số hàng đơn vị thẳng hàng đơn vị, hàng chục thẳng hàng chục.</p>
+          <p><b>2. Thực hiện cộng từ phải sang trái (bắt đầu từ hàng đơn vị):</b></p>
+          <div class="mt-2"><span class="step-number-badge">1</span>Hàng đơn vị cộng lại lớn hơn hoặc bằng 10, ta <b>viết chữ số hàng đơn vị</b> và <b>nhớ 1</b> sang hàng chục.</div>
+          <div class="mt-2"><span class="step-number-badge">2</span>Hàng chục cộng lại và nhớ thêm 1 chục vừa mượn.</div>
+        `;
+        visualHtml = `
+          <div class="vertical-calc">
+             38<br>
+          +  25<br>
+          ------<br>
+             63
+          </div>
+          <div style="font-size:0.95em; color:#718096; text-align:center;">Ví dụ: 8 + 5 = 13 (viết 3 nhớ 1). 3 + 2 = 5 thêm 1 bằng 6. Kết quả là 63.</div>
+        `;
+      } else if (type.includes('subtraction_borrow')) {
+        // Trừ có nhớ
+        explanationHtml = `
+          <p><b>1. Đặt tính thẳng cột:</b> Hàng đơn vị thẳng hàng đơn vị, hàng chục thẳng hàng chục.</p>
+          <p><b>2. Thực hiện trừ từ phải sang trái (bắt đầu từ hàng đơn vị):</b></p>
+          <div class="mt-2"><span class="step-number-badge">1</span>Hàng đơn vị của số bị trừ bé hơn số trừ, ta <b>mượn 1 chục</b> (cộng thêm 10) để trừ, rồi <b>nhớ 1</b> trả vào hàng chục tiếp theo.</div>
+          <div class="mt-2"><span class="step-number-badge">2</span>Hàng chục của số trừ cộng thêm 1 chục nhớ, lấy hàng chục số bị trừ trừ đi.</div>
+        `;
+        visualHtml = `
+          <div class="vertical-calc">
+             52<br>
+          -  18<br>
+          ------<br>
+             34
+          </div>
+          <div style="font-size:0.95em; color:#718096; text-align:center;">Ví dụ: 2 không trừ được 8, mượn 1 chục là 12 - 8 = 4 (viết 4 nhớ 1). 1 thêm 1 bằng 2, 5 - 2 = 3. Kết quả là 34.</div>
+        `;
+      } else if (type === 'time_hours_minutes') {
+        // Xem giờ
+        explanationHtml = `
+          <p><b>1. Kim ngắn màu đen:</b> Chỉ giờ. Kim ngắn chỉ vào số nào thì là giờ đó.</p>
+          <p><b>2. Kim dài màu đỏ:</b> Chỉ phút.</p>
+          <div class="mt-2"><span class="step-number-badge">★</span>Khi kim dài chỉ đúng <b>số 12</b>, đó là <b>giờ đúng</b> (ví dụ: 8 giờ đúng).</div>
+          <div class="mt-2"><span class="step-number-badge">★</span>Khi kim dài chỉ đúng <b>số 6</b>, đó là <b>giờ rưỡi</b> hay 30 phút (ví dụ: 8 giờ 30 phút).</div>
+        `;
+        visualHtml = drawClockSVG(8, 30); // Đồng hồ chỉ 8h30
+      } else if (type === 'length_dm_m_km' || type === 'measurement_length_practice') {
+        // Đo độ dài thước kẻ
+        explanationHtml = `
+          <p><b>Cách dùng thước kẻ đo độ dài:</b></p>
+          <div class="mt-2"><span class="step-number-badge">1</span>Đặt một đầu của vật trùng với vạch số <b>0</b> của thước kẻ.</div>
+          <div class="mt-2"><span class="step-number-badge">2</span>Đầu còn lại của vật trùng với vạch số nào thì đó là chiều dài của vật đó (đơn vị xăng-ti-mét hoặc đề-xi-mét).</div>
+          <div class="mt-3"><i>Lưu ý đổi đơn vị: 1 dm = 10 cm, 1 m = 10 dm, 1 km = 1000 m.</i></div>
+        `;
+        visualHtml = drawRulerSVG(5, 'cm'); // Thước kẻ đo 5cm
+      } else if (type === 'vietnamese_money') {
+        // Tiền tệ
+        explanationHtml = `
+          <p><b>Tìm hiểu Tiền Việt Nam:</b></p>
+          <p>Bé học cách cộng giá trị của các tờ tiền giấy để mua đồ vật:</p>
+          <div class="mt-2"><span class="step-number-badge">★</span>Cộng các mệnh giá lại với nhau: Ví dụ tờ 500 đồng và tờ 200 đồng. Ta lấy <b>500 + 200 = 700 đồng</b>.</div>
+        `;
+        visualHtml = `
+          <div class="d-flex justify-content-center gap-2 align-items-center">
+            <div style="background:#e2e8f0; border: 2px solid #cbd5e0; padding:15px; border-radius:10px; font-weight:bold;">💵 500 đ</div>
+            <div style="font-size:1.5em; font-weight:bold;">+</div>
+            <div style="background:#e2e8f0; border: 2px solid #cbd5e0; padding:15px; border-radius:10px; font-weight:bold;">💵 200 đ</div>
+            <div style="font-size:1.5em; font-weight:bold;">=</div>
+            <div style="background:#feebc8; border: 2px solid #fbd38d; padding:15px; border-radius:10px; font-weight:bold; color:#dd6b20;">💵 700 đ</div>
+          </div>
+        `;
+      } else if (type.includes('multiplication')) {
+        // Phép nhân
+        explanationHtml = `
+          <p><b>Bản chất của Phép nhân:</b></p>
+          <p>Phép nhân là cách viết ngắn gọn của một phép tính cộng có nhiều số giống hệt nhau:</p>
+          <div class="mt-2"><span class="step-number-badge">★</span>Ví dụ: <b>2 + 2 + 2 + 2 = 8</b>. Số 2 được cộng lại 4 lần. Ta viết thành phép nhân: <b>2 x 4 = 8</b>.</div>
+          <div class="mt-2"><span class="step-number-badge">★</span>Các số nhân với nhau gọi là <b>Thừa số</b>, kết quả gọi là <b>Tích</b>.</div>
+        `;
+        visualHtml = `
+          <div style="font-size: 1.5em; font-weight:bold; text-align:center;">2 + 2 + 2 + 2 = 2 x 4 = 8</div>
+        `;
+      } else if (type.includes('division')) {
+        // Phép chia
+        explanationHtml = `
+          <p><b>Bản chất của Phép chia:</b></p>
+          <p>Phép chia dùng để chia đều một số lượng đồ vật thành các phần bằng nhau:</p>
+          <div class="mt-2"><span class="step-number-badge">★</span>Ví dụ: Có 10 quả táo chia đều cho 2 bạn. Mỗi bạn sẽ nhận được bao nhiêu quả? Ta làm phép chia: <b>10 : 2 = 5 quả táo</b>.</div>
+          <div class="mt-2"><span class="step-number-badge">★</span>Số bị chia là 10, Số chia là 2, Thương (kết quả) là 5.</div>
+        `;
+        visualHtml = `
+          <div style="font-size: 1.5em; font-weight:bold; text-align:center;">10 : 2 = 5</div>
+        `;
       } else {
-        // Easy mode: wrong answers can be farther away (easier to distinguish)
-        // But still try to make them somewhat reasonable
-        const offset = Math.floor(Math.random() * 5) + 2; // 2-6
-        const direction = Math.random() < 0.5 ? 1 : -1;
-        wrong = correctAnswer + (direction * offset);
-        wrong = Math.max(range.min, Math.min(range.max, wrong));
-        
-        if (wrong === correctAnswer || wrongAnswers.has(wrong)) {
-          // Try random
-          do {
-            wrong = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
-          } while (wrong === correctAnswer || wrongAnswers.has(wrong) || Math.abs(wrong - correctAnswer) < 2);
-        }
-        
-        if (wrong !== correctAnswer && !wrongAnswers.has(wrong)) {
-          wrongAnswers.add(wrong);
+        // Hướng dẫn chung
+        explanationHtml = `
+          <p><b>Cùng ôn tập và luyện tập:</b></p>
+          <p>Bé hãy đọc thật kỹ đề bài câu hỏi hiển thị trên màn hình:</p>
+          <div class="mt-2"><span class="step-number-badge">★</span>Xem các hình ảnh trực quan bổ trợ để đếm hoặc tính toán số liệu.</div>
+          <div class="mt-2"><span class="step-number-badge">★</span>Bấm chọn 1 trong 4 đáp án đúng nhất để hoàn thành bài nhé!</div>
+        `;
+        visualHtml = `
+          <div style="font-size: 4em;">✏️ Math</div>
+        `;
+      }
+
+      insDiv.innerHTML = `
+        <h2 class="instruction-title">💡 Hướng Dẫn Tự Học Trực Quan</h2>
+        <div class="instruction-content">
+          ${explanationHtml}
+        </div>
+        <div class="visual-container mx-auto mb-4">
+          ${visualHtml}
+        </div>
+        <div class="text-center">
+          <button class="btn-fun btn-start" onclick="startQuiz()">✍️ Con đã hiểu, Bắt đầu luyện tập!</button>
+          <a href="../index.html" class="btn-fun btn-home">🏠 Quay lại trang chủ</a>
+        </div>
+      `;
+
+      mainCard.appendChild(insDiv);
+    }
+
+    // Bắt đầu làm bài
+    function startQuiz() {
+      // Ẩn màn hình chào và màn hình hướng dẫn
+      document.getElementById('welcome-screen').classList.add('hidden');
+      const insScreen = document.querySelector('.instruction-screen');
+      if (insScreen) insScreen.remove();
+
+      document.getElementById('progress-container').classList.remove('hidden');
+      document.getElementById('score-display').classList.remove('hidden');
+      document.getElementById('quiz-area').classList.remove('hidden');
+
+      // Sinh câu hỏi từ MathQuestionGenerator kết hợp Spaced Repetition từ progress
+      quizQuestions = MathQuestionGenerator.generate(lessonData, ProgressManager.data, 10);
+      
+      if (quizQuestions.length === 0) {
+        alert('Không tìm thấy hoặc không thể sinh câu hỏi cho bài này!');
+        return;
+      }
+
+      currentQuestionIndex = 0;
+      correctCount = 0;
+      wrongCount = 0;
+      streakCount = 0;
+      maxStreak = 0;
+
+      updateScoreDisplay();
+      renderQuestion();
+    }
+
+    // Hiển thị câu hỏi
+    function renderQuestion() {
+      document.getElementById('explanation-panel').classList.add('hidden'); // Ẩn panel đặt tính
+      
+      const q = quizQuestions[currentQuestionIndex];
+      const percent = Math.round((currentQuestionIndex / quizQuestions.length) * 100);
+      
+      document.getElementById('progress-text').textContent = `Câu ${currentQuestionIndex + 1}/${quizQuestions.length}`;
+      document.getElementById('progress-bar').style.width = percent + '%';
+      document.getElementById('progress-bar').textContent = percent + '%';
+
+      const quizArea = document.getElementById('quiz-area');
+      quizArea.innerHTML = '';
+
+      // Tự động đọc câu hỏi và hướng dẫn
+      speakInstruction(q);
+
+      // Tạo Container nội dung câu hỏi
+      const content = document.createElement('div');
+      content.className = 'question-display-area';
+
+      // Nút "Xem lại hướng dẫn lý thuyết" nhỏ ở góc
+      const guideBtn = document.createElement('button');
+      guideBtn.className = 'btn btn-sm btn-outline-warning rounded-pill mb-3 font-weight-bold';
+      guideBtn.innerHTML = '💡 Xem lại hướng dẫn bài học';
+      guideBtn.onclick = () => showGuidePopup(q);
+      content.appendChild(guideBtn);
+
+      // 1. Dạng văn bản (Lời văn)
+      if (q.questionText) {
+        const text = document.createElement('div');
+        text.className = 'math-text-question';
+        text.textContent = q.questionText;
+        content.appendChild(text);
+      }
+
+      // 2. Dạng biểu thức số học cơ bản
+      if (q.subtype === 'addition' || q.subtype === 'subtraction' || q.subtype === 'multiplication' || q.subtype === 'division') {
+        if (!q.questionText) {
+          const exp = document.createElement('div');
+          exp.className = 'math-expression';
+          exp.innerHTML = `
+            <span>${q.a}</span>
+            <span style="color:#ed8936; margin: 0 10px;">${q.op === '*' ? 'x' : q.op === '/' ? ':' : q.op}</span>
+            <span>${q.b}</span>
+            <span style="color:#718096; margin: 0 15px;">=</span>
+            <span style="background:#edf2f7; border-radius:15px; padding: 5px 25px; border: 3px dashed #ed8936;">?</span>
+          `;
+          content.appendChild(exp);
         }
       }
-    }
-    
-    // If we couldn't generate enough, fill with any valid wrong answer
-    while (wrongAnswers.size < 2) {
-      let wrong = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
-      if (wrong !== correctAnswer && !wrongAnswers.has(wrong)) {
-        wrongAnswers.add(wrong);
+
+      // 3. Dạng so sánh
+      if (q.subtype === 'comparison' && !q.questionText) {
+        const comp = document.createElement('div');
+        comp.className = 'math-expression';
+        comp.innerHTML = `
+          <span>${q.a}</span>
+          <span style="background:#edf2f7; border-radius:15px; padding: 5px 30px; border: 3px dashed #ed8936; margin: 0 20px;">?</span>
+          <span>${q.b}</span>
+        `;
+        content.appendChild(comp);
       }
-    }
-    
-    return Array.from(wrongAnswers);
-  }
 
-  function shuffleArray(array) {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-  }
+      // 4. Các yếu tố trực quan (Vẽ SVG)
+      // a. Đồng hồ (xem giờ)
+      if (q.clockData) {
+        const visual = document.createElement('div');
+        visual.className = 'visual-container';
+        visual.innerHTML = drawClockSVG(q.clockData.h, q.clockData.m);
+        content.appendChild(visual);
+      }
 
-  // Start quiz
-  function startQuiz() {
-    document.getElementById('start-screen').classList.add('hidden');
-    document.getElementById('progress-container').classList.remove('hidden');
-    document.getElementById('score-display').classList.remove('hidden');
-    document.getElementById('quiz-area').classList.remove('hidden');
-    
-    mathQuestions = generateMathQuestions();
-    currentQuestionIndex = 0;
-    correctCount = 0;
-    wrongCount = 0;
-    correctStreak = 0;
-    maxStreak = 0;
-    
-    updateScoreDisplay();
-    showNextQuestion();
-  }
+      // b. Đổi đơn vị / Thước kẻ
+      if (q.subtype === 'measurement' && q.expression.includes('=')) {
+        const parts = q.expression.split('=');
+        const numVal = parseInt(parts[0]);
+        const unitFrom = parts[0].replace(/[0-9\s]/g, '');
+        if (unitFrom === 'dm' || unitFrom === 'm') {
+          const visual = document.createElement('div');
+          visual.className = 'visual-container';
+          visual.innerHTML = drawRulerSVG(numVal, unitFrom);
+          content.appendChild(visual);
+        }
+      }
 
-  // Show question
-  function showNextQuestion() {
-    if (currentQuestionIndex >= mathQuestions.length) {
-      showSummary();
-      return;
-    }
-    
-    const question = mathQuestions[currentQuestionIndex];
-    updateProgress();
-    
-    const area = document.getElementById('quiz-area');
-    let html = '';
-    
-    if (question.type === 'addition') {
-      html = `
-        <div class="question-display">
-          <span class="number">${question.a}</span>
-          <span class="operator">+</span>
-          <span class="number">${question.b}</span>
-          <span class="equals">=</span>
-          <span class="blank">?</span>
-        </div>
-        <div class="options-container">
-          ${question.options.map(opt => `
-            <button class="option-btn" data-answer="${question.answer}" data-selected="${opt}">
-              ${opt}
-            </button>
-          `).join('')}
-        </div>
-      `;
-    } else if (question.type === 'subtraction') {
-      html = `
-        <div class="question-display">
-          <span class="number">${question.a}</span>
-          <span class="operator">-</span>
-          <span class="number">${question.b}</span>
-          <span class="equals">=</span>
-          <span class="blank">?</span>
-        </div>
-        <div class="options-container">
-          ${question.options.map(opt => `
-            <button class="option-btn" data-answer="${question.answer}" data-selected="${opt}">
-              ${opt}
-            </button>
-          `).join('')}
-        </div>
-      `;
-    } else if (question.type === 'comparison') {
-      html = `
-        <div class="question-display">
-          <span class="number">${question.a}</span>
-          <span class="comparison-operator">?</span>
-          <span class="number">${question.b}</span>
-        </div>
-        <div class="options-container">
-          ${question.options.map(opt => `
-            <button class="option-btn" data-answer="${question.answer}" data-selected="${opt}" style="font-size: 1.5em;">
-              ${opt === '>' ? '&gt;' : opt === '<' ? '&lt;' : '='}
-            </button>
-          `).join('')}
-        </div>
-      `;
-    }
-    
-    area.innerHTML = html;
-    
-    // Attach event listeners
-    document.querySelectorAll('.option-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const selected = parseInt(this.dataset.selected) || this.dataset.selected;
-        const answer = parseInt(this.dataset.answer) || this.dataset.answer;
-        handleAnswer(selected === answer || selected == answer, this);
+      // 5. Grid các nút phương án đáp án
+      const optionsGrid = document.createElement('div');
+      optionsGrid.className = 'options-grid';
+      
+      q.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = opt;
+        btn.onclick = (e) => checkAnswer(opt, q, btn);
+        optionsGrid.appendChild(btn);
       });
-    });
-  }
 
-  // Handle answer
-  function handleAnswer(isCorrect, clickedButton) {
-    const buttons = document.querySelectorAll('.option-btn');
-    buttons.forEach(btn => btn.classList.add('disabled'));
-    
-    const question = mathQuestions[currentQuestionIndex];
-    const correctAnswer = question.answer;
-    
-    buttons.forEach(btn => {
-      const selected = parseInt(btn.dataset.selected) || btn.dataset.selected;
-      if (selected === correctAnswer || selected == correctAnswer) {
-        btn.classList.add('correct');
-      } else if (clickedButton && btn === clickedButton) {
-        btn.classList.add('wrong');
-      }
-    });
-    
-    if (isCorrect) {
-      correctCount++;
-      correctStreak++;
-      maxStreak = Math.max(maxStreak, correctStreak);
-      
-      playCorrectSound();
-      createConfetti();
-      
-      if (correctStreak >= 3) {
-        showStreakCombo(correctStreak);
-      }
-      
-      const rect = clickedButton ? clickedButton.getBoundingClientRect() : null;
-      const x = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
-      const y = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
-      createStar(x, y);
-    } else {
-      wrongCount++;
-      correctStreak = 0;
-      playWrongSound();
+      quizArea.appendChild(content);
+      quizArea.appendChild(optionsGrid);
     }
-    
-    updateScoreDisplay();
-    
-    setTimeout(() => {
-      currentQuestionIndex++;
-      showNextQuestion();
-    }, 2000);
-  }
 
-  // Update progress
-  function updateProgress() {
-    const total = mathQuestions.length;
-    const current = currentQuestionIndex + 1;
-    const percent = Math.round((currentQuestionIndex / total) * 100);
-    
-    document.getElementById('progress-text').textContent = `Câu ${current}/${total}`;
-    document.getElementById('progress-bar').style.width = percent + '%';
-    document.getElementById('progress-bar').textContent = percent + '%';
-  }
+    // Xem nhanh hướng dẫn lý thuyết khi làm bài
+    function showGuidePopup(q) {
+      const type = lessonData.type;
+      let text = '';
+      if (type.includes('addition_carry')) {
+        text = "Hướng dẫn cộng có nhớ: Đặt tính thẳng cột. Cộng hàng đơn vị trước. Nếu kết quả hàng đơn vị lớn hơn hoặc bằng 10, viết chữ số đơn vị và nhớ 1 sang hàng chục.";
+      } else if (type.includes('subtraction_borrow')) {
+        text = "Hướng dẫn trừ có nhớ: Đặt tính thẳng cột. Nếu hàng đơn vị số bị trừ bé hơn, mượn 1 chục ở hàng trước để trừ, sau đó nhớ 1 trả lại vào hàng chục số trừ.";
+      } else if (type === 'time_hours_minutes') {
+        text = "Hướng dẫn xem đồng hồ: Kim ngắn chỉ giờ, kim dài chỉ phút. Kim dài chỉ số 12 là giờ đúng, chỉ số 6 là giờ rưỡi (30 phút).";
+      } else if (type === 'length_dm_m_km') {
+        text = "Hướng dẫn đo độ dài: Đặt một đầu vật trùng với vạch số 0. Đầu kia chỉ số nào thì đó là độ dài của vật. Nhớ đổi đơn vị: 1 dm = 10 cm, 1 m = 10 dm.";
+      } else if (type.includes('multiplication')) {
+        text = "Hướng dẫn phép nhân: Phép nhân là viết gọn của tổng các số giống nhau. Ví dụ 2 + 2 + 2 = 2 x 3 = 6.";
+      } else if (type.includes('division')) {
+        text = "Hướng dẫn phép chia: Phép chia dùng để chia đều đồ vật thành các phần bằng nhau. Ví dụ 6 quả chia đều cho 2 bạn, mỗi bạn được 6 : 2 = 3 quả.";
+      } else {
+        text = "Con hãy đọc thật kỹ đề bài và xem các hình ảnh gợi ý để chọn đáp án đúng nhé!";
+      }
+      alert('💡 Hướng dẫn học:\n' + text);
+    }
 
-  // Update score display
-  function updateScoreDisplay() {
-    document.getElementById('score-correct').textContent = correctCount;
-    document.getElementById('score-wrong').textContent = wrongCount;
-    document.getElementById('score-streak').textContent = correctStreak;
-  }
+    // Xử lý kiểm tra kết quả chọn đáp án
+    async function checkAnswer(selected, q, btn) {
+      const buttons = document.querySelectorAll('.option-btn');
+      buttons.forEach(b => b.classList.add('disabled'));
 
-  // Show summary
-  function showSummary() {
-    document.getElementById('progress-container').classList.add('hidden');
-    document.getElementById('score-display').classList.add('hidden');
-    
-    const total = mathQuestions.length;
-    const accuracy = total > 0 ? Math.round((correctCount / total) * 100) : 0;
-    let stars = '⭐';
-    if (accuracy >= 90) stars = '⭐⭐⭐';
-    else if (accuracy >= 70) stars = '⭐⭐';
-    
-    createConfetti();
-    
-    const area = document.getElementById('quiz-area');
-    area.innerHTML = `
-      <div class="summary-screen">
-        <h2>🎉 Hoàn thành!</h2>
-        <div class="summary-stars">${stars}</div>
-        <div class="summary-stats">
-          ✅ Đúng: ${correctCount}/${total} (${accuracy}%)<br>
-          ❌ Sai: ${wrongCount}<br>
-          🔥 Streak tốt nhất: ${maxStreak}
+      const isCorrect = String(selected).trim() === String(q.answer).trim();
+
+      if (isCorrect) {
+        btn.classList.add('correct');
+        correctCount++;
+        streakCount++;
+        maxStreak = Math.max(maxStreak, streakCount);
+        
+        playAudioSuccess();
+        triggerConfetti();
+
+        // Hiệu ứng ngôi sao bay từ vị trí click
+        const rect = btn.getBoundingClientRect();
+        createStar(rect.left + rect.width / 2, rect.top + rect.height / 2);
+
+        // Lưu tiến trình lên Firebase Realtime Database
+        await saveProgress(q, true);
+
+        updateScoreDisplay();
+        
+        // Chuyển câu hỏi sau 2 giây
+        setTimeout(() => {
+          currentQuestionIndex++;
+          if (currentQuestionIndex < quizQuestions.length) {
+            renderQuestion();
+          } else {
+            showSummary();
+          }
+        }, 2000);
+
+      } else {
+        btn.classList.add('wrong');
+        wrongCount++;
+        streakCount = 0;
+        
+        playAudioError();
+
+        // Tìm nút đáp án đúng để highlight màu xanh
+        buttons.forEach(b => {
+          if (String(b.textContent).trim() === String(q.answer).trim()) {
+            b.classList.add('correct');
+          }
+        });
+
+        // Đặt tính dọc chi tiết để hướng dẫn tự học trực quan khi sai
+        showVerticalExplanation(q);
+
+        // Lưu tiến trình lên Firebase
+        await saveProgress(q, false);
+
+        updateScoreDisplay();
+
+        // Chờ 8 giây (để bé đọc giải thích đặt tính dọc và hiểu lý do sai) sau đó mới tự động chuyển tiếp
+        setTimeout(() => {
+          currentQuestionIndex++;
+          if (currentQuestionIndex < quizQuestions.length) {
+            renderQuestion();
+          } else {
+            showSummary();
+          }
+        }, 8000);
+      }
+    }
+
+    // Đồng bộ lưu tiến độ qua ProgressManager
+    async function saveProgress(q, isCorrect) {
+      if (typeof ProgressManager !== 'undefined' && ProgressManager.username) {
+        const progressQuestion = {
+          lessonId: currentLessonId,
+          mathExpression: q.expression,
+          type: 'math',
+          subtype: q.subtype
+        };
+        try {
+          await ProgressManager.update(progressQuestion, isCorrect);
+          console.log('☁️ Đã đồng bộ tiến độ Toán lên Firebase.');
+        } catch (e) {
+          console.error('Lỗi khi đồng bộ tiến độ lên Firebase:', e);
+        }
+      }
+    }
+
+    // Hiển thị đặt tính dọc chi tiết
+    function showVerticalExplanation(q) {
+      const panel = document.getElementById('explanation-panel');
+      panel.innerHTML = '';
+
+      // Chỉ áp dụng đặt tính dọc cho các phép tính cộng/trừ 2 chữ số hoặc 3 chữ số
+      if ((q.subtype === 'addition' || q.subtype === 'subtraction') && q.a >= 10 && q.b > 0) {
+        const opStr = q.op === '+' ? '+' : '-';
+        
+        let carryExplanationHtml = '';
+        if (q.subtype === 'addition') {
+          const onesSum = (q.a % 10) + (q.b % 10);
+          const carries = onesSum >= 10;
+          
+          carryExplanationHtml = `
+            <div class="vertical-line-detail">
+              <div><span class="step-number-badge">1</span>Hàng đơn vị: <b>${q.a % 10} + ${q.b % 10} = ${onesSum}</b>. ${carries ? `Viết <b>${onesSum % 10}</b> nhớ <b>1</b> sang hàng chục.` : `Viết <b>${onesSum}</b>.`}</div>
+              <div class="mt-2"><span class="step-number-badge">2</span>Hàng chục: <b>${Math.floor(q.a / 10)} + ${Math.floor(q.b / 10)} = ${Math.floor(q.a / 10) + Math.floor(q.b / 10)}</b>. ${carries ? `Thêm <b>1</b> (nhớ) bằng <b>${Math.floor(q.a / 10) + Math.floor(q.b / 10) + 1}</b>. Viết <b>${Math.floor(q.a / 10) + Math.floor(q.b / 10) + 1}</b>.` : `Viết <b>${Math.floor(q.a / 10) + Math.floor(q.b / 10)}</b>.`}</div>
+              <div class="mt-2 text-success font-weight-bold">🌟 Kết quả đúng là: <b>${q.answer}</b></div>
+            </div>
+          `;
+        } else {
+          const aOnes = q.a % 10;
+          const bOnes = q.b % 10;
+          const borrows = aOnes < bOnes;
+
+          carryExplanationHtml = `
+            <div class="vertical-line-detail">
+              <div><span class="step-number-badge">1</span>Hàng đơn vị: <b>${aOnes}</b> không trừ được <b>${bOnes}</b>, ${borrows ? `ta mượn <b>1</b> chục ở hàng trước thành <b>${aOnes + 10} - ${bOnes} = ${aOnes + 10 - bOnes}</b>. Viết <b>${aOnes + 10 - bOnes}</b> nhớ <b>1</b>.` : `<b>${aOnes} - ${bOnes} = ${aOnes - bOnes}</b>. Viết <b>${aOnes - bOnes}</b>.`}</div>
+              <div class="mt-2"><span class="step-number-badge">2</span>Hàng chục: ${borrows ? `Hàng chục của số trừ là <b>${Math.floor(q.b / 10)}</b> thêm <b>1</b> (nhớ) bằng <b>${Math.floor(q.b / 10) + 1}</b>. Tiếp tục: <b>${Math.floor(q.a / 10)} - ${Math.floor(q.b / 10) + 1} = ${Math.floor(q.a / 10) - (Math.floor(q.b / 10) + 1)}</b>. Viết <b>${Math.floor(q.a / 10) - (Math.floor(q.b / 10) + 1)}</b>.` : `<b>${Math.floor(q.a / 10)} - ${Math.floor(q.b / 10)} = ${Math.floor(q.a / 10) - Math.floor(q.b / 10)}</b>. Viết <b>${Math.floor(q.a / 10) - Math.floor(q.b / 10)}</b>.`}</div>
+              <div class="mt-2 text-success font-weight-bold">🌟 Kết quả đúng là: <b>${q.answer}</b></div>
+            </div>
+          `;
+        }
+
+        panel.innerHTML = `
+          <div class="explanation-title">💡 Hướng dẫn cách đặt tính dọc:</div>
+          <div class="vertical-calc">
+             ${q.a}<br>
+          ${opStr}  ${q.b}<br>
+          ------<br>
+             ${q.answer}
+          </div>
+          ${carryExplanationHtml}
+        `;
+        panel.classList.remove('hidden');
+        speakText('Đừng lo lắng! Hãy xem hướng dẫn cách đặt tính dọc ở dưới đây nhé!');
+      } else {
+        // Các dạng toán hình học hoặc tiền tệ, lời văn
+        panel.innerHTML = `
+          <div class="explanation-title">💡 Hướng dẫn ôn tập:</div>
+          <div class="vertical-line-detail">
+            Đáp án chính xác là: <b>${q.answer}</b>.<br>
+            Em hãy nhớ đọc thật kỹ các thông tin đề bài cho trước khi chọn nhé!
+          </div>
+        `;
+        panel.classList.remove('hidden');
+      }
+    }
+
+    // Đọc hướng dẫn bằng giọng nói tiếng Việt
+    function speakInstruction(q) {
+      if (q.questionText) {
+        speakText(q.questionText);
+      } else if (q.subtype === 'addition') {
+        speakText(`Phép tính: ${q.a} cộng ${q.b} bằng bao nhiêu?`);
+      } else if (q.subtype === 'subtraction') {
+        speakText(`Phép tính: ${q.a} trừ ${q.b} bằng bao nhiêu?`);
+      } else if (q.subtype === 'multiplication') {
+        speakText(`Phép tính: ${q.a} nhân ${q.b} bằng bao nhiêu?`);
+      } else if (q.subtype === 'division') {
+        speakText(`Phép tính: ${q.a} chia ${q.b} bằng bao nhiêu?`);
+      } else if (q.subtype === 'comparison') {
+        speakText(`Hãy so sánh số ${q.a} và số ${q.b}`);
+      }
+    }
+
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'vi-VN';
+        utterance.rate = 0.9;
+        speechSynthesis.speak(utterance);
+      }
+    }
+
+    // Hiển thị tổng kết bài học
+    function showSummary() {
+      document.getElementById('progress-container').classList.add('hidden');
+      document.getElementById('score-display').classList.add('hidden');
+      document.getElementById('quiz-area').classList.add('hidden');
+      document.getElementById('explanation-panel').classList.add('hidden');
+
+      const total = quizQuestions.length;
+      const accuracy = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+      let stars = '⭐';
+      if (accuracy >= 90) stars = '⭐⭐⭐';
+      else if (accuracy >= 70) stars = '⭐⭐';
+
+      triggerConfetti();
+      speakText('Chúc mừng con đã hoàn thành xong bài luyện tập toán học! Con làm tốt lắm!');
+
+      const mainCard = document.getElementById('main-card');
+      const summaryDiv = document.createElement('div');
+      summaryDiv.className = 'welcome-container';
+      summaryDiv.innerHTML = `
+        <h2>🎉 BÉ ĐÃ HOÀN THÀNH XONG! 🎉</h2>
+        <div class="summary-stars" style="font-size: 4em; margin: 15px 0;">${stars}</div>
+        <div class="summary-stats mb-4" style="font-size: 1.25em;">
+          ✅ Đúng: <b>${correctCount}/${total}</b> (${accuracy}%)<br>
+          ❌ Sai: <b>${wrongCount}</b><br>
+          🔥 Chuỗi thắng nhiều nhất: <b>${maxStreak}</b>
         </div>
-        <div style="margin-top: 30px;">
+        <div>
           <button class="btn-fun btn-retry" onclick="location.reload()">🔄 Làm lại</button>
-          <button class="btn-fun btn-home" onclick="location.href='../index.html'">🏠 Trang chủ</button>
+          <a href="../index.html" class="btn-fun btn-home">🏠 Trang chủ</a>
         </div>
-      </div>
-    `;
-  }
+      `;
+      mainCard.innerHTML = '';
+      mainCard.appendChild(summaryDiv);
+    }
 
-  // Initialize
-  window.addEventListener('load', async () => {
-    await loadConfig();
-  });
+    // Cập nhật scoreboard
+    function updateScoreDisplay() {
+      document.getElementById('score-correct').textContent = correctCount;
+      document.getElementById('score-wrong').textContent = wrongCount;
+      document.getElementById('score-streak').textContent = streakCount;
+    }
+
+    // ===== SVG RENDERERS =====
+    
+    // Vẽ đồng hồ SVG
+    function drawClockSVG(h, m) {
+      const mAngle = m * 6;
+      const hAngle = (h % 12) * 30 + (m * 0.5);
+
+      return `
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#ed8936" stroke-width="8" />
+          <circle cx="100" cy="100" r="82" fill="#fffaf0" stroke="#f6ad55" stroke-width="2" />
+          <circle cx="100" cy="100" r="6" fill="#2d3748" />
+          ${Array.from({length: 12}).map((_, i) => {
+            const angle = (i + 1) * 30 * Math.PI / 180;
+            const x = 100 + 68 * Math.sin(angle);
+            const y = 100 - 68 * Math.cos(angle);
+            return `<text x="${x}" y="${y + 5}" text-anchor="middle" font-size="16" font-weight="700" fill="#4a5568">${i + 1}</text>`;
+          }).join('')}
+          <line x1="100" y1="100" x2="${100 + 40 * Math.sin(hAngle * Math.PI / 180)}" y2="${100 - 40 * Math.cos(hAngle * Math.PI / 180)}" stroke="#2d3748" stroke-width="6" stroke-linecap="round" />
+          <line x1="100" y1="100" x2="${100 + 60 * Math.sin(mAngle * Math.PI / 180)}" y2="${100 - 60 * Math.cos(mAngle * Math.PI / 180)}" stroke="#e53e3e" stroke-width="4" stroke-linecap="round" />
+        </svg>
+      `;
+    }
+
+    // Vẽ thước kẻ SVG
+    function drawRulerSVG(val, unit) {
+      const lengthInCm = unit === 'dm' ? val * 10 : val;
+      const scale = 15;
+      const startX = 20;
+      const rulerY = 90;
+
+      let ticks = '';
+      for (let i = 0; i <= 30; i++) {
+        const x = startX + i * scale;
+        const isMajor = i % 5 === 0;
+        const tickHeight = isMajor ? 18 : 8;
+        ticks += `<line x1="${x}" y1="${rulerY}" x2="${x}" y2="${rulerY + tickHeight}" stroke="#2d3748" stroke-width="${isMajor ? 2 : 1}" />`;
+        if (isMajor) {
+          ticks += `<text x="${x}" y="${rulerY + 32}" text-anchor="middle" font-size="10" font-weight="700" fill="#718096">${i}</text>`;
+        }
+      }
+
+      const pencilLength = lengthInCm * scale;
+
+      return `
+        <svg width="100%" height="150" viewBox="0 0 500 150">
+          <g transform="translate(${startX}, 40)">
+            <rect x="0" y="0" width="${pencilLength - 15}" height="20" fill="#3182ce" rx="2" />
+            <polygon points="${pencilLength - 15},0 ${pencilLength},10 ${pencilLength - 15},20" fill="#fbd38d" />
+            <polygon points="${pencilLength - 5},7 ${pencilLength},10 ${pencilLength - 5},13" fill="#2d3748" />
+            <rect x="0" y="0" width="8" height="20" fill="#e53e3e" rx="1" />
+          </g>
+          <rect x="${startX - 10}" y="${rulerY}" width="470" height="40" fill="#fefcbf" stroke="#ecc94b" stroke-width="3" rx="4" />
+          ${ticks}
+          <text x="470" y="${rulerY + 25}" font-size="12" font-weight="bold" fill="#dd6b20">cm</text>
+        </svg>
+      `;
+    }
+
+    // ===== AUDIO EFFECTS =====
+    function playAudioSuccess() {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.frequency.value = 600;
+      gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.3);
+    }
+
+    function playAudioError() {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.frequency.value = 180;
+      osc.type = 'triangle';
+      gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.25);
+    }
+
+    // ===== CONFETTI EFFECT =====
+    function triggerConfetti() {
+      const colors = ['#f6d365', '#fda085', '#48bb78', '#38a169', '#3182ce', '#9f7aea'];
+      for (let i = 0; i < 25; i++) {
+        setTimeout(() => {
+          const c = document.createElement('div');
+          c.className = 'confetti';
+          c.style.left = Math.random() * 100 + 'vw';
+          c.style.background = colors[Math.floor(Math.random() * colors.length)];
+          c.style.animationDelay = Math.random() * 1.5 + 's';
+          document.body.appendChild(c);
+          setTimeout(() => c.remove(), 2500);
+        }, i * 40);
+      }
+    }
+
+    function createStar(x, y) {
+      const star = document.createElement('div');
+      star.className = 'star-pop';
+      star.textContent = '⭐';
+      star.style.left = x - 15 + 'px';
+      star.style.top = y - 15 + 'px';
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 1200);
+    }
   </script>
 </body>
-</html>
 
+</html>

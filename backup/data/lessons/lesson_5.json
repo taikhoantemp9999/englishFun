@@ -1,0 +1,151 @@
+{
+    "id": 5,
+    "title": "Lesson 5: Animals",
+    "description": "Các con vật",
+    "words": [
+        {
+            "word": "dog",
+            "meaning": "Con chó",
+            "images": [
+                "data/images/lesson5/dog.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "cat",
+            "meaning": "Con mèo",
+            "images": [
+                "data/images/lesson5/cat.png"
+            ],
+            "sentences": [
+                {
+                    "en": "I like cat",
+                    "vi": "Tôi thích mèo.",
+                    "images": [
+                        "data/images/lesson5/ilikecat.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "bird",
+            "meaning": "Con chim",
+            "images": [
+                "data/images/lesson5/bird.png"
+            ],
+            "sentences": [
+                {
+                    "en": "I like bird",
+                    "vi": "Tôi thích chim.",
+                    "images": [
+                        "data/images/lesson5/ilikebird.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "elephant",
+            "meaning": "Con voi",
+            "images": [
+                "data/images/lesson5/elephant.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "monkey",
+            "meaning": "Con khỉ",
+            "images": [
+                "data/images/lesson5/monkey.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is a monkey",
+                    "vi": "Đây là một con khỉ.",
+                    "images": [
+                        "data/images/lesson5/thisisamonkey.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "bear",
+            "meaning": "Con gấu",
+            "images": [
+                "data/images/lesson5/bear.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is a bear",
+                    "vi": "Đây là một con gấu.",
+                    "images": [
+                        "data/images/lesson5/thisisabear.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "snake",
+            "meaning": "Con rắn",
+            "images": [
+                "data/images/lesson5/snake.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is a snake",
+                    "vi": "Đây là một con rắn.",
+                    "images": [
+                        "data/images/lesson5/thisisasnake.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "G",
+            "meaning": "G",
+            "images": [
+                "data/images/lesson5/g.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "Girl",
+            "meaning": "Bé gái",
+            "images": [
+                "data/images/lesson5/girl.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "H",
+            "meaning": "Chữ H",
+            "images": [
+                "data/images/lesson5/h.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "Hop",
+            "meaning": "Nhảy lò cò",
+            "images": [
+                "data/images/lesson5/hop.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "I'm sorry",
+            "meaning": "Tôi xin lỗi",
+            "images": [
+                "data/images/lesson5/imsorry.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "That's OK",
+            "meaning": "Không sao",
+            "images": [
+                "data/images/lesson5/thats_ok.png"
+            ],
+            "sentences": []
+        }
+    ]
+}

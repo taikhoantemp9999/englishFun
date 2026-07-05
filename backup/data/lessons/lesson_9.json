@@ -1,0 +1,110 @@
+{
+    "id": 9,
+    "title": "Lesson 9: Toys",
+    "description": "Đồ chơi",
+    "words": [
+        {
+            "word": "car",
+            "meaning": "Xe hơi",
+            "images": [
+                "data/images/lesson10/car.png"
+            ],
+            "sentences": [
+                {
+                    "en": "I have a car.",
+                    "vi": "Tôi có một chiếc xe hơi.",
+                    "images": [
+                        "data/images/lesson10/i_have_a_car.png"
+                    ]
+                },
+                {
+                    "en": "How many cars?",
+                    "vi": "Có bao nhiêu xe hơi?",
+                    "images": [
+                        "data/images/lesson10/how_many_cars.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "teddy bear",
+            "meaning": "Gấu bông",
+            "images": [
+                "data/images/lesson10/teddy_bear.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "ball",
+            "meaning": "Quả bóng",
+            "images": [
+                "data/images/lesson10/ball.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "seven",
+            "meaning": "Bảy",
+            "images": [
+                "data/images/lesson10/seven.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "eight",
+            "meaning": "Tám",
+            "images": [
+                "data/images/lesson10/eight.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "nine",
+            "meaning": "Chín",
+            "images": [
+                "data/images/lesson10/nine.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "ten",
+            "meaning": "Mười",
+            "images": [
+                "data/images/lesson10/ten.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Ten teddy bears.",
+                    "vi": "Mười con gấu bông.",
+                    "images": [
+                        "data/images/lesson10/ten_teddy_bears.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "M",
+            "meaning": "Chữ M",
+            "images": [
+                "data/images/lesson10/m.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "mouse",
+            "meaning": "Con chuột",
+            "images": [
+                "data/images/lesson10/mouse.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "mouth",
+            "meaning": "Cái miệng",
+            "images": [
+                "data/images/lesson10/mouth.png"
+            ],
+            "sentences": []
+        }
+    ]
+}

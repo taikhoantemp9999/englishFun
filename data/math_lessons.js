@@ -1,0 +1,92 @@
+window.MATH_LESSONS_DATA = {
+  "lessons": [
+    { "id": "M1", "title": "Bài 1. Ôn tập các số đến 100", "chapter": "Chủ đề 1: ÔN TẬP VÀ BỔ SUNG", "type": "arr_count_100", "range": { "min": 0, "max": 100 } },
+    { "id": "M2", "title": "Bài 2. Tia số. Số liền trước, số liền sau", "chapter": "Chủ đề 1: ÔN TẬP VÀ BỔ SUNG", "type": "tia_so", "range": { "min": 0, "max": 100 } },
+    { "id": "M3", "title": "Bài 3. Các thành phần của phép cộng, phép trừ", "chapter": "Chủ đề 1: ÔN TẬP VÀ BỔ SUNG", "type": "addition_subtraction_components" },
+    { "id": "M4", "title": "Bài 4. Hơn, kém nhau bao nhiêu", "chapter": "Chủ đề 1: ÔN TẬP VÀ BỔ SUNG", "type": "more_less_comparison" },
+    { "id": "M5", "title": "Bài 5. Ôn tập phép cộng, phép trừ (không nhớ) trong phạm vi 100", "chapter": "Chủ đề 1: ÔN TẬP VÀ BỔ SUNG", "type": "addition_subtraction_no_carry_100", "range": { "min": 10, "max": 99 } },
+    { "id": "M6", "title": "Bài 6. Luyện tập chung", "chapter": "Chủ đề 1: ÔN TẬP VÀ BỔ SUNG", "type": "mixed_review_1" },
+    
+    { "id": "M7", "title": "Bài 7. Phép cộng (qua 10) trong phạm vi 20", "chapter": "Chủ đề 2: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 20", "type": "addition_carry_20", "range": { "min": 1, "max": 20 } },
+    { "id": "M8", "title": "Bài 8. Bảng cộng (qua 10)", "chapter": "Chủ đề 2: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 20", "type": "addition_carry_20" },
+    { "id": "M9", "title": "Bài 9. Bài toán về thêm, bớt một số đơn vị", "chapter": "Chủ đề 2: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 20", "type": "word_problem_add_sub" },
+    { "id": "M10", "title": "Bài 10. Luyện tập chung", "chapter": "Chủ đề 2: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 20", "type": "mixed_review_2" },
+    { "id": "M11", "title": "Bài 11. Phép trừ (qua 10) trong phạm vi 20", "chapter": "Chủ đề 2: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 20", "type": "subtraction_borrow_20", "range": { "min": 1, "max": 20 } },
+    { "id": "M12", "title": "Bài 12. Bảng trừ (qua 10)", "chapter": "Chủ đề 2: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 20", "type": "subtraction_borrow_20" },
+    { "id": "M13", "title": "Bài 13. Bài toán về nhiều hơn, ít hơn một số đơn vị", "chapter": "Chủ đề 2: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 20", "type": "word_problem_more_less" },
+    { "id": "M14", "title": "Bài 14. Luyện tập chung", "chapter": "Chủ đề 2: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 20", "type": "mixed_review_2_sub" },
+    
+    { "id": "M15", "title": "Bài 15. Ki-lô-gam", "chapter": "Chủ đề 3: LÀM QUEN VỚI KHỐI LƯỢNG, DUNG TÍCH", "type": "kilogam" },
+    { "id": "M16", "title": "Bài 16. Lít", "chapter": "Chủ đề 3: LÀM QUEN VỚI KHỐI LƯỢNG, DUNG TÍCH", "type": "lit" },
+    { "id": "M17", "title": "Bài 17. Thực hành và trải nghiệm với các đơn vị ki-lô-gam, lít", "chapter": "Chủ đề 3: LÀM QUEN VỚI KHỐI LƯỢNG, DUNG TÍCH", "type": "measurement_kg_lit_practice" },
+    { "id": "M18", "title": "Bài 18. Luyện tập chung", "chapter": "Chủ đề 3: LÀM QUEN VỚI KHỐI LƯỢNG, DUNG TÍCH", "type": "mixed_review_3" },
+    
+    { "id": "M19", "title": "Bài 19. Phép cộng (có nhớ) số có hai chữ số với số có một chữ số", "chapter": "Chủ đề 4: PHÉP CỘNG, PHÉP TRỪ (CÓ NHỚ) TRONG PHẠM VI 100", "type": "addition_carry_100_1", "range": { "min": 10, "max": 99 } },
+    { "id": "M20", "title": "Bài 20. Phép cộng (có nhớ) số có hai chữ số với số có hai chữ số", "chapter": "Chủ đề 4: PHÉP CỘNG, PHÉP TRỪ (CÓ NHỚ) TRONG PHẠM VI 100", "type": "addition_carry_100_2", "range": { "min": 10, "max": 99 } },
+    { "id": "M21", "title": "Bài 21. Luyện tập chung", "chapter": "Chủ đề 4: PHÉP CỘNG, PHÉP TRỪ (CÓ NHỚ) TRONG PHẠM VI 100", "type": "mixed_review_4_add" },
+    { "id": "M22", "title": "Bài 22. Phép trừ (có nhớ) số có hai chữ số cho số có một chữ số", "chapter": "Chủ đề 4: PHÉP CỘNG, PHÉP TRỪ (CÓ NHỚ) TRONG PHẠM VI 100", "type": "subtraction_borrow_100_1", "range": { "min": 10, "max": 99 } },
+    { "id": "M23", "title": "Bài 23. Phép trừ (có nhớ) số có hai chữ số cho số có hai chữ số", "chapter": "Chủ đề 4: PHÉP CỘNG, PHÉP TRỪ (CÓ NHỚ) TRONG PHẠM VI 100", "type": "subtraction_borrow_100_2", "range": { "min": 10, "max": 99 } },
+    { "id": "M24", "title": "Bài 24. Luyện tập chung", "chapter": "Chủ đề 4: PHÉP CỘNG, PHÉP TRỪ (CÓ NHỚ) TRONG PHẠM VI 100", "type": "mixed_review_4_sub" },
+    
+    { "id": "M25", "title": "Bài 25. Điểm, đoạn thẳng, đường thẳng, đường cong, ba điểm thẳng hàng", "chapter": "Chủ đề 5: LÀM QUEN VỚI HÌNH PHẲNG", "type": "geometry_line_points" },
+    { "id": "M26", "title": "Bài 26. Đường gấp khúc. Hình tứ giác", "chapter": "Chủ đề 5: LÀM QUEN VỚI HÌNH PHẲNG", "type": "geometry_broken_line_quad" },
+    { "id": "M27", "title": "Bài 27. Thực hành gấp, cắt, ghép, xếp hình. Vẽ đoạn thẳng", "chapter": "Chủ đề 5: LÀM QUEN VỚI HÌNH PHẲNG", "type": "geometry_drawing_matching" },
+    { "id": "M28", "title": "Bài 28. Luyện tập chung", "chapter": "Chủ đề 5: LÀM QUEN VỚI HÌNH PHẲNG", "type": "mixed_review_5" },
+    
+    { "id": "M29", "title": "Bài 29. Ngày - giờ, giờ - phút", "chapter": "Chủ đề 6: NGÀY - GIỜ, GIỜ - PHÚT, NGÀY - THÁNG", "type": "time_hours_minutes" },
+    { "id": "M30", "title": "Bài 30. Ngày - tháng", "chapter": "Chủ đề 6: NGÀY - GIỜ, GIỜ - PHÚT, NGÀY - THÁNG", "type": "date_calendar" },
+    { "id": "M31", "title": "Bài 31. Thực hành và trải nghiệm xem đồng hồ, xem lịch", "chapter": "Chủ đề 6: NGÀY - GIỜ, GIỜ - PHÚT, NGÀY - THÁNG", "type": "time_date_practice" },
+    { "id": "M32", "title": "Bài 32. Luyện tập chung", "chapter": "Chủ đề 6: NGÀY - GIỜ, GIỜ - PHÚT, NGÀY - THÁNG", "type": "mixed_review_6" },
+    
+    { "id": "M33", "title": "Bài 33. Ôn tập phép cộng, phép trừ trong phạm vi 20, 100", "chapter": "Chủ đề 7: ÔN TẬP HỌC KÌ I", "type": "review_term1_add_sub" },
+    { "id": "M34", "title": "Bài 34. Ôn tập hình phẳng", "chapter": "Chủ đề 7: ÔN TẬP HỌC KÌ I", "type": "review_term1_geometry" },
+    { "id": "M35", "title": "Bài 35. Ôn tập đo lường", "chapter": "Chủ đề 7: ÔN TẬP HỌC KÌ I", "type": "review_term1_measurement" },
+    { "id": "M36", "title": "Bài 36. Ôn tập chung", "chapter": "Chủ đề 7: ÔN TẬP HỌC KÌ I", "type": "review_term1_general" },
+    
+    { "id": "M37", "title": "Bài 37. Phép nhân", "chapter": "Chủ đề 8: PHÉP NHÂN, PHÉP CHIA", "type": "multiplication_intro" },
+    { "id": "M38", "title": "Bài 38. Thừa số, tích", "chapter": "Chủ đề 8: PHÉP NHÂN, PHÉP CHIA", "type": "multiplication_components" },
+    { "id": "M39", "title": "Bài 39. Bảng nhân 2", "chapter": "Chủ đề 8: PHÉP NHÂN, PHÉP CHIA", "type": "multiplication_table_2" },
+    { "id": "M40", "title": "Bài 40. Bảng nhân 5", "chapter": "Chủ đề 8: PHÉP NHÂN, PHÉP CHIA", "type": "multiplication_table_5" },
+    { "id": "M41", "title": "Bài 41. Phép chia", "chapter": "Chủ đề 8: PHÉP NHÂN, PHÉP CHIA", "type": "division_intro" },
+    { "id": "M42", "title": "Bài 42. Số bị chia, số chia, thương", "chapter": "Chủ đề 8: PHÉP NHÂN, PHÉP CHIA", "type": "division_components" },
+    { "id": "M43", "title": "Bài 43. Bảng chia 2", "chapter": "Chủ đề 8: PHÉP NHÂN, PHÉP CHIA", "type": "division_table_2" },
+    { "id": "M44", "title": "Bài 44. Bảng chia 5", "chapter": "Chủ đề 8: PHÉP NHÂN, PHÉP CHIA", "type": "division_table_5" },
+    { "id": "M45", "title": "Bài 45. Luyện tập chung", "chapter": "Chủ đề 8: PHÉP NHÂN, PHÉP CHIA", "type": "mixed_review_8" },
+    
+    { "id": "M46", "title": "Bài 46. Khối trụ, khối cầu", "chapter": "Chủ đề 9: LÀM QUEN VỚI HÌNH KHỐI", "type": "geometry_cylinder_sphere" },
+    { "id": "M47", "title": "Bài 47. Luyện tập chung", "chapter": "Chủ đề 9: LÀM QUEN VỚI HÌNH KHỐI", "type": "mixed_review_9" },
+    
+    { "id": "M48", "title": "Bài 48. Đơn vị, chục, trăm, nghìn", "chapter": "Chủ đề 10: CÁC SỐ TRONG PHẠM VI 1 000", "type": "place_value_1000" },
+    { "id": "M49", "title": "Bài 49. Các số tròn trăm, tròn chục", "chapter": "Chủ đề 10: CÁC SỐ TRONG PHẠM VI 1 000", "type": "round_hundreds_tens" },
+    { "id": "M50", "title": "Bài 50. So sánh các số tròn trăm, tròn chục", "chapter": "Chủ đề 10: CÁC SỐ TRONG PHẠM VI 1 000", "type": "comparison_round_numbers" },
+    { "id": "M51", "title": "Bài 51. Số có ba chữ số", "chapter": "Chủ đề 10: CÁC SỐ TRONG PHẠM VI 1 000", "type": "numbers_3_digits" },
+    { "id": "M52", "title": "Bài 52. Viết số thành tổng các trăm, chục, đơn vị", "chapter": "Chủ đề 10: CÁC SỐ TRONG PHẠM VI 1 000", "type": "number_sum_expanded" },
+    { "id": "M53", "title": "Bài 53. So sánh các số có ba chữ số", "chapter": "Chủ đề 10: CÁC SỐ TRONG PHẠM VI 1 000", "type": "comparison_3_digits" },
+    { "id": "M54", "title": "Bài 54. Luyện tập chung", "chapter": "Chủ đề 10: CÁC SỐ TRONG PHẠM VI 1 000", "type": "mixed_review_10" },
+    
+    { "id": "M55", "title": "Bài 55. Đề-xi-mét. Mét. Ki-lô-mét", "chapter": "Chủ đề 11: ĐỘ DÀI VÀ ĐƠN VỊ ĐO ĐỘ DÀI. TIỀN VIỆT NAM", "type": "length_dm_m_km" },
+    { "id": "M56", "title": "Bài 56. Giới thiệu tiền Việt Nam", "chapter": "Chủ đề 11: ĐỘ DÀI VÀ ĐƠN VỊ ĐO ĐỘ DÀI. TIỀN VIỆT NAM", "type": "vietnamese_money" },
+    { "id": "M57", "title": "Bài 57. Thực hành và trải nghiệm đo độ dài", "chapter": "Chủ đề 11: ĐỘ DÀI VÀ ĐƠN VỊ ĐO ĐỘ DÀI. TIỀN VIỆT NAM", "type": "measurement_length_practice" },
+    { "id": "M58", "title": "Bài 58. Luyện tập chung", "chapter": "Chủ đề 11: ĐỘ DÀI VÀ ĐƠN VỊ ĐO ĐỘ DÀI. TIỀN VIỆT NAM", "type": "mixed_review_11" },
+    
+    { "id": "M59", "title": "Bài 59. Phép cộng (không nhớ) trong phạm vi 1 000", "chapter": "Chủ đề 12: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 1 000", "type": "addition_no_carry_1000", "range": { "min": 100, "max": 999 } },
+    { "id": "M60", "title": "Bài 60. Phép cộng (có nhớ) trong phạm vi 1 000", "chapter": "Chủ đề 12: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 1 000", "type": "addition_carry_1000", "range": { "min": 100, "max": 999 } },
+    { "id": "M61", "title": "Bài 61. Phép trừ (không nhớ) trong phạm vi 1 000", "chapter": "Chủ đề 12: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 1 000", "type": "subtraction_no_borrow_1000", "range": { "min": 100, "max": 999 } },
+    { "id": "M62", "title": "Bài 62. Phép trừ (có nhớ) trong phạm vi 1 000", "chapter": "Chủ đề 12: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 1 000", "type": "subtraction_borrow_1000", "range": { "min": 100, "max": 999 } },
+    { "id": "M63", "title": "Bài 63. Luyện tập chung", "chapter": "Chủ đề 12: PHÉP CỘNG, PHÉP TRỪ TRONG PHẠM VI 1 000", "type": "mixed_review_12" },
+    
+    { "id": "M64", "title": "Bài 64. Thu thập, phân loại, kiểm đếm số liệu", "chapter": "Chủ đề 13: LÀM QUEN VỚI YẾU TỐ THỐNG KÊ, XÁC SUẤT", "type": "statistics_collection" },
+    { "id": "M65", "title": "Bài 65. Biểu đồ tranh", "chapter": "Chủ đề 13: LÀM QUEN VỚI YẾU TỐ THỐNG KÊ, XÁC SUẤT", "type": "statistics_pictogram" },
+    { "id": "M66", "title": "Bài 66. Chắc chắn, có thể, không thể", "chapter": "Chủ đề 13: LÀM QUEN VỚI YẾU TỐ THỐNG KÊ, XÁC SUẤT", "type": "probability_certainty" },
+    { "id": "M67", "title": "Bài 67. Thực hành và trải nghiệm thu thập, phân loại, kiểm đếm số liệu", "chapter": "Chủ đề 13: LÀM QUEN VỚI YẾU TỐ THỐNG KÊ, XÁC SUẤT", "type": "statistics_practice" },
+    
+    { "id": "M68", "title": "Bài 68. Ôn tập các số trong phạm vi 1 000", "chapter": "Chủ đề 14: ÔN TẬP CUỐI NĂM", "type": "review_year_numbers_1000" },
+    { "id": "M69", "title": "Bài 69. Ôn tập phép cộng, phép trừ trong phạm vi 100", "chapter": "Chủ đề 14: ÔN TẬP CUỐI NĂM", "type": "review_year_add_sub_100" },
+    { "id": "M70", "title": "Bài 70. Ôn tập phép cộng, phép trừ trong phạm vi 1 000", "chapter": "Chủ đề 14: ÔN TẬP CUỐI NĂM", "type": "review_year_add_sub_1000" },
+    { "id": "M71", "title": "Bài 71. Ôn tập phép nhân, phép chia", "chapter": "Chủ đề 14: ÔN TẬP CUỐI NĂM", "type": "review_year_mul_div" },
+    { "id": "M72", "title": "Bài 72. Ôn tập hình học", "chapter": "Chủ đề 14: ÔN TẬP CUỐI NĂM", "type": "review_year_geometry" },
+    { "id": "M73", "title": "Bài 73. Ôn tập đo lường", "chapter": "Chủ đề 14: ÔN TẬP CUỐI NĂM", "type": "review_year_measurement" },
+    { "id": "M74", "title": "Bài 74. Ôn tập kiểm đếm số liệu và lựa chọn khả năng", "chapter": "Chủ đề 14: ÔN TẬP CUỐI NĂM", "type": "review_year_statistics_probability" },
+    { "id": "M75", "title": "Bài 75. Ôn tập chung", "chapter": "Chủ đề 14: ÔN TẬP CUỐI NĂM", "type": "review_year_general" }
+  ]
+};

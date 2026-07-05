@@ -1,0 +1,7 @@
+# Ignore tất cả file progress backup (tự động tạo)
+progress_*.json
+
+# Giữ lại file README
+!README.md
+!.gitignore
+

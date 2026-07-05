@@ -34,9 +34,8 @@ async function loadData() {
         CONFIG = await configRes.json();
 
         // Initialize ProgressManager (Firebase/LocalStorage)
-        // Ensure quiz-progress.js is loaded in HTML
         if (typeof ProgressManager !== 'undefined') {
-            await ProgressManager.init(CONFIG.user_id);
+            await ProgressManager.init();
             await ProgressManager.load();
             progressData = ProgressManager.data;
             console.log('✅ Loaded progress from ProgressManager:', progressData.progress.length, 'items');
@@ -45,18 +44,13 @@ async function loadData() {
             progressData = { progress: [] };
         }
 
-        // Init Firebase (Legacy? ProgressManager handles this now but keep if other things need it)
-        // await initFirebase(CONFIG.user_id); 
-
         // Load ALL lessons for comprehensive review
-        // Note: LessonLoader must be loaded in the host HTML page
         if (typeof LessonLoader === 'undefined') {
             console.error('LessonLoader is not defined! Make sure to import lesson-loader.js');
-            // Fallback for safety
-            const lessonsRes = await fetch('../data/lessons.json');
+            const lessonsRes = await fetch('../data/english_lessons.json');
             LESSONS_DATA = await lessonsRes.json();
         } else {
-            LESSONS_DATA = await LessonLoader.loadAllLessons();
+            LESSONS_DATA = await LessonLoader.loadAllLessons('english');
         }
 
         // Find current lesson for title display, but keeping all data for review questions
@@ -1140,11 +1134,8 @@ function handleAnswer(isCorrect) {
     }
 }
 
-// ==================== PROGRESS TRACKING ====================
-
 function updateProgress_Item(q, isCorrect) {
-    // Firebase sync
-    if (typeof ProgressManager !== 'undefined' && ProgressManager.userId) {
+    if (typeof ProgressManager !== 'undefined' && ProgressManager.username) {
         const question = {
             lessonId: currentLessonId || q.lessonId,
             word: q.word || null,
@@ -1322,49 +1313,19 @@ function showSummary() {
         🔥 Streak tốt nhất: ${maxStreak}
       </div>
       <div style="margin-top: 20px;">
-        <button class="btn-fun btn-save" onclick="saveProgressFile()">💾 Lưu kết quả</button>
         <button class="btn-fun btn-retry" onclick="location.reload()">🔄 Làm lại</button>
         <button class="btn-fun btn-home" onclick="location.href='../index.html'">🏠 Trang chủ</button>
       </div>
     </div>
   `;
-
-    saveProgressFile();
-}
-
-function saveProgressFile() {
-    try {
-        let dataToExport;
-        if (typeof ProgressManager !== 'undefined' && ProgressManager.userId) {
-            dataToExport = ProgressManager.data;
-            console.log('💾 Exporting Firebase progress as backup');
-        } else {
-            dataToExport = progressData;
-            console.log('💾 Exporting local progress');
-        }
-
-        const json = JSON.stringify(dataToExport, null, 2);
-        const blob = new Blob([json], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `progress_luyentap2_${new Date().toISOString().split('T')[0]}.json`;
-        a.click();
-        URL.revokeObjectURL(url);
-
-        playSpeech('Đã lưu file backup!', 'vi-VN');
-    } catch (e) {
-        console.error('Lỗi lưu file:', e);
-        alert('Có lỗi khi lưu file!');
-    }
 }
 
 // ==================== INITIALIZATION ====================
 
-async function initFirebase(configUserId) {
+async function initFirebase() {
     try {
         if (typeof ProgressManager !== 'undefined') {
-            await ProgressManager.init(configUserId);
+            await ProgressManager.init();
             console.log('✅ Firebase initialized for luyentap2.html');
         } else {
             console.warn('⚠️ ProgressManager not loaded, using local progress');

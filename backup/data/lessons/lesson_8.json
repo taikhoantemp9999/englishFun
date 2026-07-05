@@ -1,0 +1,127 @@
+{
+    "id": 8,
+    "title": "Lesson 8: Food",
+    "description": "Đồ ăn",
+    "words": [
+        {
+            "word": "banana",
+            "meaning": "Quả chuối",
+            "images": [
+                "data/images/lesson8/banana.png"
+            ],
+            "sentences": [
+                {
+                    "en": "I want a banana.",
+                    "vi": "Tôi muốn một quả chuối.",
+                    "images": [
+                        "data/images/lesson8/i_want_a_banana.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "cookie",
+            "meaning": "Bánh quy",
+            "images": [
+                "data/images/lesson8/cookie.png"
+            ],
+            "sentences": [
+                {
+                    "en": "I want a cookie.",
+                    "vi": "Tôi muốn một cái bánh quy.",
+                    "images": [
+                        "data/images/lesson8/i_want_a_cookie.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "sandwich",
+            "meaning": "Bánh mì kẹp",
+            "images": [
+                "data/images/lesson8/sandwich.png"
+            ],
+            "sentences": [
+                {
+                    "en": "I want a sandwich.",
+                    "vi": "Tôi muốn một cái bánh mì kẹp.",
+                    "images": [
+                        "data/images/lesson8/i_want_a_sandwich.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "K",
+            "meaning": "Chữ K",
+            "images": [
+                "data/images/lesson8/k.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "kick",
+            "meaning": "Đá",
+            "images": [
+                "data/images/lesson8/kick.png"
+            ],
+            "sentences": [
+                {
+                    "en": "I can kick.",
+                    "vi": "Tôi có thể đá.",
+                    "images": [
+                        "data/images/lesson8/i_can_kick.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "kite",
+            "meaning": "Con diều",
+            "images": [
+                "data/images/lesson8/kite.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "L",
+            "meaning": "Chữ L",
+            "images": [
+                "data/images/lesson8/l.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "love",
+            "meaning": "Tình yêu",
+            "images": [
+                "data/images/lesson8/love.png"
+            ],
+            "sentences": [
+                {
+                    "en": "I love mom.",
+                    "vi": "Tôi yêu mẹ.",
+                    "images": [
+                        "data/images/lesson8/i_love_mom.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "leaf",
+            "meaning": "Cái lá",
+            "images": [
+                "data/images/lesson8/leaf.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is a leaf.",
+                    "vi": "Đây là một cái lá.",
+                    "images": [
+                        "data/images/lesson8/this_is_a_leaf.png"
+                    ]
+                }
+            ]
+        }
+    ]
+}

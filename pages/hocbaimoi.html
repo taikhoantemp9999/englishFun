@@ -870,6 +870,8 @@
     </div>
   </div>
 
+  <script src="../data/english_lessons.js"></script>
+  <script src="../data/math_lessons.js"></script>
   <script src="../js/lesson-loader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -943,8 +945,8 @@
         const configRes = await fetch('../config.json');
         CONFIG = await configRes.json();
 
-        // Init Firebase with Config User ID
-        await initFirebase(CONFIG.user_id);
+        // Init Firebase
+        await initFirebase();
 
         // Load Lesson using LessonLoader
         LESSON_DATA = await LessonLoader.loadLesson(currentLessonId);
@@ -1916,10 +1918,10 @@
     });
 
     // ===== FIREBASE INTEGRATION =====
-    async function initFirebase(configUserId) {
+    async function initFirebase() {
       try {
         if (typeof ProgressManager !== 'undefined') {
-          await ProgressManager.init(configUserId);
+          await ProgressManager.init();
           console.log('✅ Firebase initialized for hocbaimoi.html');
         } else {
           console.warn('⚠️ ProgressManager not loaded');
@@ -1931,7 +1933,7 @@
 
     // Track when user completes learning an item
     function trackItemLearned(item) {
-      if (typeof ProgressManager === 'undefined' || !ProgressManager.userId) {
+      if (typeof ProgressManager === 'undefined' || !ProgressManager.username) {
         console.log('📝 Progress tracking not available');
         return;
       }

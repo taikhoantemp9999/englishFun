@@ -1,0 +1,39 @@
+{
+    "id": 10,
+    "title": "Lesson 10: My house",
+    "description": "Ngôi nhà của tôi",
+    "words": [
+        {
+            "word": "living room",
+            "meaning": "Phòng khách",
+            "images": [
+                "data/images/lesson11/living_room.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is my living room.",
+                    "vi": "Đây là phòng khách của tôi.",
+                    "images": [
+                        "data/images/lesson11/this_is_my_living_room.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "kitchen",
+            "meaning": "Phòng bếp",
+            "images": [
+                "data/images/lesson11/kitchen.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "bedroom",
+            "meaning": "Phòng ngủ",
+            "images": [
+                "data/images/lesson11/bedroom.png"
+            ],
+            "sentences": []
+        }
+    ]
+}

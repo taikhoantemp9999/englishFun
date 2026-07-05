@@ -1,0 +1,118 @@
+{
+    "id": 4,
+    "title": "Lesson 4: Body Parts",
+    "description": "Các bộ phận cơ thể",
+    "words": [
+        {
+            "word": "arm",
+            "meaning": "Cánh tay",
+            "images": [
+                "data/images/lesson4/arm.png"
+            ],
+            "sentences": [
+                {
+                    "en": "This is my arm.",
+                    "vi": "Đây là tay của tôi.",
+                    "images": [
+                        "data/images/lesson4/thisismyarm.png"
+                    ]
+                },
+                {
+                    "en": "Touch your arm",
+                    "vi": "Chạm vào cánh tay của bạn.",
+                    "images": [
+                        "data/images/lesson4/touchyourarm.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Leg",
+            "meaning": "Chân",
+            "images": [
+                "data/images/lesson4/leg.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Touch your leg .",
+                    "vi": "Chạm vào chân của bạn.",
+                    "images": [
+                        "data/images/lesson4/touchyourleg.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "Head",
+            "meaning": "Đầu",
+            "images": [
+                "data/images/lesson4/head.png"
+            ],
+            "sentences": [
+                {
+                    "en": "Touch your head",
+                    "vi": "Chạm vào đầu của bạn.",
+                    "images": [
+                        "data/images/lesson4/touchyourhead.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "word": "neck",
+            "meaning": "Cổ",
+            "images": [
+                "data/images/lesson4/neck.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "hand",
+            "meaning": "Tay",
+            "images": [
+                "data/images/lesson4/hand.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "foot",
+            "meaning": "Chân",
+            "images": [
+                "data/images/lesson4/foot.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "finger",
+            "meaning": "Ngón tay",
+            "images": [
+                "data/images/lesson4/finger.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "toe",
+            "meaning": "Ngón chân",
+            "images": [
+                "data/images/lesson4/toe.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "E",
+            "meaning": "E",
+            "images": [
+                "data/images/lesson4/e.png"
+            ],
+            "sentences": []
+        },
+        {
+            "word": "Elephant  ",
+            "meaning": "Con Voi",
+            "images": [
+                "data/images/lesson4/elephant.png"
+            ],
+            "sentences": []
+        }
+    ]
+}

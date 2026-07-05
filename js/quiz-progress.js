@@ -1,190 +1,269 @@
 /**
- * QUIZ PROGRESS MANAGER - FIREBASE VERSION
- * Quản lý progress data với Firebase Realtime Database
+ * QUIZ PROGRESS MANAGER - MULTI-USER & CLOUD SYNC VERSION
+ * Quản lý tiến trình học tập của nhiều học sinh trên Firebase Realtime Database
  */
 
 const ProgressManager = {
   data: { progress: [] },
-  userId: null,
+  username: null,
+  fullName: null,
   useFirebase: true,
   isInitialized: false,
 
-  // ===== INIT =====
-  async init(configUserId) {
+  // ===== KHỞI TẠO HỆ THỐNG =====
+  async init() {
     if (this.isInitialized) return;
 
-    if (configUserId) {
-      this.userId = configUserId;
-      console.log('✅ Using Config User ID:', this.userId);
-    }
-
     try {
-      // Check if Firebase is available
+      // Kiểm tra xem Firebase đã được tải chưa
       if (typeof firebase === 'undefined') {
-        console.warn('⚠️ Firebase not loaded, using localStorage');
+        console.warn('⚠️ Không tìm thấy thư viện Firebase, chuyển sang LocalStorage.');
         this.useFirebase = false;
+        this.loadFromLocalStorage();
         return;
       }
 
-      // Sign in anonymously
-      const userCredential = await firebaseAuth.signInAnonymously();
-      const authUid = userCredential.user.uid;
+      // Đăng nhập ẩn danh vào Firebase Auth để có quyền đọc ghi dữ liệu
+      await firebaseAuth.signInAnonymously();
+      console.log('✅ Firebase Authenticated thành công.');
 
-      console.log('✅ Firebase authenticated (Real Auth ID):', authUid);
-
-      // Check for mismatch if using config ID
-      //if (this.userId && this.userId !== authUid) {
-      if (false) {
-        console.warn(`⚠️ UID MISMATCH! Config: ${this.userId} vs Auth: ${authUid}`);
-
-        // Show warning to user
-        alert(`⚠️ CẢNH BÁO LỖI BẢO MẬT!\n\n` +
-          `1. ID thực tế của bạn: ${authUid}\n` +
-          `2. ID trong config: ${this.userId}\n\n` +
-          `Firebase CHẶN truy cập vì 2 ID này khác nhau.\n\n` +
-          `GIẢI PHÁP:\n` +
-          `- Cách 1: Sửa Rules trên Firebase thành ".read": true, ".write": true\n` +
-          `- Cách 2: Xóa dòng "user_id" trong config.json để dùng ID thực tế.`);
+      // Kiểm tra tài khoản đã lưu trong LocalStorage chưa
+      const savedUser = localStorage.getItem('current_student_username');
+      if (savedUser) {
+        this.username = savedUser;
+        this.fullName = localStorage.getItem('current_student_fullname') || savedUser;
+        console.log(`👤 Tài khoản hiện tại: ${this.username} (${this.fullName})`);
+        
+        // Tải tiến trình học tập từ Firebase
+        await this.load();
+        
+        // Lắng nghe thay đổi dữ liệu thời gian thực
+        this.listenForChanges();
       }
-
-      if (!this.userId) {
-        this.userId = authUid;
-      }
-
-      console.log('👤 Target User ID (Data Path):', this.userId);
-
-      // Listen for realtime updates
-      this.listenForChanges();
 
       this.isInitialized = true;
-
-      // Display userId
-      this.displayUserId();
-
     } catch (error) {
-      console.error('❌ Firebase init failed:', error);
+      console.error('❌ Khởi tạo Firebase thất bại:', error);
       this.useFirebase = false;
+      this.loadFromLocalStorage();
     }
   },
 
-  // ===== LOAD FROM FIREBASE =====
-  async load() {
-    // Init if not yet
-    if (!this.isInitialized) {
-      await this.init();
+  // ===== ĐĂNG KÝ HỌC SINH MỚI =====
+  async register(username, fullName) {
+    if (!username || !fullName) {
+      throw new Error('Vui lòng điền đầy đủ Mã học sinh và Họ tên!');
+    }
+    const cleanUsername = username.trim().toLowerCase().replace(/[^a-z0-9_]/g, '');
+    if (!cleanUsername) {
+      throw new Error('Mã học sinh chỉ được chứa chữ cái, số và dấu gạch dưới!');
     }
 
-    // Fallback to localStorage if Firebase not available
-    if (!this.useFirebase || !this.userId) {
+    if (this.useFirebase) {
+      // Kiểm tra xem tài khoản đã tồn tại chưa
+      const snapshot = await firebaseDB.ref(`users/${cleanUsername}`).once('value');
+      if (snapshot.exists()) {
+        throw new Error('Mã học sinh này đã tồn tại! Vui lòng chọn mã khác.');
+      }
+
+      // Tạo mới tài khoản trên Firebase
+      const userData = {
+        fullName: fullName.trim(),
+        createdAt: new Date().toISOString(),
+        progress: { progress: [] }
+      };
+
+      await firebaseDB.ref(`users/${cleanUsername}`).set(userData);
+      console.log('✅ Đã đăng ký tài khoản mới trên Firebase:', cleanUsername);
+    }
+
+    // Thiết lập tài khoản hiện tại
+    this.username = cleanUsername;
+    this.fullName = fullName.trim();
+    this.data = { progress: [] };
+
+    // Lưu vào cache LocalStorage
+    localStorage.setItem('current_student_username', this.username);
+    localStorage.setItem('current_student_fullname', this.fullName);
+    this.saveToLocalStorage();
+
+    if (this.useFirebase) {
+      this.listenForChanges();
+    }
+
+    return { username: this.username, fullName: this.fullName };
+  },
+
+  // ===== ĐĂNG NHẬP BẰNG MÃ CŨ =====
+  async login(username) {
+    if (!username) {
+      throw new Error('Vui lòng nhập Mã học sinh!');
+    }
+    const cleanUsername = username.trim().toLowerCase().replace(/[^a-z0-9_]/g, '');
+
+    if (this.useFirebase) {
+      // Đọc thông tin từ Firebase
+      const snapshot = await firebaseDB.ref(`users/${cleanUsername}`).once('value');
+      if (!snapshot.exists()) {
+        throw new Error('Không tìm thấy tài khoản với mã học sinh này!');
+      }
+
+      const userData = snapshot.val();
+      this.username = cleanUsername;
+      this.fullName = userData.fullName || cleanUsername;
+      this.data = userData.progress || { progress: [] };
+      if (!this.data.progress) this.data.progress = [];
+
+      console.log('✅ Đăng nhập thành công từ Firebase:', cleanUsername);
+    } else {
+      // Offline mode
+      this.username = cleanUsername;
+      this.fullName = cleanUsername;
+      this.loadFromLocalStorage();
+    }
+
+    // Lưu cache LocalStorage
+    localStorage.setItem('current_student_username', this.username);
+    localStorage.setItem('current_student_fullname', this.fullName);
+    this.saveToLocalStorage();
+
+    if (this.useFirebase) {
+      this.listenForChanges();
+    }
+
+    return { username: this.username, fullName: this.fullName };
+  },
+
+  // ===== ĐĂNG XUẤT TÀI KHOẢN =====
+  logout() {
+    this.username = null;
+    this.fullName = null;
+    this.data = { progress: [] };
+    localStorage.removeItem('current_student_username');
+    localStorage.removeItem('current_student_fullname');
+    localStorage.removeItem('english_learning_progress');
+    
+    // Tải lại trang chủ
+    window.location.reload();
+  },
+
+  // ===== TẢI DỮ LIỆU TIẾN TRÌNH =====
+  async load() {
+    if (!this.username) return { progress: [] };
+
+    if (!this.useFirebase) {
       return this.loadFromLocalStorage();
     }
 
     try {
-      console.log('📥 Loading from Firebase...');
-
-      const snapshot = await firebaseDB
-        .ref(`users/${this.userId}/progress`)
-        .once('value');
-
+      console.log(`📥 Đang tải tiến độ cho học sinh: ${this.username}`);
+      const snapshot = await firebaseDB.ref(`users/${this.username}/progress`).once('value');
+      
       if (snapshot.exists()) {
         this.data = snapshot.val();
-        console.log('✅ Loaded from Firebase:', this.data.progress.length, 'items');
-
-        // Deduplicate to fix >100% bug
+        if (!this.data.progress) this.data.progress = [];
+        
+        // Tối ưu hóa: Loại bỏ các bản ghi trùng lặp
         this.deduplicate();
       } else {
-        console.log('📝 No data in Firebase, starting fresh');
         this.data = { progress: [] };
       }
 
-      // Cache to localStorage for offline
-      localStorage.setItem('english_learning_progress', JSON.stringify(this.data));
-
+      // Lưu đệm LocalStorage
+      this.saveToLocalStorage();
       return this.data;
-
     } catch (error) {
-      console.error('❌ Firebase load failed:', error);
-
-      // Handle Permission Denied specifically
-      if (error.code === 'PERMISSION_DENIED' || error.message.includes('permission_denied')) {
-        const authUid = firebaseAuth.currentUser ? firebaseAuth.currentUser.uid : 'unknown';
-
-        alert(
-          `⛔ KHÔNG CÓ QUYỀN TRUY CẬP!\n\n` +
-          `Bạn đang muốn dùng lại dữ liệu cũ của ID: ${this.userId}\n` +
-          `Nhưng Firebase đã cấp cho bạn ID mới là: ${authUid}\n\n` +
-          `LÝ DO: Tài khoản ẩn danh (Anonymous) không thể đăng nhập lại khi sang máy khác.\n\n` +
-          `CÁCH KHẮC PHỤC DUY NHẤT:\n` +
-          `Bạn phải mở quyền truy cập trên Firebase Console:\n` +
-          `1. Vào tab "Rules" trong Realtime Database\n` +
-          `2. Sửa thành: ".read": true, ".write": true\n` +
-          `3. Nhấn Publish\n\n` +
-          `Sau đó reload lại trang này.`
-        );
-      }
-
-      console.log('📂 Fallback to localStorage');
+      console.error('❌ Lỗi tải tiến độ từ Firebase, dùng LocalStorage:', error);
       return this.loadFromLocalStorage();
     }
   },
 
-  // ===== LOAD FROM LOCALSTORAGE =====
+  // ===== TẢI TỪ LOCALSTORAGE (OFFLINE CACHE) =====
   loadFromLocalStorage() {
-    const stored = localStorage.getItem('english_learning_progress');
+    const key = this.username ? `progress_${this.username}` : 'english_learning_progress';
+    const stored = localStorage.getItem(key);
     if (stored) {
       this.data = JSON.parse(stored);
-      console.log('📂 Loaded from localStorage:', this.data.progress.length, 'items');
+      if (!this.data.progress) this.data.progress = [];
+      console.log('📂 Đã nạp tiến độ từ LocalStorage cache');
     } else {
       this.data = { progress: [] };
-      console.log('📝 No local data, starting fresh');
     }
     return this.data;
   },
 
-  // ===== UPDATE =====
+  // ===== CẬP NHẬT KẾT QUẢ CÂU HỎI (TIẾNG ANH & TOÁN) =====
   update(question, isCorrect) {
-    const lessonId = question.lessonId || this.getCurrentLessonId();
-    let item;
+    if (!this.username) {
+      console.warn('⚠️ Chưa đăng nhập tài khoản học sinh. Kết quả không được lưu.');
+      return;
+    }
 
-    if (question.word) {
-      // Word progress
-      item = this.data.progress.find(p =>
-        p.word === question.word && p.lessonId === lessonId
+    const lessonId = question.lessonId || this.getCurrentLessonId();
+    let item = null;
+
+    if (question.type === 'math') {
+      // 1. Lưu tiến độ Toán lớp 2
+      const expr = question.expression;
+      item = this.data.progress.find(p => 
+        p.type === 'math' && p.mathExpression === expr && p.lessonId === lessonId
       );
 
       if (!item) {
         item = {
-          lessonId,
-          word: question.word,
+          lessonId: lessonId,
+          mathExpression: expr,
           correct: 0,
           wrong: 0,
-          type: 'word',
+          type: 'math',
+          subtype: question.subtype || 'arithmetic',
           lastReviewed: new Date().toISOString()
         };
         this.data.progress.push(item);
       }
-    } else if (question.sentence || question.correctAnswer) {
-      // Sentence progress
-      const en = question.sentence || question.correctAnswer;
-      const vi = question.question || '';
+    } else {
+      // 2. Lưu tiến độ Tiếng Anh (Từ vựng hoặc Câu)
+      if (question.word) {
+        // Từ vựng tiếng Anh
+        item = this.data.progress.find(p =>
+          p.word === question.word && p.lessonId === lessonId
+        );
 
-      item = this.data.progress.find(p =>
-        p.sentence && p.sentence.en === en && p.lessonId === lessonId
-      );
+        if (!item) {
+          item = {
+            lessonId: lessonId,
+            word: question.word,
+            correct: 0,
+            wrong: 0,
+            type: 'word',
+            lastReviewed: new Date().toISOString()
+          };
+          this.data.progress.push(item);
+        }
+      } else if (question.sentence || question.correctAnswer) {
+        // Câu tiếng Anh
+        const en = question.sentence || question.correctAnswer;
+        const vi = question.question || '';
+        
+        item = this.data.progress.find(p =>
+          p.sentence && p.sentence.en === en && p.lessonId === lessonId
+        );
 
-      if (!item) {
-        item = {
-          lessonId,
-          sentence: { en, vi },
-          correct: 0,
-          wrong: 0,
-          type: 'sentence',
-          lastReviewed: new Date().toISOString()
-        };
-        this.data.progress.push(item);
+        if (!item) {
+          item = {
+            lessonId: lessonId,
+            sentence: { en: en, vi: vi },
+            correct: 0,
+            wrong: 0,
+            type: 'sentence',
+            lastReviewed: new Date().toISOString()
+          };
+          this.data.progress.push(item);
+        }
       }
     }
 
+    // Tính toán lại độ ưu tiên Spaced Repetition (SM-2)
     if (item) {
       if (isCorrect) {
         item.correct = (item.correct || 0) + 1;
@@ -193,77 +272,70 @@ const ProgressManager = {
       }
       item.lastReviewed = new Date().toISOString();
 
-      // Update spaced repetition
+      // Cập nhật khoảng cách lặp lại ngắt quãng
       this.updateSpacedRepetition(item, isCorrect);
 
-      // Save locally first (instant)
+      // Lưu tức thì vào LocalStorage
       this.saveToLocalStorage();
 
-      // Sync to Firebase (async, don't block UI)
-      if (this.useFirebase && this.userId) {
+      // Đồng bộ bất đồng bộ lên Firebase
+      if (this.useFirebase) {
         this.saveToFirebase().catch(err => {
-          console.error('⚠️ Firebase sync failed:', err);
+          console.error('⚠️ Đồng bộ Firebase thất bại:', err);
         });
       }
     }
   },
 
-  // ===== SAVE TO FIREBASE =====
+  // ===== ĐỒNG BỘ LÊN CLOUD =====
   async saveToFirebase() {
-    if (!this.useFirebase || !this.userId) return;
+    if (!this.useFirebase || !this.username) return;
 
     try {
-      await firebaseDB
-        .ref(`users/${this.userId}/progress`)
-        .set(this.data);
-
-      console.log('☁️ Synced to Firebase');
-
+      await firebaseDB.ref(`users/${this.username}/progress`).set(this.data);
+      console.log('☁️ Đã đồng bộ tiến độ lên Firebase.');
     } catch (error) {
-      console.error('❌ Firebase save failed:', error);
+      console.error('❌ Lỗi lưu Firebase:', error);
       throw error;
     }
   },
 
-  // ===== SAVE TO LOCALSTORAGE =====
+  // ===== GHI VÀO LOCALSTORAGE =====
   saveToLocalStorage() {
+    if (!this.username) return;
     try {
-      localStorage.setItem('english_learning_progress', JSON.stringify(this.data));
+      const key = `progress_${this.username}`;
+      localStorage.setItem(key, JSON.stringify(this.data));
     } catch (error) {
-      console.error('❌ localStorage save failed:', error);
+      console.error('❌ Lỗi ghi LocalStorage:', error);
     }
   },
 
-  // ===== REALTIME SYNC =====
+  // ===== LẮNG NGHE THAY ĐỔI DỮ LIỆU REALTIME =====
   listenForChanges() {
-    if (!this.useFirebase || !this.userId) return;
+    if (!this.useFirebase || !this.username) return;
 
-    console.log('👂 Listening for Firebase changes...');
-
-    firebaseDB
-      .ref(`users/${this.userId}/progress`)
-      .on('value', (snapshot) => {
-        if (snapshot.exists()) {
-          const newData = snapshot.val();
-
-          // Only update if data actually changed
-          if (JSON.stringify(newData) !== JSON.stringify(this.data)) {
-            this.data = newData;
-            console.log('🔄 Firebase realtime update received');
-
-            // Update localStorage
-            localStorage.setItem('english_learning_progress', JSON.stringify(this.data));
-
-            // Dispatch event for UI update
-            window.dispatchEvent(new CustomEvent('progress:updated', {
-              detail: this.data
-            }));
-          }
+    console.log(`👂 Đang lắng nghe thay đổi dữ liệu cho: ${this.username}`);
+    firebaseDB.ref(`users/${this.username}/progress`).on('value', (snapshot) => {
+      if (snapshot.exists()) {
+        const newData = snapshot.val();
+        if (JSON.stringify(newData) !== JSON.stringify(this.data)) {
+          this.data = newData;
+          if (!this.data.progress) this.data.progress = [];
+          console.log('🔄 Đã tự động cập nhật tiến độ mới từ Firebase.');
+          
+          this.saveToLocalStorage();
+          
+          // Phát sự kiện toàn cục để UI cập nhật theo
+          window.dispatchEvent(new CustomEvent('progress:updated', {
+            detail: this.data
+          }));
         }
-      });
+      }
+    });
   },
 
-  // ===== SPACED REPETITION =====
+  // ===== THUẬT TOÁN LẶP LẠI NGẮT QUÃNG (SM-2) =====
   updateSpacedRepetition(item, isCorrect) {
     if (!item.interval) {
       item.interval = 0;
@@ -273,16 +345,16 @@ const ProgressManager = {
 
     if (isCorrect) {
       if (item.repetitions === 0) {
-        item.interval = 1;
+        item.interval = 1; // 1 ngày
       } else if (item.repetitions === 1) {
-        item.interval = 6;
+        item.interval = 4; // 4 ngày
       } else {
         item.interval = Math.round(item.interval * item.easeFactor);
       }
       item.repetitions++;
     } else {
       item.repetitions = 0;
-      item.interval = 1;
+      item.interval = 1; // Học lại ngay ngày mai
     }
 
     const quality = isCorrect ? 5 : 2;
@@ -293,24 +365,7 @@ const ProgressManager = {
     item.nextReview = nextDate.toISOString();
   },
 
-  // ===== EXPORT =====
-  async export() {
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
-    const filename = `progress_${timestamp}.json`;
-    const content = JSON.stringify(this.data, null, 2);
-
-    const blob = new Blob([content], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    a.click();
-    URL.revokeObjectURL(url);
-
-    alert('✅ Đã xuất file: ' + filename);
-  },
-
-  // ===== DEDUPLICATE =====
+  // ===== DỌN DẸP TRÙNG LẶP DỮ LIỆU =====
   deduplicate() {
     if (!this.data.progress || this.data.progress.length === 0) return;
 
@@ -319,18 +374,17 @@ const ProgressManager = {
 
     this.data.progress.forEach(item => {
       let key;
-      if (item.word) {
+      if (item.type === 'math') {
+        key = `m_${item.lessonId}_${item.mathExpression}`;
+      } else if (item.word) {
         key = `w_${item.lessonId}_${item.word.toLowerCase()}`;
       } else if (item.sentence && item.sentence.en) {
         key = `s_${item.lessonId}_${item.sentence.en.toLowerCase()}`;
       } else {
-        // Fallback for invalid items (skip them or keep them unique by random?)
-        // Let's filter invalid items out actually
-        return;
+        return; // Bỏ qua phần tử lỗi
       }
 
       if (unique.has(key)) {
-        // Keep the one with more progress (higher repetitions or attempts)
         const existing = unique.get(key);
         const existingTotal = (existing.correct || 0) + (existing.wrong || 0);
         const currentTotal = (item.correct || 0) + (item.wrong || 0);
@@ -346,24 +400,30 @@ const ProgressManager = {
 
     if (removedCount > 0) {
       this.data.progress = Array.from(unique.values());
-      console.log(`🧹 Deduplicated: Removed ${removedCount} duplicate items`);
-      this.saveToFirebase(); // Persist cleanup
+      console.log(`🧹 Đã dọn dẹp ${removedCount} bản ghi trùng lặp.`);
+      this.saveToFirebase().catch(e => console.error(e));
     }
   },
 
-  // ===== UTILS =====
+  // ===== TIỆN ÍCH TRỢ GIÚP =====
   getCurrentLessonId() {
     const params = new URLSearchParams(window.location.search);
-    return parseInt(params.get('lesson')) || 1;
+    const lesson = params.get('lesson');
+    return lesson ? (lesson.startsWith('M') ? lesson : parseInt(lesson)) : 1;
   },
 
-  getStats() {
-    const total = this.data.progress.length;
+  getStats(subject = 'english') {
+    const filtered = this.data.progress.filter(item => {
+      if (subject === 'math') return item.type === 'math';
+      return item.type === 'word' || item.type === 'sentence';
+    });
+
+    const total = filtered.length;
     let mastered = 0;
     let learning = 0;
     let newItems = 0;
 
-    this.data.progress.forEach(item => {
+    filtered.forEach(item => {
       const correct = item.correct || 0;
       const wrong = item.wrong || 0;
       const totalAttempts = correct + wrong;
@@ -372,6 +432,7 @@ const ProgressManager = {
         newItems++;
       } else {
         const accuracy = correct / totalAttempts;
+        // Thành thạo: làm đúng ít nhất 5 lần, tỷ lệ đúng trên 80% và không sai ở lần gần nhất
         if (accuracy >= 0.8 && totalAttempts >= 5 && wrong === 0) {
           mastered++;
         } else {
@@ -381,18 +442,6 @@ const ProgressManager = {
     });
 
     return { total, mastered, learning, newItems };
-  },
-
-  // Display userId (helper)
-  displayUserId() {
-    if (!this.userId) return;
-
-    // Console display with border
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('🔑 YOUR USER ID (save this!)');
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log(this.userId);
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   }
 };
 
